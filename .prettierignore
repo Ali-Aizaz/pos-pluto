@@ -1,0 +1,5 @@
+.env.*
+Jenkinsfile
+sonar-project.properties
+.prettierignore
+public/vendors/**/*
