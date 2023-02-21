@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Navbar from "../components/navbar";
 import AccountSetting from "../components/settings/account";
-
+import SecuritySettings from "../components/settings/security";
 const tabs = ["Account Setting", "Login & Security", "Notifications"];
 
 export default function Settings() {
@@ -32,7 +32,8 @@ export default function Settings() {
               );
             })}
           </div>
-          <AccountSetting />
+          {/* <AccountSetting /> */}
+          <SecuritySettings />
         </div>
       </section>
     </main>
