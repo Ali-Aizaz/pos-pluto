@@ -8,10 +8,14 @@ import { handleGoogle } from "../utils/auth";
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [rePassword, setRePassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+
   const router = useRouter();
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Login");
+    console.log("signup");
     router.push("/home");
   };
 
@@ -23,9 +27,9 @@ export default function Login() {
           <h1 className="text-base tracking-wide font-bold"> POS PLUTO </h1>
         </div>
         <div className="flex flex-col justify-center items-center w-[200px]">
-          <Link href={"/signup"}>
+          <Link href={"/login"}>
             <button className="w-[150px] px-5 py-1 bg-theme-purple text-sm font-bold -tracking-wider text-white rounded-xl">
-              SIGN-UP
+              LOGIN
             </button>
           </Link>
         </div>
@@ -38,7 +42,7 @@ export default function Login() {
 
         <InputField
           src={"/username.png"}
-          placeholder="Username"
+          placeholder="username"
           value={username}
           setValue={setUsername}
           extraCss="w-[400px]"
@@ -50,12 +54,28 @@ export default function Login() {
           setValue={setPassword}
           extraCss="w-[400px]"
         />
-        <Link href={"forget-password"}>
-          <h1 className="tracking-wide font-medium text-end w-[400px] -translate-y-4">
-            Forget Password?
-          </h1>
-        </Link>
-        <Button type={"submit"} label={"Login"} extraCss={"w-[400px]"} />
+        <InputField
+          src={"/key.png"}
+          placeholder="Re-enter Password"
+          value={rePassword}
+          setValue={setRePassword}
+          extraCss="w-[400px]"
+        />
+        <InputField
+          src={"/mail.png"}
+          placeholder="Email"
+          value={email}
+          setValue={setEmail}
+          extraCss="w-[400px]"
+        />
+        <InputField
+          src={"/person.png"}
+          placeholder="First Name"
+          value={name}
+          setValue={setName}
+          extraCss="w-[400px]"
+        />
+        <Button type={"submit"} label={"SIGN UP"} extraCss={"w-[400px]"} />
       </form>
       <div className="flex  mt-10 w-full  items-center justify-center space-x-4">
         <div className="border h-[1px] border-white/40 w-44" />
