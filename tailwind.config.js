@@ -16,6 +16,7 @@ module.exports = {
         "theme-light-gray": "#717B8C",
         "theme-bg-gray": "#EDF2F6",
         "theme-text-gray": "#4C535F",
+        "theme-dark-blue": "#16003A",
       },
     },
   },

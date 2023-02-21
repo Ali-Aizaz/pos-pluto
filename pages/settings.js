@@ -2,6 +2,7 @@ import { useState } from "react";
 import Navbar from "../components/navbar";
 import AccountSetting from "../components/settings/account";
 import SecuritySettings from "../components/settings/security";
+import Notifications from "../components/settings/notifications";
 const tabs = ["Account Setting", "Login & Security", "Notifications"];
 
 export default function Settings() {
@@ -9,6 +10,20 @@ export default function Settings() {
   const handleTabs = (t) => {
     setTab(t);
   };
+
+  const handleTab = () => {
+    switch (tab) {
+      case "Account Setting":
+        return <AccountSetting />;
+      case "Login & Security":
+        return <SecuritySettings />;
+      case "Notifications":
+        return <Notifications />;
+      default:
+        break;
+    }
+  };
+
   return (
     <main className="flex w-full">
       <Navbar />
@@ -32,8 +47,7 @@ export default function Settings() {
               );
             })}
           </div>
-          {/* <AccountSetting /> */}
-          <SecuritySettings />
+          {handleTab()}
         </div>
       </section>
     </main>
