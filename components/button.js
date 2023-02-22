@@ -3,7 +3,7 @@ export default function Button({ label, onChange, extraCss, type }) {
     <button
       type={type}
       onClick={onChange}
-      className={`bg-theme-purple p-4 rounded-xl text-white font-medium ${extraCss}`}
+      className={`bg-theme-purple p-3 rounded-xl text-white font-medium ${extraCss}`}
     >
       {label}
     </button>

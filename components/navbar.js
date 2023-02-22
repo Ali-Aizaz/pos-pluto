@@ -11,11 +11,11 @@ export default function Navbar() {
       onMouseOut={() => {
         setHover(false);
       }}
-      className="bg-theme-black h-screen text-white w-[130px] hover:w-[400px] transition-[width] rounded-r-2xl shadow-2xl sticky flex flex-col space-y-12  shadow-black "
+      className="bg-theme-black h-screen text-white w-[100px] hover:w-[400px] transition-[width] rounded-r-2xl shadow-2xl sticky flex flex-col space-y-8  shadow-black "
     >
       <Link href={"/home"}>
         <div className="flex items-center pt-7 -space-x-3 mb-10">
-          <Image src={"/favicon.png"} alt="logo" width={110} height={110} />
+          <Image src={"/favicon.png"} alt="logo" width={90} height={110} />
           <h1
             className={`text-base font-bold ${
               hover ? "w-[100px]" : "w-0 hidden"
@@ -25,9 +25,9 @@ export default function Navbar() {
           </h1>
         </div>
       </Link>
-      <div className="mx-8 p-3 rounded-xl flex items-center space-x-10 hover:bg-theme-light-black">
+      <div className="mx-6 py-3 px-2 rounded-xl flex items-center space-x-10 hover:bg-theme-light-black">
         <svg
-          width="40"
+          width="30"
           viewBox="0 0 40 41"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -46,9 +46,9 @@ export default function Navbar() {
         </h1>
       </div>
       <Link href={"/home"}>
-        <div className="mx-8 p-3 rounded-xl flex items-center space-x-10 hover:bg-theme-light-black">
+        <div className="mx-6 py-3 px-2 rounded-xl flex items-center space-x-10 hover:bg-theme-light-black">
           <svg
-            width="40"
+            width="30"
             viewBox="0 0 40 40"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -72,9 +72,9 @@ export default function Navbar() {
         </div>
       </Link>
       <Link href={"/sales"}>
-        <div className="mx-8 p-3 rounded-xl flex items-center space-x-10 hover:bg-theme-light-black">
+        <div className="mx-6 py-3 px-2 rounded-xl flex items-center space-x-10 hover:bg-theme-light-black">
           <svg
-            width="40"
+            width="30"
             viewBox="0 0 40 40"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -98,9 +98,9 @@ export default function Navbar() {
         </div>
       </Link>
 
-      <div className="mx-8 p-3 rounded-xl flex items-center space-x-10 hover:bg-theme-light-black">
+      <div className="mx-6 py-3 px-2 rounded-xl flex items-center space-x-10 hover:bg-theme-light-black">
         <svg
-          width="40"
+          width="30"
           viewBox="0 0 40 40"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -119,9 +119,9 @@ export default function Navbar() {
         </h1>
       </div>
       <Link href={"/settings"}>
-        <div className="mx-8 p-3 rounded-xl flex items-center space-x-10 hover:bg-theme-light-black">
+        <div className="mx-6 py-3 px-2 rounded-xl flex items-center space-x-10 hover:bg-theme-light-black">
           <svg
-            width="40"
+            width="30"
             height="40"
             viewBox="0 0 40 40"
             fill="none"
@@ -146,9 +146,9 @@ export default function Navbar() {
         </div>
       </Link>
       <Link href={"/"}>
-        <div className="mx-8 p-3 rounded-xl flex items-center space-x-10 hover:bg-theme-light-black translate-y-20">
+        <div className="mx-6 py-3 px-2 rounded-xl flex items-center space-x-10 hover:bg-theme-light-black translate-y-20">
           <svg
-            width="40"
+            width="30"
             viewBox="0 0 40 40"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"

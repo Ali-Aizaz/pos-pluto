@@ -2,9 +2,9 @@ import Image from "next/image";
 
 export default function Card({ card }) {
   return (
-    <div className="ml-20 mb-10">
+    <div className="ml-10 mb-5">
       <svg
-        height="240"
+        height="200"
         viewBox="0 0 300 159"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -18,14 +18,14 @@ export default function Card({ card }) {
       </svg>
 
       <div
-        className={`w-52 -translate-y-[300px] h-[300px] flex flex-col justify-end translate-x-60 aspect-video absolute object-contain`}
+        className={`w-44 -translate-y-[300px] h-[300px] flex flex-col justify-end translate-x-48 aspect-video absolute object-contain`}
       >
         <Image src={card.image} alt="card " width={300} height={200} />
       </div>
-      <div className="absolute space-y-8 -translate-y-52 translate-x-5">
-        <h1 className="text-3xl font-semibold">{card.tag}</h1>
-        <h1 className="text-5xl font-bold">{card.price}</h1>
-        <h1 className="text-2xl underline">{card.caption}</h1>
+      <div className="absolute space-y-8 -translate-y-[11.5rem] translate-x-5">
+        <h1 className="text-2xl font-semibold">{card.tag}</h1>
+        <h1 className="text-3xl font-bold">{card.price}</h1>
+        <h1 className="text-xl underline">{card.caption}</h1>
       </div>
     </div>
   );

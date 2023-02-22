@@ -22,7 +22,7 @@ export default function Sales() {
     <main className="flex w-full">
       <Navbar />
       <section className="w-full flex flex-col items-center mt-20 ">
-        <h1 className="text-5xl font-bold flex uppercase">{tab}</h1>
+        <h1 className="text-4xl font-bold flex uppercase">{tab}</h1>
         <div className="w-full flex flex-col  px-20 py-5 space-y-10">
           <div className="w-full flex space-x-4">
             {tabs.map((t) => {
@@ -30,7 +30,7 @@ export default function Sales() {
                 <button
                   key={t}
                   onClick={() => handleTabs(t)}
-                  className={`text-3xl text-center border-b-4 transition-color font-semibold duration-300 p-3 w-[150px] ${
+                  className={`text-xl text-center border-b-4 transition-color font-semibold duration-300 p-3 w-[150px] ${
                     tab === t
                       ? "text-theme-purple border-theme-purple "
                       : "text-theme-light-gray"

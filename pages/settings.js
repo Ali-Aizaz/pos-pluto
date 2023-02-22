@@ -36,7 +36,7 @@ export default function Settings() {
                 <button
                   key={t}
                   onClick={() => handleTabs(t)}
-                  className={`text-3xl text-center border-b-4 transition-color font-semibold duration-300 p-3 w-[300px] ${
+                  className={`text-xl text-center border-b-4 transition-color font-semibold duration-300 p-3 w-[200px] ${
                     tab === t
                       ? "text-theme-purple border-theme-purple "
                       : "text-theme-light-gray"

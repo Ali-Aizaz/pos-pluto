@@ -60,7 +60,7 @@ export default function Notifications() {
           extraCss={"w-[250px] text-xl"}
         />
         <button
-          className="text-2xl pb-2 w-[200px] font-medium text-theme-text-gray"
+          className="text-xl pb-2 font-medium text-theme-text-gray"
           onClick={handleReset}
         >
           Reset

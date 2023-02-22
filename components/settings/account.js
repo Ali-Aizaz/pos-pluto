@@ -29,9 +29,9 @@ export default function AccountSetting() {
       onSubmit={handleUpdate}
     >
       <div className="flex flex-col items-center w-[300px]">
-        <h1 className="text-xl  font-medium mb-3">Your Company logo</h1>
-        <div className=" w-[150px] flex flex-col items-center p-4 text-center space-y-3 bg-theme-bg-gray rounded-2xl border-dashed border border-theme-light-gray">
-          <div className="w-12">
+        <h1 className="text-lg font-medium mb-3">Your Company logo</h1>
+        <div className=" w-[110px] flex flex-col items-center p-2 text-center space-y-3 bg-theme-bg-gray rounded-2xl border-dashed border border-theme-light-gray">
+          <div className="w-6">
             <Image
               src="/gallery-add.png"
               alt="add to gallery"
@@ -39,12 +39,12 @@ export default function AccountSetting() {
               height={400}
             />
           </div>
-          <h1 className="text-theme-light-gray font-semibold ">
+          <h1 className="text-theme-light-gray font-semibold text-sm">
             Upload Company logo
           </h1>
         </div>
       </div>
-      <div className="w-full py-10 border-t-4 mt-10 grid grid-cols-2 text-2xl font-medium gap-x-20 gap-y-10">
+      <div className="w-full py-4 border-t-4 mt-5 grid grid-cols-2 text-lg font-medium gap-x-10 gap-y-7">
         <InputField
           value={companyName}
           setValue={setCompanyName}
@@ -72,7 +72,7 @@ export default function AccountSetting() {
         <div className={`flex flex-col space-y-2 col-span-2`}>
           <textarea
             className="p-5 bg-theme-bg-gray rounded-xl resize-none"
-            rows={5}
+            rows={3}
             placeholder="description about Company"
             type={"text"}
             value={description}
@@ -80,14 +80,10 @@ export default function AccountSetting() {
           />
         </div>
       </div>
-      <div className="flex space-x-4 items-end">
-        <Button
-          type={"submit"}
-          label="Update Profile"
-          extraCss={"w-[250px] text-xl"}
-        />
+      <div className="flex space-x-8 items-end">
+        <Button type={"submit"} label="Update Profile" extraCss={"text-xl"} />
         <button
-          className="text-2xl pb-2 w-[200px] font-medium text-theme-text-gray"
+          className="text-xl pb-2 font-medium text-theme-text-gray"
           onClick={handleReset}
         >
           Reset
