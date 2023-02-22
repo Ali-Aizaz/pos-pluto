@@ -1,6 +1,7 @@
 import Navbar from "../components/navbar";
 import Order from "../components/sales/order";
 import { useState } from "react";
+import Return from "../components/sales/return";
 const tabs = ["Order", "Return"];
 export default function Sales() {
   const [tab, setTab] = useState("Order");
@@ -13,7 +14,7 @@ export default function Sales() {
       case "Order":
         return <Order />;
       case "Return":
-        return <></>;
+        return <Return />;
       default:
         break;
     }
