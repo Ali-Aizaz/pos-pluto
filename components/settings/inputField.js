@@ -10,8 +10,10 @@ export default function InputField({
   };
 
   return (
-    <div className={`flex flex-col space-y-2 ${extraCss}`}>
-      {label && <label className="text-xl text-theme-text-gray">{label}</label>}
+    <div className={`flex flex-col  ${extraCss}`}>
+      {label && (
+        <label className="text-xl text-theme-text-gray mb-2">{label}</label>
+      )}
       <input
         className="p-3 bg-theme-bg-gray rounded-xl outline-none"
         placeholder={placeholder}
