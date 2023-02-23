@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Navbar from "../components/navbar";
 import AddEmployee from "../components/roles/addEmployee";
+import Manage from "../components/roles/manage";
 
 const tabs = ["Manage", "Add Employees"];
 
@@ -13,7 +14,7 @@ export default function Roles() {
   const handleTab = () => {
     switch (tab) {
       case "Manage":
-        return <></>;
+        return <Manage />;
       case "Add Employees":
         return <AddEmployee />;
       default:

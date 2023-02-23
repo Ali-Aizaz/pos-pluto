@@ -1,8 +1,9 @@
 import Navbar from "../components/navbar";
 import Add from "../components/inventory/add";
 import { useState } from "react";
+import Manage from "../components/inventory/manage";
 
-const tabs = ["Add"];
+const tabs = ["Manage", "Add"];
 export default function Inventory() {
   const [tab, setTab] = useState(tabs[0]);
   const handleTabs = (t) => {
@@ -11,6 +12,8 @@ export default function Inventory() {
 
   const handleTab = () => {
     switch (tab) {
+      case "Manage":
+        return <Manage />;
       case "Add":
         return <Add />;
       default:

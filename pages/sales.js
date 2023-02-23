@@ -2,7 +2,8 @@ import Navbar from "../components/navbar";
 import Order from "../components/sales/order";
 import { useState } from "react";
 import Return from "../components/sales/return";
-const tabs = ["Order", "Return"];
+import SalesHistory from "../components/sales/salesHistory";
+const tabs = ["Order", "Return", "Sales History"];
 export default function Sales() {
   const [tab, setTab] = useState("Order");
   const handleTabs = (t) => {
@@ -15,6 +16,8 @@ export default function Sales() {
         return <Order />;
       case "Return":
         return <Return />;
+      case "Sales History":
+        return <SalesHistory />;
       default:
         break;
     }
