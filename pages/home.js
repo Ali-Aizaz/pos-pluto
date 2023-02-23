@@ -1,6 +1,7 @@
+import BarChart from "../components/barChart";
 import Card from "../components/cards";
 import Navbar from "../components/navbar";
-
+import LineChart from "../components/lineChart";
 const cards = [
   {
     tag: "This week Sales",
@@ -38,6 +39,10 @@ export default function Home() {
               return <Card key={card.tag} card={card} />;
             })}
           </div>
+        </div>
+        <div className="flex w-full px-10 space-x-10 ">
+          <BarChart />
+          <LineChart />
         </div>
       </section>
     </main>
