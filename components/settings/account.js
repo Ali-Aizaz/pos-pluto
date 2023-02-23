@@ -25,10 +25,10 @@ export default function AccountSetting() {
 
   return (
     <form
-      className="flex flex-col text-theme-text-gray"
+      className="flex flex-col items-start text-theme-text-gray"
       onSubmit={handleUpdate}
     >
-      <div className="flex flex-col items-center w-[300px]">
+      <div className="flex flex-col items-center">
         <h1 className="text-lg font-medium mb-3">Your Company logo</h1>
         <div className=" w-[110px] flex flex-col items-center p-2 text-center space-y-3 bg-theme-bg-gray rounded-2xl border-dashed border border-theme-light-gray">
           <div className="w-6">

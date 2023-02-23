@@ -1,8 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from "next/router";
 export default function Navbar() {
   const [hover, setHover] = useState(false);
+  const router = useRouter();
   return (
     <header
       onMouseOver={() => {
@@ -26,7 +28,13 @@ export default function Navbar() {
         </div>
       </Link>
       <Link href={"/home"}>
-        <div className="mx-6 py-3 px-2 rounded-xl flex items-center space-x-10 hover:bg-theme-light-black">
+        <div
+          className={`mx-6 py-3 px-2 rounded-xl flex items-center space-x-10  ${
+            router.asPath === "/home"
+              ? "bg-theme-purple"
+              : "hover:bg-theme-light-black"
+          }`}
+        >
           <svg
             width="30"
             viewBox="0 0 40 41"
@@ -43,12 +51,18 @@ export default function Navbar() {
               hover ? "w-[100px]" : "w-0 hidden"
             }`}
           >
-            Search
+            Home
           </h1>
         </div>
       </Link>
       <Link href={"/inventory"}>
-        <div className="mx-6 py-3 px-2 rounded-xl flex items-center space-x-10 hover:bg-theme-light-black">
+        <div
+          className={`mx-6 py-3 px-2 rounded-xl flex items-center space-x-10  ${
+            router.asPath === "/inventory"
+              ? "bg-theme-purple"
+              : "hover:bg-theme-light-black"
+          }`}
+        >
           <svg
             width="30"
             viewBox="0 0 40 40"
@@ -74,7 +88,13 @@ export default function Navbar() {
         </div>
       </Link>
       <Link href={"/sales"}>
-        <div className="mx-6 py-3 px-2 rounded-xl flex items-center space-x-10 hover:bg-theme-light-black">
+        <div
+          className={`mx-6 py-3 px-2 rounded-xl flex items-center space-x-10  ${
+            router.asPath === "/sales"
+              ? "bg-theme-purple"
+              : "hover:bg-theme-light-black"
+          }`}
+        >
           <svg
             width="30"
             viewBox="0 0 40 40"
@@ -100,7 +120,13 @@ export default function Navbar() {
         </div>
       </Link>
       <Link href={"roles"}>
-        <div className="mx-6 py-3 px-2 rounded-xl flex items-center space-x-10 hover:bg-theme-light-black">
+        <div
+          className={`mx-6 py-3 px-2 rounded-xl flex items-center space-x-10  ${
+            router.asPath === "/roles"
+              ? "bg-theme-purple"
+              : "hover:bg-theme-light-black"
+          }`}
+        >
           <svg
             width="30"
             viewBox="0 0 40 40"
@@ -122,7 +148,13 @@ export default function Navbar() {
         </div>
       </Link>
       <Link href={"/settings"}>
-        <div className="mx-6 py-3 px-2 rounded-xl flex items-center space-x-10 hover:bg-theme-light-black">
+        <div
+          className={`mx-6 py-3 px-2 rounded-xl flex items-center space-x-10  ${
+            router.asPath === "/settings"
+              ? "bg-theme-purple"
+              : "hover:bg-theme-light-black"
+          }`}
+        >
           <svg
             width="30"
             height="40"
