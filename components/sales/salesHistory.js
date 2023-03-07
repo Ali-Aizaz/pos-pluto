@@ -1,4 +1,4 @@
-import InputField from "../settings/inputField";
+import { LabeledInputComponent } from "components";
 import { useState } from "react";
 
 export default function SalesHistory() {
@@ -7,7 +7,7 @@ export default function SalesHistory() {
   return (
     <section className="flex flex-col">
       <div className="w-4/5 flex justify-end">
-        <InputField
+        <LabeledInputComponent
           value={recipt}
           setValue={setRecipt}
           placeholder="Enter recipt number or phone number"

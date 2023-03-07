@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { useState } from "react";
-import Button from "../button";
-import InputField from "./inputField";
+import { LabeledInputComponent, ButtonComponent } from "components";
 import { useRouter } from "next/router";
 
 export default function AccountSetting() {
@@ -45,25 +44,25 @@ export default function AccountSetting() {
         </div>
       </div>
       <div className="w-full py-4 border-t-4 mt-5 grid grid-cols-2 text-lg font-medium gap-x-10 gap-y-7">
-        <InputField
+        <LabeledInputComponent
           value={companyName}
           setValue={setCompanyName}
           placeholder="Please enter your full name"
           label={"Company Name"}
         />
-        <InputField
+        <LabeledInputComponent
           value={email}
           setValue={setEmail}
           placeholder="Please enter your email"
           label={"Email"}
         />
-        <InputField
+        <LabeledInputComponent
           value={username}
           setValue={setUsername}
           placeholder="Please enter your username"
           label={"Username"}
         />
-        <InputField
+        <LabeledInputComponent
           value={phone}
           setValue={setPhone}
           placeholder="Please enter your phone number"
@@ -81,7 +80,11 @@ export default function AccountSetting() {
         </div>
       </div>
       <div className="flex space-x-8 items-end">
-        <Button type={"submit"} label="Update Profile" extraCss={"text-xl"} />
+        <ButtonComponent
+          type={"submit"}
+          label="Update Profile"
+          extraCss={"text-xl"}
+        />
         <button
           className="text-xl pb-2 font-medium text-theme-text-gray"
           onClick={handleReset}

@@ -1,7 +1,10 @@
 import { useState } from "react";
-import InputField from "./inputField";
-import Button from "../button";
-import ToggleSwitch from "./toggleSwitch";
+import {
+  ToggleSwitchComponent,
+  LabeledInputComponent,
+  ButtonComponent,
+} from "components";
+
 export default function SecuritySettings() {
   const [TFA, setTFA] = useState("");
   const [currentPass, setCurrentPass] = useState("");
@@ -26,7 +29,7 @@ export default function SecuritySettings() {
         <label className="text-xl text-theme-text-gray font-medium">
           2FA-TWO FACTOR AUTHENTICATION
         </label>
-        <ToggleSwitch value={TFAtoggle} setValue={setTFAtoggle} />
+        <ToggleSwitchComponent value={TFAtoggle} setValue={setTFAtoggle} />
         <input
           className="px-5 py-2 bg-theme-bg-gray rounded-xl w-[120px] outline-none text-3xl"
           placeholder={"- - - -"}
@@ -43,19 +46,19 @@ export default function SecuritySettings() {
           Change Password:
         </label>
 
-        <InputField
+        <LabeledInputComponent
           value={currentPass}
           setValue={setCurrentPass}
           placeholder="Enter current password"
           extraCss={"w-[400px]"}
         />
-        <InputField
+        <LabeledInputComponent
           value={newPass}
           setValue={setNewPass}
           placeholder="Enter new password"
           extraCss={"w-[400px]"}
         />
-        <InputField
+        <LabeledInputComponent
           value={reNewPass}
           setValue={setReNewPass}
           placeholder="Enter confirm new password"
@@ -63,7 +66,7 @@ export default function SecuritySettings() {
         />
       </div>
       <div className="flex space-x-4 items-end">
-        <Button
+        <ButtonComponent
           type={"submit"}
           label="Update Security"
           extraCss={"w-[250px] text-xl"}

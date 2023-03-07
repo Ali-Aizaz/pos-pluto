@@ -1,5 +1,5 @@
-import InputField from "../settings/inputField";
-import Button from "../button";
+import { LabeledInputComponent } from "components";
+import { ButtonComponent } from "components";
 import { useState } from "react";
 
 export default function Add() {
@@ -21,14 +21,14 @@ export default function Add() {
           Product details:
         </label>
 
-        <InputField
+        <LabeledInputComponent
           value={name}
           setValue={setName}
           placeholder="name"
           extraCss={"w-[400px]"}
         />
         <div className="flex ">
-          <InputField
+          <LabeledInputComponent
             value={category}
             setValue={setCategory}
             placeholder="Category"
@@ -47,14 +47,14 @@ export default function Add() {
           Product details:
         </label>
 
-        <InputField
+        <LabeledInputComponent
           value={name}
           setValue={setName}
           placeholder="Quantity"
           extraCss={"w-[400px]"}
         />
         <div className="flex ">
-          <InputField
+          <LabeledInputComponent
             value={category}
             setValue={setCategory}
             placeholder="Warranty"
@@ -66,7 +66,11 @@ export default function Add() {
         </div>
       </div>
       <div className="flex space-x-8 items-end mt-4">
-        <Button type={"submit"} label="Add Product" extraCss={"text-xl"} />
+        <ButtonComponent
+          type={"submit"}
+          label="Add Product"
+          extraCss={"text-xl"}
+        />
         <button
           className="text-xl pb-2 font-medium text-theme-text-gray"
           onClick={handleReset}

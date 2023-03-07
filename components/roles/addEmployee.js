@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { useState } from "react";
-import Button from "../button";
-import InputField from "../settings/inputField";
+import { LabeledInputComponent, ButtonComponent } from "components";
 import { useRouter } from "next/router";
 
 export default function AddEmployee() {
@@ -43,14 +42,14 @@ export default function AddEmployee() {
         </div>
       </div>
       <div className="w-full py-4 border-t-4 mt-5 grid grid-cols-2 text-lg font-medium gap-x-10 gap-y-7">
-        <InputField
+        <LabeledInputComponent
           value={name}
           setValue={setName}
           placeholder="Name"
           label={"Employee Bio:"}
           extraCss="space-y-7 w-[500px]"
         />
-        <InputField
+        <LabeledInputComponent
           value={username}
           setValue={setUsername}
           placeholder="Username"
@@ -58,25 +57,25 @@ export default function AddEmployee() {
           extraCss="space-y-7 w-[500px]"
         />
 
-        <InputField
+        <LabeledInputComponent
           value={position}
           setValue={setPosition}
           placeholder="Position"
           extraCss="space-y-7 w-[500px]"
         />
-        <InputField
+        <LabeledInputComponent
           value={role}
           setValue={setRole}
           placeholder="Role"
           extraCss="space-y-7 w-[500px]"
         />
-        <InputField
+        <LabeledInputComponent
           value={password}
           setValue={setPassword}
           placeholder="Password"
           extraCss="space-y-7 w-[500px]"
         />
-        <InputField
+        <LabeledInputComponent
           value={rePassword}
           setValue={setRePassword}
           placeholder="Confirm Password"
@@ -84,7 +83,11 @@ export default function AddEmployee() {
         />
       </div>
       <div className="flex space-x-8 mt-10 items-end">
-        <Button type={"submit"} label="Add employee" extraCss={"text-xl"} />
+        <ButtonComponent
+          type={"submit"}
+          label="Add employee"
+          extraCss={"text-xl"}
+        />
         <button
           className="text-xl pb-2 font-medium text-theme-text-gray"
           onClick={handleReset}

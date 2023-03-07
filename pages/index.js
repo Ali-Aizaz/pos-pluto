@@ -1,11 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import Logo from "../components/logo";
+import { LogoComponent } from "components";
 export default function Home() {
   return (
     <main className=" pl-[7%] flex items-start">
       <section className="w-[50vw]">
-        <Logo />
+        <LogoComponent />
         <div className="flex flex-col translate-y-[30vh]">
           <h1 className="text-7xl">Revolutionize Sales, </h1>
           <h1 className="text-7xl font-semibold">Build POS</h1>

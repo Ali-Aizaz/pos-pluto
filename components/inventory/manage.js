@@ -1,5 +1,5 @@
 import Image from "next/image";
-import InputField from "../settings/inputField";
+import { LabeledInputComponent } from "components";
 import { useState } from "react";
 export default function Manage() {
   const [search, setSearch] = useState("");
@@ -9,19 +9,19 @@ export default function Manage() {
     <div className="w-full">
       <label className="text-2xl text-theme-text-gray mb-2">Filters: </label>
       <div className="py-3 mb-4 space-x-5 flex">
-        <InputField
+        <LabeledInputComponent
           placeholder={"Search for "}
           value={search}
           setValue={setSearch}
           extraCss="w-[350px]"
         />
-        <InputField
+        <LabeledInputComponent
           placeholder={"Category "}
           value={category}
           setValue={setCategory}
           extraCss="w-[350px]"
         />
-        <InputField
+        <LabeledInputComponent
           placeholder={"Name Search"}
           value={name}
           setValue={setName}

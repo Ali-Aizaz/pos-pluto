@@ -1,12 +1,11 @@
 import { useState } from "react";
-import InputField from "../settings/inputField";
 import Image from "next/image";
-import UserDetails from "./userDetails";
+import { UserDetailsComponent, LabeledInputComponent } from "components";
 export default function Return() {
   const [recipt, setRecipt] = useState("");
   return (
     <section className="text-theme-text-gray">
-      <InputField
+      <LabeledInputComponent
         value={recipt}
         setValue={setRecipt}
         placeholder="Enter recipt number or phone number"
@@ -39,7 +38,7 @@ export default function Return() {
             </ul>
           </div>
         </div>
-        <UserDetails />
+        <UserDetailsComponent />
       </div>
     </section>
   );

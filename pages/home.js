@@ -1,7 +1,9 @@
-import BarChart from "../components/barChart";
-import Card from "../components/cards";
+import {
+  CardComponent,
+  BarChartComponent,
+  LineChartComponent,
+} from "components";
 import Navbar from "../components/navbar";
-import LineChart from "../components/lineChart";
 const cards = [
   {
     tag: "This week Sales",
@@ -35,14 +37,14 @@ export default function Home() {
         <div className="w-full  ">
           <h1 className="text-2xl mb-6 ml-10">Hello, Raheel</h1>
           <div className="flex w-full justify-start flex-wrap ">
-            {cards.map((card) => {
-              return <Card key={card.tag} card={card} />;
-            })}
+            {cards.map((card) => (
+              <CardComponent key={card.tag} card={card} />
+            ))}
           </div>
         </div>
         <div className="flex w-full px-10 space-x-10 ">
-          <BarChart />
-          <LineChart />
+          <BarChartComponent />
+          <LineChartComponent />
         </div>
       </section>
     </main>

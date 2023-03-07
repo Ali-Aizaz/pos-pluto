@@ -1,8 +1,11 @@
 import { useState } from "react";
-import InputField from "../settings/inputField";
-import Button from "../button";
+import {
+  LabeledInputComponent,
+  ButtonComponent,
+  SalesItemComponent,
+} from "components";
 import { useRouter } from "next/router";
-import Item from "./item";
+
 export default function Order() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -26,13 +29,13 @@ export default function Order() {
             Customer Details:
           </label>
 
-          <InputField
+          <LabeledInputComponent
             value={name}
             setValue={setName}
             placeholder="Name"
             extraCss={"w-[350px]"}
           />
-          <InputField
+          <LabeledInputComponent
             value={phone}
             setValue={setPhone}
             placeholder="Phone Number"
@@ -44,20 +47,20 @@ export default function Order() {
             Product Details:
           </label>
 
-          <InputField
+          <LabeledInputComponent
             value={category}
             setValue={setCategory}
             placeholder="Product Category"
             extraCss={"w-[350px]"}
           />
-          <InputField
+          <LabeledInputComponent
             value={productName}
             setValue={setProductName}
             placeholder="Product Name"
             extraCss={"w-[350px]"}
           />
           <div className="flex space-x-4">
-            <InputField
+            <LabeledInputComponent
               value={quantity}
               setValue={setQuantity}
               placeholder="Quantity"
@@ -82,7 +85,7 @@ export default function Order() {
           </div>
         </div>
         <div className="flex space-x-4 items-end">
-          <Button
+          <ButtonComponent
             type={"submit"}
             label="Add to Cart"
             extraCss={"w-[250px] text-xl"}
@@ -97,10 +100,10 @@ export default function Order() {
       </form>
       <div className="flex flex-col items-center space-y-5">
         <div className="bg-[#E3E0E0] rounded-3xl flex flex-col items-center h-[60vh] w-[400px] py-5 space-y-5 ml-10 overflow-y-auto">
-          <Item />
-          <Item />
-          <Item />
-          <Item />
+          <SalesItemComponent />
+          <SalesItemComponent />
+          <SalesItemComponent />
+          <SalesItemComponent />
         </div>
         <button className="p-4 bg-black text-white w-[200px] rounded-2xl text-xl font-medium">
           Check - OUT

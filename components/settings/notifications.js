@@ -1,6 +1,5 @@
 import { useState } from "react";
-import Button from "../button";
-import ToggleSwitch from "./toggleSwitch";
+import { ToggleSwitchComponent, ButtonComponent } from "components";
 
 export default function Notifications() {
   const [sound, setSound] = useState(false);
@@ -33,7 +32,7 @@ export default function Notifications() {
         <label className="text-2xl text-theme-text-gray font-medium">
           Notification sound
         </label>
-        <ToggleSwitch value={sound} setValue={setSound} />
+        <ToggleSwitchComponent value={sound} setValue={setSound} />
       </div>
       <div className="w-full py-10 border-t-4 mt-10 flex flex-col text-2xl font-medium gap-y-10">
         <label className="text-3xl text-theme-text-gray">
@@ -45,7 +44,7 @@ export default function Notifications() {
               <label className="w-[300px] text-black">
                 {notification.name}
               </label>
-              <ToggleSwitch
+              <ToggleSwitchComponent
                 value={notification.value}
                 setValue={notification.change}
               />
@@ -54,7 +53,7 @@ export default function Notifications() {
         })}
       </div>
       <div className="flex space-x-4 items-end">
-        <Button
+        <ButtonComponent
           type={"submit"}
           label="Update Settings"
           extraCss={"w-[250px] text-xl"}
