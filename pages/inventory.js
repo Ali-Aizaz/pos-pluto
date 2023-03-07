@@ -1,7 +1,6 @@
-import Navbar from "../components/navbar";
 import Add from "../components/inventory/add";
 import Manage from "../components/inventory/manage";
-import { TabComponent } from "components";
+import { NavBarComponent, TabComponent } from "components";
 const tabs = [
   { name: "Manage", tab: <Manage /> },
   { name: "Add", tab: <Add /> },
@@ -9,7 +8,7 @@ const tabs = [
 export default function Inventory() {
   return (
     <main className="flex w-full">
-      <Navbar />
+      <NavBarComponent />
       <TabComponent tabs={tabs} />
     </main>
   );

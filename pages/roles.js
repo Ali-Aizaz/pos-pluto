@@ -1,4 +1,4 @@
-import { TabComponent } from "components";
+import { NavBarComponent, TabComponent } from "components";
 import Navbar from "../components/navbar";
 import AddEmployee from "../components/roles/addEmployee";
 import Manage from "../components/roles/manage";
@@ -11,7 +11,7 @@ const tabs = [
 export default function Roles() {
   return (
     <main className="flex w-full">
-      <Navbar />
+      <NavBarComponent />
       <TabComponent tabs={tabs} />
     </main>
   );

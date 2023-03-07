@@ -1,8 +1,7 @@
-import Navbar from "../components/navbar";
 import AccountSetting from "../components/settings/account";
 import SecuritySettings from "../components/settings/security";
 import Notifications from "../components/settings/notifications";
-import { TabComponent } from "components";
+import { NavBarComponent, TabComponent } from "components";
 const tabs = [
   { name: "Account Setting", tab: <AccountSetting /> },
   { name: "Login & Security", tab: <SecuritySettings /> },
@@ -12,7 +11,7 @@ const tabs = [
 export default function Settings() {
   return (
     <main className="flex w-full">
-      <Navbar />
+      <NavBarComponent />
       <TabComponent tabs={tabs} />
     </main>
   );

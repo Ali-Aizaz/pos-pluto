@@ -3,7 +3,7 @@ import {
   BarChartComponent,
   LineChartComponent,
 } from "components";
-import Navbar from "../components/navbar";
+import { NavBarComponent } from "components";
 const cards = [
   {
     tag: "This week Sales",
@@ -31,7 +31,7 @@ const cards = [
 export default function Home() {
   return (
     <main className="flex ">
-      <Navbar />
+      <NavBarComponent />
       <section className="w-full flex flex-col items-center mt-20 space-y-10">
         <h1 className="text-4xl font-bold">DASHBOARD</h1>
         <div className="w-full  ">
