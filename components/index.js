@@ -8,3 +8,5 @@ export { default as LogoComponent } from "./Logo";
 export { default as SalesItemComponent } from "./SalesItem";
 export { default as BarChartComponent } from "./BarChart";
 export { default as LineChartComponent } from "./LineChart";
+export { default as TabComponent } from "./Tab";
+export { default as TitleComponent } from "./Title";
