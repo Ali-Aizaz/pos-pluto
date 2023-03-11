@@ -1,4 +1,8 @@
-import { ButtonComponent, LabeledInputComponent } from "@/components";
+import {
+  ButtonComponent,
+  LabeledInputComponent,
+  SubmitResetButtonComponent,
+} from "@/components";
 import { useState } from "react";
 
 export default function Add() {
@@ -64,19 +68,7 @@ export default function Add() {
           </button>
         </div>
       </div>
-      <div className="flex space-x-8 items-end mt-4">
-        <ButtonComponent
-          type={"submit"}
-          label="Add Product"
-          extraCss={"text-xl"}
-        />
-        <button
-          className="text-xl pb-2 font-medium text-theme-text-gray"
-          onClick={handleReset}
-        >
-          Reset
-        </button>
-      </div>
+      <SubmitResetButtonComponent onReset={handleReset} />
     </form>
   );
 }

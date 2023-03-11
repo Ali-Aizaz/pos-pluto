@@ -3,6 +3,7 @@ import {
   LabeledInputComponent,
   ButtonComponent,
   SalesItemComponent,
+  SubmitResetButtonComponent,
 } from "@/components";
 import { useRouter } from "next/router";
 
@@ -84,19 +85,7 @@ export default function Order() {
             </div>
           </div>
         </div>
-        <div className="flex space-x-4 items-end">
-          <ButtonComponent
-            type={"submit"}
-            label="Add to Cart"
-            extraCss={"w-[250px] text-xl"}
-          />
-          <button
-            className="text-2xl pb-2 w-[200px] font-medium text-theme-text-gray"
-            onClick={handleReset}
-          >
-            Reset
-          </button>
-        </div>
+        <SubmitResetButtonComponent onReset={handleReset} />
       </form>
       <div className="flex flex-col items-center space-y-5">
         <div className="bg-[#E3E0E0] rounded-3xl flex flex-col items-center h-[60vh] w-[400px] py-5 space-y-5 ml-10 overflow-y-auto">

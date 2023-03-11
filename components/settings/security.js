@@ -2,7 +2,7 @@ import { useState } from "react";
 import {
   ToggleSwitchComponent,
   LabeledInputComponent,
-  ButtonComponent,
+  SubmitResetButtonComponent,
 } from "@/components";
 
 export default function SecuritySettings() {
@@ -65,19 +65,7 @@ export default function SecuritySettings() {
           extraCss={"w-[400px]"}
         />
       </div>
-      <div className="flex space-x-4 items-end">
-        <ButtonComponent
-          type={"submit"}
-          label="Update Security"
-          extraCss={"w-[250px] text-xl"}
-        />
-        <button
-          className="text-xl pb-2 font-medium text-theme-text-gray"
-          onClick={handleReset}
-        >
-          Reset
-        </button>
-      </div>
+      <SubmitResetButtonComponent onReset={handleReset} />
     </form>
   );
 }

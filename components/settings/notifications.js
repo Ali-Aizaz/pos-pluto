@@ -1,5 +1,9 @@
 import { useState } from "react";
-import { ToggleSwitchComponent, ButtonComponent } from "@/components";
+import {
+  ToggleSwitchComponent,
+  ButtonComponent,
+  SubmitResetButtonComponent,
+} from "@/components";
 
 export default function Notifications() {
   const [sound, setSound] = useState(false);
@@ -52,19 +56,7 @@ export default function Notifications() {
           );
         })}
       </div>
-      <div className="flex space-x-4 items-end">
-        <ButtonComponent
-          type={"submit"}
-          label="Update Settings"
-          extraCss={"w-[250px] text-xl"}
-        />
-        <button
-          className="text-xl pb-2 font-medium text-theme-text-gray"
-          onClick={handleReset}
-        >
-          Reset
-        </button>
-      </div>
+      <SubmitResetButtonComponent onReset={handleReset} />
     </form>
   );
 }

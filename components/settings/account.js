@@ -1,6 +1,10 @@
 import Image from "next/image";
 import { useState } from "react";
-import { LabeledInputComponent, ButtonComponent } from "@/components";
+import {
+  LabeledInputComponent,
+  ButtonComponent,
+  SubmitResetButtonComponent,
+} from "@/components";
 import { useRouter } from "next/router";
 
 export default function AccountSetting() {
@@ -79,19 +83,7 @@ export default function AccountSetting() {
           />
         </div>
       </div>
-      <div className="flex space-x-8 items-end">
-        <ButtonComponent
-          type={"submit"}
-          label="Update Profile"
-          extraCss={"text-xl"}
-        />
-        <button
-          className="text-xl pb-2 font-medium text-theme-text-gray"
-          onClick={handleReset}
-        >
-          Reset
-        </button>
-      </div>
+      <SubmitResetButtonComponent onReset={handleReset} />
     </form>
   );
 }
