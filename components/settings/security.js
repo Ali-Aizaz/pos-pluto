@@ -26,25 +26,23 @@ export default function SecuritySettings() {
   return (
     <form className="flex flex-col" onSubmit={handleUpdate}>
       <div className="flex flex-col space-y-4">
-        <label className="text-xl text-theme-text-gray font-medium">
+        <label className="text-xl text-gray font-medium">
           2FA-TWO FACTOR AUTHENTICATION
         </label>
         <ToggleSwitchComponent value={TFAtoggle} setValue={setTFAtoggle} />
         <input
-          className="px-5 py-2 bg-theme-bg-gray rounded-xl w-[120px] outline-none text-3xl"
+          className="px-5 py-2 bg-gray rounded-xl w-[120px] outline-none text-3xl"
           placeholder={"- - - -"}
           type={"text"}
           value={TFA}
           onChange={(e) => handleTFA(e)}
         />
-        <p className="text-theme-light-gray font-medium w-[300px]">
+        <p className="text-light-gray font-medium w-[300px]">
           You will get an otp on your registered mobile number via sms.
         </p>
       </div>
       <div className="w-full py-4 border-t-4 mt-10 flex flex-col text-lg font-medium gap-y-7">
-        <label className="text-2xl text-theme-text-gray">
-          Change Password:
-        </label>
+        <label className="text-2xl text-gray">Change Password:</label>
 
         <LabeledInputComponent
           value={currentPass}

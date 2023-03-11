@@ -26,9 +26,7 @@ export default function Order() {
     <div className="flex">
       <form className="flex flex-col w-full" onSubmit={handleUpdate}>
         <div className="w-full mb-4 flex flex-col text-lg font-medium gap-y-5">
-          <label className="text-xl text-theme-text-gray">
-            Customer Details:
-          </label>
+          <label className="text-xl text-gray">Customer Details:</label>
 
           <LabeledInputComponent
             value={name}
@@ -44,9 +42,7 @@ export default function Order() {
           />
         </div>
         <div className="w-full mb-4 flex flex-col text-lg font-medium gap-y-5">
-          <label className="text-3xl text-theme-text-gray">
-            Product Details:
-          </label>
+          <label className="text-3xl text-gray">Product Details:</label>
 
           <LabeledInputComponent
             value={category}

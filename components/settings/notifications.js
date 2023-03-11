@@ -28,20 +28,15 @@ export default function Notifications() {
   };
   const handleReset = () => {};
   return (
-    <form
-      className="flex flex-col text-theme-text-gray"
-      onSubmit={handleUpdate}
-    >
+    <form className="flex flex-col text-gray" onSubmit={handleUpdate}>
       <div className="flex flex-col space-y-4">
-        <label className="text-2xl text-theme-text-gray font-medium">
+        <label className="text-2xl text-gray font-medium">
           Notification sound
         </label>
         <ToggleSwitchComponent value={sound} setValue={setSound} />
       </div>
       <div className="w-full py-10 border-t-4 mt-10 flex flex-col text-2xl font-medium gap-y-10">
-        <label className="text-3xl text-theme-text-gray">
-          Notification popups
-        </label>
+        <label className="text-3xl text-gray">Notification popups</label>
         {notifications.map((notification) => {
           return (
             <div key={notification.name} className="flex">

@@ -20,9 +20,7 @@ export default function Add() {
   return (
     <form>
       <div className="w-full py-4 flex flex-col text-lg font-medium gap-y-7">
-        <label className="text-2xl text-theme-text-gray">
-          Product details:
-        </label>
+        <label className="text-2xl text-gray">Product details:</label>
 
         <LabeledInputComponent
           value={name}
@@ -46,9 +44,7 @@ export default function Add() {
         </div>
       </div>
       <div className="w-full py-4 border-t-4 mt-10 flex flex-col text-lg font-medium gap-y-7">
-        <label className="text-2xl text-theme-text-gray">
-          Product details:
-        </label>
+        <label className="text-2xl text-gray">Product details:</label>
 
         <LabeledInputComponent
           value={name}

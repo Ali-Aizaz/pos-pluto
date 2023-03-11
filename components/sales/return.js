@@ -4,7 +4,7 @@ import { UserDetailsComponent, LabeledInputComponent } from "@/components";
 export default function Return() {
   const [recipt, setRecipt] = useState("");
   return (
-    <section className="text-theme-text-gray">
+    <section className="text-gray">
       <LabeledInputComponent
         value={recipt}
         setValue={setRecipt}

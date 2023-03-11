@@ -12,6 +12,7 @@ export { default as TabComponent } from "./Tab";
 export { default as TitleComponent } from "./Title";
 export { default as NavBarComponent } from "./NavBar";
 export { default as SubmitResetButtonComponent } from "./SubmitResetButton";
+export { default as TableComponent } from "./Table";
 
 export {
   MagnifyingGlassIcon,

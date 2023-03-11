@@ -1,9 +1,9 @@
 import { NavBarComponent, TabComponent } from "@/components";
 import AddEmployee from "../components/roles/addEmployee";
-import Manage from "../components/roles/manage";
+import { ManageRolesContainer } from "@/containers";
 
 const tabs = [
-  { name: "Manage", tab: <Manage /> },
+  { name: "Manage", tab: <ManageRolesContainer /> },
   { name: "Add Employees", tab: <AddEmployee /> },
 ];
 

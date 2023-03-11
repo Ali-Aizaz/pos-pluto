@@ -28,12 +28,12 @@ export default function AccountSetting() {
 
   return (
     <form
-      className="flex flex-col items-start text-theme-text-gray"
+      className="flex flex-col items-start text-gray"
       onSubmit={handleUpdate}
     >
       <div className="flex flex-col items-center">
         <h1 className="text-lg font-medium mb-3">Your Company logo</h1>
-        <div className=" w-[110px] flex flex-col items-center p-2 text-center space-y-3 bg-theme-bg-gray rounded-2xl border-dashed border border-theme-light-gray">
+        <div className=" w-[110px] flex flex-col items-center p-2 text-center space-y-3 bg-gray rounded-2xl border-dashed border border-light-gray">
           <div className="w-6">
             <Image
               src="/gallery-add.png"
@@ -42,7 +42,7 @@ export default function AccountSetting() {
               height={400}
             />
           </div>
-          <h1 className="text-theme-light-gray font-semibold text-sm">
+          <h1 className="text-light-gray font-semibold text-sm">
             Upload Company logo
           </h1>
         </div>
@@ -74,7 +74,7 @@ export default function AccountSetting() {
         />
         <div className={`flex flex-col space-y-2 col-span-2`}>
           <textarea
-            className="p-5 bg-theme-bg-gray rounded-xl resize-none"
+            className="p-5 bg-gray rounded-xl resize-none"
             rows={3}
             placeholder="description about Company"
             type={"text"}

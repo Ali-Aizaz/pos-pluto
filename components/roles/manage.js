@@ -1,70 +1,29 @@
 import Image from "next/image";
 
-export default function Manage() {
+export default function Manage({ cols, rows, action, warranty }) {
   return (
-    <div className="w-full">
-      <div className="p-3 space-y-5">
-        <ul className="flex text-xl ">
-          <li className="w-[200px]">Name</li>
-          <li className="w-[200px] ">User ID</li>
-          <li className="w-[200px] ">Designation</li>
-          <li className="w-[200px] ">Actions</li>
-        </ul>
-      </div>
-      <div className="border-t-2 p-3 space-y-5 font-thin text-xl">
-        <ul className="flex  ">
-          <li className="w-[200px] ">Raheel</li>
-          <li className="w-[200px] ">@RaheelC082</li>
-          <li className="w-[200px] ">Cashier</li>
-          <li className="w-[200px] flex space-x-6 ">
+    <table className="flex flex-col text-2xl whitespace-nowrap">
+      <tr className="flex text-gray font-medium border-b-4 border-gray/20 w-min p-4">
+        {cols?.map(({ name }) => {
+          <th className="w-[200px]  text-start">{name}</th>;
+        })}
+      </tr>
+      <tr className="flex p-4">
+        {rows?.map(({ name }) => {
+          <td className="w-[200px]">{name}</td>;
+        })}
+        {action && (
+          <td className="w-[200px] flex space-x-6">
             <button>
               <Image src={"/Edit.png"} alt={"edit"} width={25} height={20} />
             </button>
             <button>
               <Image src={"/trash.png"} alt={"edit"} width={20} height={20} />
             </button>
-          </li>
-        </ul>
-        <ul className="flex  ">
-          <li className="w-[200px] ">Raheel</li>
-          <li className="w-[200px] ">@RaheelC082</li>
-          <li className="w-[200px] ">Cashier</li>
-          <li className="w-[200px] flex space-x-6 ">
-            <button>
-              <Image src={"/Edit.png"} alt={"edit"} width={25} height={20} />
-            </button>
-            <button>
-              <Image src={"/trash.png"} alt={"edit"} width={20} height={20} />
-            </button>
-          </li>
-        </ul>
-        <ul className="flex  ">
-          <li className="w-[200px] ">Raheel</li>
-          <li className="w-[200px] ">@RaheelC082</li>
-          <li className="w-[200px] ">Cashier</li>
-          <li className="w-[200px] flex space-x-6 ">
-            <button>
-              <Image src={"/Edit.png"} alt={"edit"} width={25} height={20} />
-            </button>
-            <button>
-              <Image src={"/trash.png"} alt={"edit"} width={20} height={20} />
-            </button>
-          </li>
-        </ul>
-        <ul className="flex  ">
-          <li className="w-[200px] ">Raheel</li>
-          <li className="w-[200px] ">@RaheelC082</li>
-          <li className="w-[200px] ">Cashier</li>
-          <li className="w-[200px] flex space-x-6 ">
-            <button>
-              <Image src={"/Edit.png"} alt={"edit"} width={25} height={20} />
-            </button>
-            <button>
-              <Image src={"/trash.png"} alt={"edit"} width={20} height={20} />
-            </button>
-          </li>
-        </ul>
-      </div>
-    </div>
+          </td>
+        )}
+        {warranty && <td className="w-[200px] flex space-x-6"></td>}
+      </tr>
+    </table>
   );
 }

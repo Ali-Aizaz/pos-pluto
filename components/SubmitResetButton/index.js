@@ -8,10 +8,7 @@ const SubmitResetButton = ({ onReset }) => {
         label="Update Settings"
         extraCss={"w-[250px] text-xl"}
       />
-      <button
-        className="text-xl pb-2 font-medium text-theme-text-gray"
-        onClick={onReset}
-      >
+      <button className="text-xl pb-2 font-medium text-gray" onClick={onReset}>
         Reset
       </button>
     </div>
