@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { LabeledInputComponent } from "components";
+import { LabeledInputComponent } from "@/components";
 import { useState } from "react";
 export default function Manage() {
   const [search, setSearch] = useState("");

@@ -1,20 +1,9 @@
+import { LoginContainer } from "@/containers";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import Button from "../components/button";
-import InputField from "../components/inputField";
-import { useRouter } from "next/router";
-import { handleGoogle } from "../utils/auth";
-export default function Login() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const router = useRouter();
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Login");
-    router.push("/home");
-  };
+import { handleGoogle } from "@/utils/auth";
 
+export default function Login() {
   return (
     <main className="bg-black h-screen text-white">
       <section className="flex justify-between items-start px-10 translate-y-10 mb-28">
@@ -30,33 +19,7 @@ export default function Login() {
           </Link>
         </div>
       </section>
-      <form
-        onSubmit={handleSubmit}
-        className="flex flex-col justify-center items-center space-y-6"
-      >
-        <h1 className="text-4xl font-semibold text-white ">LOGIN</h1>
-
-        <InputField
-          src={"/username.png"}
-          placeholder="Username"
-          value={username}
-          setValue={setUsername}
-          extraCss="w-[400px]"
-        />
-        <InputField
-          src={"/key.png"}
-          placeholder="Password"
-          value={password}
-          setValue={setPassword}
-          extraCss="w-[400px]"
-        />
-        <Link href={"forget-password"}>
-          <h1 className="tracking-wide font-medium text-end w-[400px] -translate-y-4">
-            Forget Password?
-          </h1>
-        </Link>
-        <Button type={"submit"} label={"Login"} extraCss={"w-[400px]"} />
-      </form>
+      <LoginContainer />
       <div className="flex  mt-10 w-full  items-center justify-center space-x-4">
         <div className="border h-[1px] border-white/40 w-44" />
         <h1 className="text-center text-white/40 ">Or Login with</h1>

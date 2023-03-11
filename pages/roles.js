@@ -1,5 +1,4 @@
-import { NavBarComponent, TabComponent } from "components";
-import Navbar from "../components/navbar";
+import { NavBarComponent, TabComponent } from "@/components";
 import AddEmployee from "../components/roles/addEmployee";
 import Manage from "../components/roles/manage";
 

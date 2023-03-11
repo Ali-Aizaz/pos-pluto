@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ToggleSwitchComponent, ButtonComponent } from "components";
+import { ToggleSwitchComponent, ButtonComponent } from "@/components";
 
 export default function Notifications() {
   const [sound, setSound] = useState(false);

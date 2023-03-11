@@ -11,6 +11,7 @@ export { default as LineChartComponent } from "./LineChart";
 export { default as TabComponent } from "./Tab";
 export { default as TitleComponent } from "./Title";
 export { default as NavBarComponent } from "./NavBar";
+
 export {
   MagnifyingGlassIcon,
   InventoryIcon,

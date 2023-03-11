@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { memo } from "react";
 const InputField = ({ src, extraCss, onEdit, ...restProps }) => {
   return (
     <div className={`flex bg-white rounded-xl ${extraCss}`}>
@@ -20,4 +21,4 @@ const InputField = ({ src, extraCss, onEdit, ...restProps }) => {
   );
 };
 
-export default InputField;
+export default memo(InputField);

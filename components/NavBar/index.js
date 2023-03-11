@@ -9,7 +9,8 @@ import {
   LogoutIcon,
   SalesIcon,
   SettingsIcon,
-} from "components/Icons";
+} from "@/Icons";
+
 import NavBarButton from "./Button";
 
 const NavBar = () => {
@@ -22,11 +23,11 @@ const NavBar = () => {
       onMouseOut={() => {
         setHover(false);
       }}
-      className="bg-theme-black text-white px-4 w-[100px] h-screen hover:w-[400px] transition-[width] rounded-r-2xl shadow-2xl sticky flex flex-col space-y-8  shadow-black "
+      className="bg-theme-black text-white px-4 w-[100px] h-screen hover:w-[400px] transition-[width] rounded-r-2xl shadow-2xl sticky flex flex-col space-y-8 shadow-black"
     >
       <Link href={"/home"}>
-        <div className="flex items-center pt-7 overflow-hidden h-20 -space-x-3 mb-10">
-          <Image src={"/favicon.png"} alt="logo" width={90} height={110} />
+        <div className="flex items-center pt-7 overflow-hidden -space-x-3 mb-10">
+          <Image src={"/favicon.png"} alt="logo" width={100} height={110} />
           <h1
             className={`text-lg whitespace-nowrap font-medium ${
               hover ? "w-[100px]" : "w-0 hidden"

@@ -1,5 +1,4 @@
-import { LabeledInputComponent } from "components";
-import { ButtonComponent } from "components";
+import { ButtonComponent, LabeledInputComponent } from "@/components";
 import { useState } from "react";
 
 export default function Add() {

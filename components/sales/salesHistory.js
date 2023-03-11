@@ -1,4 +1,4 @@
-import { LabeledInputComponent } from "components";
+import { LabeledInputComponent } from "@/components";
 import { useState } from "react";
 
 export default function SalesHistory() {

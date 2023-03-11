@@ -1,4 +1,4 @@
-import { CardIcon } from "components/Icons";
+import { CardIcon } from "@/Icons";
 import Image from "next/image";
 
 const Card = ({ card }) => {

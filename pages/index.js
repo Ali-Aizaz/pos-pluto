@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { LogoComponent } from "components";
+import { LogoComponent } from "@/components";
 export default function Home() {
   return (
     <main className=" pl-[7%] flex items-start">

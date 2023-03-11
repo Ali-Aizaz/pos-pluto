@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Button from "./Button";
-import { TitleComponent } from "components";
+import { TitleComponent } from "@/components";
 const Tab = ({ tabs }) => {
   const [tab, setTab] = useState(tabs[0]);
   const handleTabs = (t) => {

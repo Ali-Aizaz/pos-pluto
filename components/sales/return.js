@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Image from "next/image";
-import { UserDetailsComponent, LabeledInputComponent } from "components";
+import { UserDetailsComponent, LabeledInputComponent } from "@/components";
 export default function Return() {
   const [recipt, setRecipt] = useState("");
   return (

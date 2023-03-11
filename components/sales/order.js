@@ -3,7 +3,7 @@ import {
   LabeledInputComponent,
   ButtonComponent,
   SalesItemComponent,
-} from "components";
+} from "@/components";
 import { useRouter } from "next/router";
 
 export default function Order() {

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useState } from "react";
-import { LabeledInputComponent, ButtonComponent } from "components";
+import { LabeledInputComponent, ButtonComponent } from "@/components";
 import { useRouter } from "next/router";
 
 export default function AccountSetting() {

@@ -3,7 +3,7 @@ import {
   ToggleSwitchComponent,
   LabeledInputComponent,
   ButtonComponent,
-} from "components";
+} from "@/components";
 
 export default function SecuritySettings() {
   const [TFA, setTFA] = useState("");
