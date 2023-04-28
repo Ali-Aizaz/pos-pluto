@@ -1,15 +1,16 @@
-import { useState } from "react";
-import Image from "next/image";
-import { UserDetailsComponent, LabeledInputComponent } from "@/components";
+import React, { useState } from 'react';
+import Image from 'next/image';
+import { UserDetailsComponent, LabeledInputComponent } from '..';
+
 export default function Return() {
-  const [recipt, setRecipt] = useState("");
+  const [recipt, setRecipt] = useState('');
   return (
     <section className="text-gray">
       <LabeledInputComponent
         value={recipt}
         setValue={setRecipt}
         placeholder="Enter recipt number or phone number"
-        extraCss={"w-[350px]"}
+        extraCss="w-[350px]"
       />
       <div className="flex justify-between">
         <div className="w-full">
@@ -28,12 +29,7 @@ export default function Return() {
               <li className="w-[150px] ">12 months</li>
               <li className="w-[150px] ">5</li>
               <li className="w-[150px] ">
-                <Image
-                  src={"/return.png"}
-                  alt="return"
-                  width={30}
-                  height={40}
-                />
+                <Image src="/return.png" alt="return" width={30} height={40} />
               </li>
             </ul>
           </div>

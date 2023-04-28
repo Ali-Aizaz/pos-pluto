@@ -1,25 +1,21 @@
-import Image from "next/image";
-import { useState } from "react";
-import {
-  LabeledInputComponent,
-  ButtonComponent,
-  SubmitResetButtonComponent,
-} from "@/components";
-import { useRouter } from "next/router";
+import Image from 'next/image';
+import React, { useState } from 'react';
+import { useRouter } from 'next/router';
+import { LabeledInputComponent, SubmitResetButtonComponent } from '..';
 
 export default function AddEmployee() {
-  const [name, setName] = useState("");
-  const [position, setPosition] = useState("");
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [rePassword, setRePassword] = useState("");
-  const [role, setRole] = useState("");
+  const [name, setName] = useState('');
+  const [position, setPosition] = useState('');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [rePassword, setRePassword] = useState('');
+  const [role, setRole] = useState('');
   const router = useRouter();
 
   const handleUpdate = (e) => {
     e.preventDefault();
-    console.log("update");
-    router.push("/home");
+    console.log('update');
+    router.push('/home');
   };
 
   const handleReset = () => {};
@@ -50,14 +46,14 @@ export default function AddEmployee() {
           value={name}
           setValue={setName}
           placeholder="Name"
-          label={"Employee Bio:"}
+          label="Employee Bio:"
           extraCss="space-y-7 w-[500px]"
         />
         <LabeledInputComponent
           value={username}
           setValue={setUsername}
           placeholder="Username"
-          label={"Employee ID"}
+          label="Employee ID"
           extraCss="space-y-7 w-[500px]"
         />
 

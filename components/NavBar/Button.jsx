@@ -1,20 +1,20 @@
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { memo } from "react";
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import React, { memo } from 'react';
 
-const Button = ({ hover, title, href, children }) => {
+function Button({ hover, title, href, children }) {
   const router = useRouter();
   return (
     <Link href={href}>
       <div
         className={`flex items-center space-x-10 rounded-xl py-3 px-4  ${
-          router.asPath === href ? "bg-purple" : "hover:bg-light-black"
+          router.asPath === href ? 'bg-purple' : 'hover:bg-light-black'
         }`}
       >
         {children}
         <h1
           className={`text-2xl font-medium ${
-            hover ? "w-[100px]" : "hidden w-0"
+            hover ? 'w-[100px]' : 'hidden w-0'
           }`}
         >
           {title}
@@ -22,6 +22,6 @@ const Button = ({ hover, title, href, children }) => {
       </div>
     </Link>
   );
-};
+}
 
 export default memo(Button);

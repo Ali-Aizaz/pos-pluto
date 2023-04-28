@@ -1,12 +1,14 @@
-const Button = ({ extraCss, label, ...restProps }) => {
+import React from 'react';
+
+function ButtonComponent({ extraCss, label, type }) {
   return (
     <button
-      {...restProps}
+      type={type ? 'submit' : 'button'}
       className={`rounded-lg bg-purple p-3 font-medium text-white ${extraCss}`}
     >
       {label}
     </button>
   );
-};
+}
 
-export default Button;
+export default ButtonComponent;

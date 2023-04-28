@@ -1,4 +1,6 @@
-const Sales = () => {
+import React from 'react';
+
+function Sales() {
   return (
     <svg
       width="30"
@@ -16,6 +18,6 @@ const Sales = () => {
       />
     </svg>
   );
-};
+}
 
 export default Sales;

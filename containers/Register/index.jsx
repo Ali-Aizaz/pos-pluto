@@ -1,12 +1,13 @@
-import { InputFieldComponent, ButtonComponent } from "@/components";
-import { useState, useCallback } from "react";
-import { useRouter } from "next/router";
-const Register = () => {
-  const [username, setUserName] = useState("");
-  const [password, setPassword] = useState("");
-  const [rePassword, setRePassword] = useState("");
-  const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
+import React, { useState, useCallback } from 'react';
+import { useRouter } from 'next/router';
+import { InputFieldComponent, ButtonComponent } from '@/components';
+
+function Register() {
+  const [username, setUserName] = useState('');
+  const [password, setPassword] = useState('');
+  const [rePassword, setRePassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
 
   const handleUserName = useCallback((event) => {
     setUserName(event.target.value);
@@ -31,8 +32,8 @@ const Register = () => {
   const router = useRouter();
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("signup");
-    router.push("/home");
+    console.log('signup');
+    router.push('/home');
   };
 
   return (
@@ -43,47 +44,43 @@ const Register = () => {
       <h1 className="text-4xl font-semibold text-white ">LOGIN</h1>
 
       <InputFieldComponent
-        src={"/username.png"}
+        src="/username.png"
         placeholder="username"
         value={username}
         onEdit={handleUserName}
         extraCss="w-[400px]"
       />
       <InputFieldComponent
-        src={"/key.png"}
+        src="/key.png"
         placeholder="Password"
         value={password}
         onEdit={handlePassword}
         extraCss="w-[400px]"
       />
       <InputFieldComponent
-        src={"/key.png"}
+        src="/key.png"
         placeholder="Re-enter Password"
         value={rePassword}
         onEdit={handleRePassword}
         extraCss="w-[400px]"
       />
       <InputFieldComponent
-        src={"/mail.png"}
+        src="/mail.png"
         placeholder="Email"
         value={email}
         onEdit={handleEmail}
         extraCss="w-[400px]"
       />
       <InputFieldComponent
-        src={"/person.png"}
+        src="/person.png"
         placeholder="First Name"
         value={name}
         onEdit={handleName}
         extraCss="w-[400px]"
       />
-      <ButtonComponent
-        type={"submit"}
-        label={"SIGN UP"}
-        extraCss={"w-[400px]"}
-      />
+      <ButtonComponent type label="SIGN UP" extraCss="w-[400px]" />
     </form>
   );
-};
+}
 
 export default Register;

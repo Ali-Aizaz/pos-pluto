@@ -1,6 +1,8 @@
-import Image from "next/image";
-import Link from "next/link";
-import { LogoComponent } from "@/components";
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
+import { LogoComponent } from '../components';
+
 export default function Home() {
   return (
     <main className=" flex items-start pl-[7%]">
@@ -15,12 +17,12 @@ export default function Home() {
           </p>
           <div className="mt-10 w-[30vw] space-x-10 text-xl">
             <Link
-              href={"/login"}
+              href="/login"
               className="w-[120px] rounded-lg bg-black p-4 text-white"
             >
               LOGIN
             </Link>
-            <Link href={"/signup"} className="w-[120px] rounded-lg p-4">
+            <Link href="/signup" className="w-[120px] rounded-lg p-4">
               SIGN UP
             </Link>
           </div>
@@ -28,10 +30,10 @@ export default function Home() {
       </section>
       <section className="absolute right-0 aspect-square w-[50vw] overflow-hidden">
         <Image
-          src={"/hero.png"}
+          src="/hero.png"
           alt="hero"
           fill
-          style={{ objectFit: "contain" }}
+          style={{ objectFit: 'contain' }}
         />
       </section>
     </main>

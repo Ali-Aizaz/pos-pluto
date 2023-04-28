@@ -1,18 +1,14 @@
-import Image from "next/image";
-import { useState } from "react";
-import {
-  LabeledInputComponent,
-  ButtonComponent,
-  SubmitResetButtonComponent,
-} from "@/components";
-import { useRouter } from "next/router";
+import Image from 'next/image';
+import React, { useState } from 'react';
+import { useRouter } from 'next/router';
+import { LabeledInputComponent, SubmitResetButtonComponent } from '..';
 
 export default function AccountSetting() {
-  const [companyName, setCompanyName] = useState("");
-  const [description, setDescription] = useState("");
-  const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
-  const [phone, setPhone] = useState("");
+  const [companyName, setCompanyName] = useState('');
+  const [description, setDescription] = useState('');
+  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
+  const [phone, setPhone] = useState('');
   const router = useRouter();
   const handleDescription = (e) => {
     setDescription(e.target.value);
@@ -20,8 +16,8 @@ export default function AccountSetting() {
 
   const handleUpdate = (e) => {
     e.preventDefault();
-    console.log("update");
-    router.push("/home");
+    console.log('update');
+    router.push('/home');
   };
 
   const handleReset = () => {};
@@ -52,32 +48,32 @@ export default function AccountSetting() {
           value={companyName}
           setValue={setCompanyName}
           placeholder="Please enter your full name"
-          label={"Company Name"}
+          label="Company Name"
         />
         <LabeledInputComponent
           value={email}
           setValue={setEmail}
           placeholder="Please enter your email"
-          label={"Email"}
+          label="Email"
         />
         <LabeledInputComponent
           value={username}
           setValue={setUsername}
           placeholder="Please enter your username"
-          label={"Username"}
+          label="Username"
         />
         <LabeledInputComponent
           value={phone}
           setValue={setPhone}
           placeholder="Please enter your phone number"
-          label={"Phone number"}
+          label="Phone number"
         />
-        <div className={`col-span-2 flex flex-col space-y-2`}>
+        <div className="col-span-2 flex flex-col space-y-2">
           <textarea
             className="resize-none rounded-xl bg-gray p-5"
             rows={3}
             placeholder="description about Company"
-            type={"text"}
+            type="text"
             value={description}
             onChange={(e) => handleDescription(e)}
           />

@@ -1,4 +1,6 @@
-const MagnifyingGlass = () => {
+import React from 'react';
+
+function MagnifyingGlass() {
   return (
     <svg
       width="30"
@@ -12,6 +14,6 @@ const MagnifyingGlass = () => {
       />
     </svg>
   );
-};
+}
 
 export default MagnifyingGlass;

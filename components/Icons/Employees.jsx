@@ -1,4 +1,6 @@
-const Employees = () => {
+import React from 'react';
+
+function Employees() {
   return (
     <svg
       width="30"
@@ -12,6 +14,6 @@ const Employees = () => {
       />
     </svg>
   );
-};
+}
 
 export default Employees;

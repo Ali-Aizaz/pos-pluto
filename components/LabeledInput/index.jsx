@@ -1,15 +1,16 @@
-const LabeledInput = ({ onEdit, label, extraCss, ...restProps }) => {
+import React from 'react';
+
+function LabeledInput({ onEdit, label, extraCss }) {
   return (
     <div className={`flex flex-col  ${extraCss}`}>
-      {label && <label className="mb-2 text-xl text-text-gray">{label}</label>}
+      {label && <h2 className="mb-2 text-xl text-text-gray">{label}</h2>}
       <input
         className="rounded-xl bg-bg-gray p-3 outline-none"
-        {...restProps}
-        type={"text"}
+        type="text"
         onChange={onEdit}
       />
     </div>
   );
-};
+}
 
 export default LabeledInput;

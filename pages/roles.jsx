@@ -1,10 +1,11 @@
-import { NavBarComponent, TabComponent } from "@/components";
-import AddEmployee from "../components/roles/addEmployee";
-import { ManageRolesContainer } from "@/containers";
+import React from 'react';
+import { NavBarComponent, TabComponent } from '../components';
+import { ManageRolesContainer } from '../containers';
+import AddEmployee from '../components/Roles/addEmployee';
 
 const tabs = [
-  { name: "Manage", tab: <ManageRolesContainer /> },
-  { name: "Add Employees", tab: <AddEmployee /> },
+  { name: 'Manage', tab: <ManageRolesContainer /> },
+  { name: 'Add Employees', tab: <AddEmployee /> },
 ];
 
 export default function Roles() {

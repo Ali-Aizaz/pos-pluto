@@ -2,10 +2,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/components": ["components/index"],
-      "@/utils/*": ["utils/*"],
-      "@/containers": ["containers/index"],
-      "@/Icons": ["components/Icons/index"]
+      "@/*": ["./*"]
     }
-  }
+  },
+  "include": ["."],
+  "exclude": ["node_modules", ".next"]
 }

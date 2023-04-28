@@ -1,0 +1,16 @@
+.env
+node_modules/
+.cache/
+public
+src/gatsby-types.d.ts
+.env*
+coverage
+.cache
+.DS_store
+products-data/
+products
+products-data-old*/
+tailwind.config.js
+**/*.test.tsx
+**/__mocks__/*
+**/*.stories.tsx

@@ -1,4 +1,6 @@
-const Card = ({ color }) => {
+import React from 'react';
+
+function CardIcon({ color }) {
   return (
     <svg
       height="200"
@@ -14,6 +16,6 @@ const Card = ({ color }) => {
       />
     </svg>
   );
-};
+}
 
-export default Card;
+export default CardIcon;

@@ -1,4 +1,5 @@
-import Image from "next/image";
+import Image from 'next/image';
+import React from 'react';
 
 export default function Item() {
   return (
@@ -16,7 +17,7 @@ export default function Item() {
       </ul>
       <div className="flex flex-col items-end justify-between p-4">
         <Image src="/trash.png" alt="remove from cart" width={30} height={40} />
-        <label className="text-lg font-bold">RS 4520</label>
+        <h2 className="text-lg font-bold">RS 4520</h2>
       </div>
     </div>
   );

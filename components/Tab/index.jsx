@@ -1,7 +1,8 @@
-import { useState } from "react";
-import Button from "./Button";
-import { TitleComponent } from "@/components";
-const Tab = ({ tabs }) => {
+import React, { useState } from 'react';
+import Button from './Button';
+import TitleComponent from '../Title';
+
+function Tab({ tabs }) {
   const [tab, setTab] = useState(tabs[0]);
   const handleTabs = (t) => {
     setTab(t);
@@ -24,6 +25,6 @@ const Tab = ({ tabs }) => {
       </div>
     </section>
   );
-};
+}
 
 export default Tab;

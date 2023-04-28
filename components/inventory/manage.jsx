@@ -1,28 +1,29 @@
-import Image from "next/image";
-import { LabeledInputComponent } from "@/components";
-import { useState } from "react";
+import Image from 'next/image';
+import React, { useState } from 'react';
+import { LabeledInputComponent } from '..';
+
 export default function Manage() {
-  const [search, setSearch] = useState("");
-  const [category, setCategory] = useState("");
-  const [name, setName] = useState("");
+  const [search, setSearch] = useState('');
+  const [category, setCategory] = useState('');
+  const [name, setName] = useState('');
   return (
     <div className="w-full">
-      <label className="text-theme-text-gray mb-2 text-2xl">Filters: </label>
+      <h2 className="text-theme-text-gray mb-2 text-2xl">Filters: </h2>
       <div className="mb-4 flex space-x-5 py-3">
         <LabeledInputComponent
-          placeholder={"Search for "}
+          placeholder="Search for "
           value={search}
           setValue={setSearch}
           extraCss="w-[350px]"
         />
         <LabeledInputComponent
-          placeholder={"Category "}
+          placeholder="Category "
           value={category}
           setValue={setCategory}
           extraCss="w-[350px]"
         />
         <LabeledInputComponent
-          placeholder={"Name Search"}
+          placeholder="Name Search"
           value={name}
           setValue={setName}
           extraCss="w-[350px]"
@@ -42,24 +43,11 @@ export default function Manage() {
           <li className="w-[200px] ">Kitchen</li>
           <li className="w-[200px] ">500</li>
           <li className="flex w-[200px] space-x-6 ">
-            <button>
-              <Image src={"/Edit.png"} alt={"edit"} width={25} height={20} />
+            <button type="button">
+              <Image src="/Edit.png" alt="edit" width={25} height={20} />
             </button>
-            <button>
-              <Image src={"/trash.png"} alt={"edit"} width={20} height={20} />
-            </button>
-          </li>
-        </ul>
-        <ul className="flex  ">
-          <li className="w-[200px] ">Stove</li>
-          <li className="w-[200px] ">Kitchen</li>
-          <li className="w-[200px] ">500</li>
-          <li className="flex w-[200px] space-x-6 ">
-            <button>
-              <Image src={"/Edit.png"} alt={"edit"} width={25} height={20} />
-            </button>
-            <button>
-              <Image src={"/trash.png"} alt={"edit"} width={20} height={20} />
+            <button type="button">
+              <Image src="/trash.png" alt="edit" width={20} height={20} />
             </button>
           </li>
         </ul>
@@ -68,11 +56,11 @@ export default function Manage() {
           <li className="w-[200px] ">Kitchen</li>
           <li className="w-[200px] ">500</li>
           <li className="flex w-[200px] space-x-6 ">
-            <button>
-              <Image src={"/Edit.png"} alt={"edit"} width={25} height={20} />
+            <button type="button">
+              <Image src="/Edit.png" alt="edit" width={25} height={20} />
             </button>
-            <button>
-              <Image src={"/trash.png"} alt={"edit"} width={20} height={20} />
+            <button type="button">
+              <Image src="/trash.png" alt="edit" width={20} height={20} />
             </button>
           </li>
         </ul>
@@ -81,11 +69,24 @@ export default function Manage() {
           <li className="w-[200px] ">Kitchen</li>
           <li className="w-[200px] ">500</li>
           <li className="flex w-[200px] space-x-6 ">
-            <button>
-              <Image src={"/Edit.png"} alt={"edit"} width={25} height={20} />
+            <button type="button">
+              <Image src="/Edit.png" alt="edit" width={25} height={20} />
             </button>
-            <button>
-              <Image src={"/trash.png"} alt={"edit"} width={20} height={20} />
+            <button type="button">
+              <Image src="/trash.png" alt="edit" width={20} height={20} />
+            </button>
+          </li>
+        </ul>
+        <ul className="flex  ">
+          <li className="w-[200px] ">Stove</li>
+          <li className="w-[200px] ">Kitchen</li>
+          <li className="w-[200px] ">500</li>
+          <li className="flex w-[200px] space-x-6 ">
+            <button type="button">
+              <Image src="/Edit.png" alt="edit" width={25} height={20} />
+            </button>
+            <button type="button">
+              <Image src="/trash.png" alt="edit" width={20} height={20} />
             </button>
           </li>
         </ul>

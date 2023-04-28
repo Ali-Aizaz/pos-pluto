@@ -1,4 +1,6 @@
-const Inventory = () => {
+import React from 'react';
+
+function Inventory() {
   return (
     <svg
       width="30"
@@ -16,6 +18,6 @@ const Inventory = () => {
       />
     </svg>
   );
-};
+}
 
 export default Inventory;

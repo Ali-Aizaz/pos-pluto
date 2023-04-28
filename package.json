@@ -6,20 +6,38 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepare": "husky install"
   },
   "dependencies": {
     "chart.js": "^2.9.4",
-    "eslint": "8.34.0",
-    "eslint-config-next": "13.1.6",
-    "next": "13.1.6",
-    "react": "18.2.0",
+    "eslint": "^8.39.0",
+    "eslint-config-next": "^13.3.1",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "next": "^13.3.1",
+    "prettier": "^2.8.8",
+    "react": "^18.2.0",
     "react-chartjs-2": "^2.11.2",
-    "react-dom": "18.2.0"
+    "react-dom": "^18.2.0",
+    "tailwind-scrollbar": "^3.0.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.21.4",
+    "@babel/eslint-parser": "^7.21.3",
     "autoprefixer": "^10.4.13",
+    "babel-eslint": "^10.1.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "husky": "^8.0.0",
     "postcss": "^8.4.21",
     "tailwindcss": "^3.2.7"
-  }
+  },
+  "main": "index.js",
+  "repository": "https://github.com/Ali-Aizaz/pos-pluto.git",
+  "author": "Ali-Aizaz <50923380+Ali-Aizaz@users.noreply.github.com>",
+  "license": "MIT"
 }

@@ -1,10 +1,10 @@
-import { CardContainer } from "@/containers";
-
+import React from 'react';
+import { CardContainer } from '../containers';
 import {
   BarChartComponent,
   LineChartComponent,
   NavBarComponent,
-} from "@/components";
+} from '../components';
 
 export default function Home() {
   return (

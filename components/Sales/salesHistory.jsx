@@ -1,8 +1,8 @@
-import { LabeledInputComponent } from "@/components";
-import { useState } from "react";
+import React, { useState } from 'react';
+import { LabeledInputComponent } from '..';
 
 export default function SalesHistory() {
-  const [recipt, setRecipt] = useState("");
+  const [recipt, setRecipt] = useState('');
 
   return (
     <section className="flex flex-col">
@@ -11,7 +11,7 @@ export default function SalesHistory() {
           value={recipt}
           setValue={setRecipt}
           placeholder="Enter recipt number or phone number"
-          extraCss={"w-[350px]"}
+          extraCss="w-[350px]"
         />
       </div>
       <div className="w-full">

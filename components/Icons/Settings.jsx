@@ -1,4 +1,6 @@
-const Settings = () => {
+import React from 'react';
+
+function Settings() {
   return (
     <svg
       width="30"
@@ -17,5 +19,5 @@ const Settings = () => {
       />
     </svg>
   );
-};
+}
 export default Settings;

@@ -1,24 +1,23 @@
-import { useState } from "react";
+import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 import {
   LabeledInputComponent,
-  ButtonComponent,
   SalesItemComponent,
   SubmitResetButtonComponent,
-} from "@/components";
-import { useRouter } from "next/router";
+} from '..';
 
 export default function Order() {
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [category, setCategory] = useState("");
-  const [productName, setProductName] = useState("");
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [category, setCategory] = useState('');
+  const [productName, setProductName] = useState('');
   const [quantity, setQuantity] = useState(0);
 
   const router = useRouter();
   const handleUpdate = (e) => {
     e.preventDefault();
-    console.log("update");
-    router.push("/home");
+    console.log('update');
+    router.push('/home');
   };
 
   const handleReset = () => {};
@@ -26,54 +25,54 @@ export default function Order() {
     <div className="flex">
       <form className="flex w-full flex-col" onSubmit={handleUpdate}>
         <div className="mb-4 flex w-full flex-col gap-y-5 text-lg font-medium">
-          <label className="text-xl text-gray">Customer Details:</label>
+          <h2 className="text-xl text-gray">Customer Details:</h2>
 
           <LabeledInputComponent
             value={name}
             setValue={setName}
             placeholder="Name"
-            extraCss={"w-[350px]"}
+            extraCss="w-[350px]"
           />
           <LabeledInputComponent
             value={phone}
             setValue={setPhone}
             placeholder="Phone Number"
-            extraCss={"w-[350px]"}
+            extraCss="w-[350px]"
           />
         </div>
         <div className="mb-4 flex w-full flex-col gap-y-5 text-lg font-medium">
-          <label className="text-3xl text-gray">Product Details:</label>
+          <h2 className="text-3xl text-gray">Product Details:</h2>
 
           <LabeledInputComponent
             value={category}
             setValue={setCategory}
             placeholder="Product Category"
-            extraCss={"w-[350px]"}
+            extraCss="w-[350px]"
           />
           <LabeledInputComponent
             value={productName}
             setValue={setProductName}
             placeholder="Product Name"
-            extraCss={"w-[350px]"}
+            extraCss="w-[350px]"
           />
           <div className="flex space-x-4">
             <LabeledInputComponent
               value={quantity}
               setValue={setQuantity}
               placeholder="Quantity"
-              extraCss={"w-[150px]"}
+              extraCss="w-[150px]"
             />
             <div className="flex flex-col gap-y-1  text-white">
               <button
                 type="button"
-                onClick={() => setQuantity((quantity) => quantity + 1)}
+                onClick={() => setQuantity((value) => value + 1)}
                 className="bg-green-600 aspect-square h-5 w-10 rounded-full pb-9 text-center text-2xl"
               >
                 +
               </button>
               <button
                 type="button"
-                onClick={() => setQuantity((quantity) => quantity - 1)}
+                onClick={() => setQuantity((value) => value - 1)}
                 className="bg-red-600 aspect-square  h-5 w-10 rounded-full pb-9 text-2xl"
               >
                 -
@@ -90,7 +89,10 @@ export default function Order() {
           <SalesItemComponent />
           <SalesItemComponent />
         </div>
-        <button className="w-[200px] rounded-2xl bg-black p-4 text-xl font-medium text-white">
+        <button
+          type="button"
+          className="w-[200px] rounded-2xl bg-black p-4 text-xl font-medium text-white"
+        >
           Check - OUT
         </button>
       </div>

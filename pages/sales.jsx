@@ -1,11 +1,13 @@
-import Order from "../components/sales/order";
-import Return from "../components/sales/return";
-import SalesHistory from "../components/sales/salesHistory";
-import { NavBarComponent, TabComponent } from "@/components";
+import React from 'react';
+import { NavBarComponent, TabComponent } from '../components';
+import Order from '../components/Sales/order';
+import Return from '../components/Sales/return';
+import SalesHistory from '../components/Sales/salesHistory';
+
 const tabs = [
-  { name: "Order", tab: <Order /> },
-  { name: "Return", tab: <Return /> },
-  { name: "Sales History", tab: <SalesHistory /> },
+  { name: 'Order', tab: <Order /> },
+  { name: 'Return', tab: <Return /> },
+  { name: 'Sales History', tab: <SalesHistory /> },
 ];
 export default function Sales() {
   return (

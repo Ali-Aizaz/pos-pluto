@@ -1,4 +1,3 @@
-export function handleGoogle() {
-  console.log("google");
-  router.push("/home");
+export default function handleGoogle() {
+  console.log('google');
 }

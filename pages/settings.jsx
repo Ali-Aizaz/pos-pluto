@@ -1,11 +1,13 @@
-import AccountSetting from "../components/settings/account";
-import SecuritySettings from "../components/settings/security";
-import Notifications from "../components/settings/notifications";
-import { NavBarComponent, TabComponent } from "@/components";
+import React from 'react';
+import { NavBarComponent, TabComponent } from '../components';
+import AccountSetting from '../components/Settings/account';
+import SecuritySettings from '../components/Settings/security';
+import Notifications from '../components/Settings/notifications';
+
 const tabs = [
-  { name: "Account Setting", tab: <AccountSetting /> },
-  { name: "Login & Security", tab: <SecuritySettings /> },
-  { name: "Notifications", tab: <Notifications /> },
+  { name: 'Account Setting', tab: <AccountSetting /> },
+  { name: 'Login & Security', tab: <SecuritySettings /> },
+  { name: 'Notifications', tab: <Notifications /> },
 ];
 
 export default function Settings() {
