@@ -15,6 +15,7 @@ const Table = ({ cols, rows, action, warranty }) => {
           <th className="w-[200px]  text-start">Action</th>
         )}
       </tr>
+
       {rows?.map((row, i) => {
         return (
           <tr key={i} className="flex p-4">
