@@ -25,7 +25,7 @@ const Login = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col justify-center items-center space-y-6"
+      className="flex flex-col items-center justify-center space-y-6"
     >
       <h1 className="text-4xl font-semibold text-white ">LOGIN</h1>
 
@@ -44,7 +44,7 @@ const Login = () => {
         extraCss="w-[400px]"
       />
       <Link href={"forget-password"}>
-        <h1 className="tracking-wide font-medium text-end w-[400px] -translate-y-4">
+        <h1 className="w-[400px] -translate-y-4 text-end font-medium tracking-wide">
           Forget Password?
         </h1>
       </Link>

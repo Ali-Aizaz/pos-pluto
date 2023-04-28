@@ -2,18 +2,18 @@ import Image from "next/image";
 import { memo } from "react";
 const InputField = ({ src, extraCss, onEdit, ...restProps }) => {
   return (
-    <div className={`flex bg-white rounded-xl ${extraCss}`}>
+    <div className={`flex rounded-xl bg-white ${extraCss}`}>
       <Image
         src={src}
         alt="input icon"
         width={60}
         height={10}
         className={
-          "p-5 rounded-l-xl aspect-square border-r border-black/20 bg-black/5"
+          "aspect-square rounded-l-xl border-r border-black/20 bg-black/5 p-5"
         }
       />
       <input
-        className="p-4 text-xl rounded-r-xl focus:outline-none"
+        className="rounded-r-xl p-4 text-xl focus:outline-none"
         {...restProps}
         onChange={onEdit}
       />

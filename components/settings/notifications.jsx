@@ -30,12 +30,12 @@ export default function Notifications() {
   return (
     <form className="flex flex-col text-gray" onSubmit={handleUpdate}>
       <div className="flex flex-col space-y-4">
-        <label className="text-2xl text-gray font-medium">
+        <label className="text-2xl font-medium text-gray">
           Notification sound
         </label>
         <ToggleSwitchComponent value={sound} setValue={setSound} />
       </div>
-      <div className="w-full py-10 border-t-4 mt-10 flex flex-col text-2xl font-medium gap-y-10">
+      <div className="mt-10 flex w-full flex-col gap-y-10 border-t-4 py-10 text-2xl font-medium">
         <label className="text-3xl text-gray">Notification popups</label>
         {notifications.map((notification) => {
           return (

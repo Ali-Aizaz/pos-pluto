@@ -27,8 +27,8 @@ const cards = [
 const Card = () => {
   return (
     <div className="w-full  ">
-      <h1 className="text-2xl mb-6 ml-10">Hello, Raheel</h1>
-      <div className="flex w-full justify-start flex-wrap ">
+      <h1 className="mb-6 ml-10 text-2xl">Hello, Raheel</h1>
+      <div className="flex w-full flex-wrap justify-start ">
         {cards.map((card) => (
           <CardComponent key={card.tag} card={card} />
         ))}

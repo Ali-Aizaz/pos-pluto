@@ -6,7 +6,7 @@ export default function SalesHistory() {
 
   return (
     <section className="flex flex-col">
-      <div className="w-4/5 flex justify-end">
+      <div className="flex w-4/5 justify-end">
         <LabeledInputComponent
           value={recipt}
           setValue={setRecipt}
@@ -15,7 +15,7 @@ export default function SalesHistory() {
         />
       </div>
       <div className="w-full">
-        <div className="p-3 space-y-5">
+        <div className="space-y-5 p-3">
           <ul className="flex text-xl ">
             <li className="w-[200px]">Reciept No</li>
             <li className="w-[200px] ">Customer name</li>
@@ -24,7 +24,7 @@ export default function SalesHistory() {
             <li className="w-[200px] ">Quantity</li>
           </ul>
         </div>
-        <div className="border-t-2 p-3 space-y-5 font-thin text-xl">
+        <div className="space-y-5 border-t-2 p-3 text-xl font-thin">
           <ul className="flex  ">
             <li className="w-[200px] ">#5432</li>
             <li className="w-[200px] ">Raheel</li>

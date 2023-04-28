@@ -23,14 +23,14 @@ const NavBar = () => {
       onMouseOut={() => {
         setHover(false);
       }}
-      className="bg-black text-white px-4 w-[100px] h-screen hover:w-[400px] transition-[width] rounded-r-2xl shadow-2xl sticky flex flex-col space-y-8 shadow-black"
+      className="sticky flex h-screen w-[100px] flex-col space-y-8 rounded-r-2xl bg-black px-4 text-white shadow-2xl shadow-black transition-[width] hover:w-[400px]"
     >
       <Link href={"/home"}>
-        <div className="flex items-center pt-7 overflow-hidden -space-x-3 mb-10">
+        <div className="mb-10 flex items-center -space-x-3 overflow-hidden pt-7">
           <Image src={"/favicon.png"} alt="logo" width={100} height={110} />
           <h1
-            className={`text-lg whitespace-nowrap font-medium ${
-              hover ? "w-[100px]" : "w-0 hidden"
+            className={`whitespace-nowrap text-lg font-medium ${
+              hover ? "w-[100px]" : "hidden w-0"
             }`}
           >
             POS PLUTO

@@ -32,8 +32,8 @@ export default function AccountSetting() {
       onSubmit={handleUpdate}
     >
       <div className="flex flex-col items-center">
-        <h1 className="text-lg font-medium mb-3">Your Company logo</h1>
-        <div className=" w-[110px] flex flex-col items-center p-2 text-center space-y-3 bg-gray rounded-2xl border-dashed border border-light-gray">
+        <h1 className="mb-3 text-lg font-medium">Your Company logo</h1>
+        <div className=" flex w-[110px] flex-col items-center space-y-3 rounded-2xl border border-dashed border-light-gray bg-gray p-2 text-center">
           <div className="w-6">
             <Image
               src="/gallery-add.png"
@@ -42,12 +42,12 @@ export default function AccountSetting() {
               height={400}
             />
           </div>
-          <h1 className="text-light-gray font-semibold text-sm">
+          <h1 className="text-sm font-semibold text-light-gray">
             Upload Company logo
           </h1>
         </div>
       </div>
-      <div className="w-full py-4 border-t-4 mt-5 grid grid-cols-2 text-lg font-medium gap-x-10 gap-y-7">
+      <div className="mt-5 grid w-full grid-cols-2 gap-x-10 gap-y-7 border-t-4 py-4 text-lg font-medium">
         <LabeledInputComponent
           value={companyName}
           setValue={setCompanyName}
@@ -72,9 +72,9 @@ export default function AccountSetting() {
           placeholder="Please enter your phone number"
           label={"Phone number"}
         />
-        <div className={`flex flex-col space-y-2 col-span-2`}>
+        <div className={`col-span-2 flex flex-col space-y-2`}>
           <textarea
-            className="p-5 bg-gray rounded-xl resize-none"
+            className="resize-none rounded-xl bg-gray p-5"
             rows={3}
             placeholder="description about Company"
             type={"text"}

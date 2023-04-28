@@ -19,7 +19,7 @@ export default function Add() {
 
   return (
     <form>
-      <div className="w-full py-4 flex flex-col text-lg font-medium gap-y-7">
+      <div className="flex w-full flex-col gap-y-7 py-4 text-lg font-medium">
         <label className="text-2xl text-gray">Product details:</label>
 
         <LabeledInputComponent
@@ -37,13 +37,13 @@ export default function Add() {
           />
           <button
             type="button"
-            className="text-5xl -translate-y-1 translate-x-2"
+            className="-translate-y-1 translate-x-2 text-5xl"
           >
             +
           </button>
         </div>
       </div>
-      <div className="w-full py-4 border-t-4 mt-10 flex flex-col text-lg font-medium gap-y-7">
+      <div className="mt-10 flex w-full flex-col gap-y-7 border-t-4 py-4 text-lg font-medium">
         <label className="text-2xl text-gray">Product details:</label>
 
         <LabeledInputComponent
@@ -59,7 +59,7 @@ export default function Add() {
             placeholder="Warranty"
             extraCss={"w-[120px]"}
           />
-          <button type="button" className="text-2xl translate-x-2">
+          <button type="button" className="translate-x-2 text-2xl">
             Months
           </button>
         </div>

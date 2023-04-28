@@ -13,7 +13,7 @@ export default function Return() {
       />
       <div className="flex justify-between">
         <div className="w-full">
-          <div className="border-t-2 p-3 mt-10 space-y-5">
+          <div className="mt-10 space-y-5 border-t-2 p-3">
             <h1 className="text-base font-medium ">Sales Details: </h1>
             <ul className="flex text-xl ">
               <li className="w-[150px]">Product name</li>
@@ -22,7 +22,7 @@ export default function Return() {
               <li className="w-[150px] ">Actions</li>
             </ul>
           </div>
-          <div className="border-t-2 p-3 mt-3 space-y-5 font-thin text-xl">
+          <div className="mt-3 space-y-5 border-t-2 p-3 text-xl font-thin">
             <ul className="flex  ">
               <li className="w-[150px] ">Stove</li>
               <li className="w-[150px] ">12 months</li>

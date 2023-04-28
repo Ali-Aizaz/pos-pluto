@@ -24,8 +24,8 @@ export default function Order() {
   const handleReset = () => {};
   return (
     <div className="flex">
-      <form className="flex flex-col w-full" onSubmit={handleUpdate}>
-        <div className="w-full mb-4 flex flex-col text-lg font-medium gap-y-5">
+      <form className="flex w-full flex-col" onSubmit={handleUpdate}>
+        <div className="mb-4 flex w-full flex-col gap-y-5 text-lg font-medium">
           <label className="text-xl text-gray">Customer Details:</label>
 
           <LabeledInputComponent
@@ -41,7 +41,7 @@ export default function Order() {
             extraCss={"w-[350px]"}
           />
         </div>
-        <div className="w-full mb-4 flex flex-col text-lg font-medium gap-y-5">
+        <div className="mb-4 flex w-full flex-col gap-y-5 text-lg font-medium">
           <label className="text-3xl text-gray">Product Details:</label>
 
           <LabeledInputComponent
@@ -63,18 +63,18 @@ export default function Order() {
               placeholder="Quantity"
               extraCss={"w-[150px]"}
             />
-            <div className="flex flex-col text-white  gap-y-1">
+            <div className="flex flex-col gap-y-1  text-white">
               <button
                 type="button"
                 onClick={() => setQuantity((quantity) => quantity + 1)}
-                className="bg-green-600 w-10 h-5 pb-9 text-center rounded-full aspect-square text-2xl"
+                className="bg-green-600 aspect-square h-5 w-10 rounded-full pb-9 text-center text-2xl"
               >
                 +
               </button>
               <button
                 type="button"
                 onClick={() => setQuantity((quantity) => quantity - 1)}
-                className="bg-red-600 w-10  h-5 pb-9 rounded-full aspect-square text-2xl"
+                className="bg-red-600 aspect-square  h-5 w-10 rounded-full pb-9 text-2xl"
               >
                 -
               </button>
@@ -84,13 +84,13 @@ export default function Order() {
         <SubmitResetButtonComponent onReset={handleReset} />
       </form>
       <div className="flex flex-col items-center space-y-5">
-        <div className="bg-[#E3E0E0] rounded-3xl flex flex-col items-center h-[60vh] w-[400px] py-5 space-y-5 ml-10 overflow-y-auto">
+        <div className="ml-10 flex h-[60vh] w-[400px] flex-col items-center space-y-5 overflow-y-auto rounded-3xl bg-[#E3E0E0] py-5">
           <SalesItemComponent />
           <SalesItemComponent />
           <SalesItemComponent />
           <SalesItemComponent />
         </div>
-        <button className="p-4 bg-black text-white w-[200px] rounded-2xl text-xl font-medium">
+        <button className="w-[200px] rounded-2xl bg-black p-4 text-xl font-medium text-white">
           Check - OUT
         </button>
       </div>

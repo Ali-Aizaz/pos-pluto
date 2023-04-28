@@ -7,14 +7,14 @@ const Button = ({ hover, title, href, children }) => {
   return (
     <Link href={href}>
       <div
-        className={`py-3 px-4 rounded-xl flex items-center space-x-10  ${
+        className={`flex items-center space-x-10 rounded-xl py-3 px-4  ${
           router.asPath === href ? "bg-purple" : "hover:bg-light-black"
         }`}
       >
         {children}
         <h1
           className={`text-2xl font-medium ${
-            hover ? "w-[100px]" : "w-0 hidden"
+            hover ? "w-[100px]" : "hidden w-0"
           }`}
         >
           {title}

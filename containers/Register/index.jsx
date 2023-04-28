@@ -38,7 +38,7 @@ const Register = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col justify-center items-center space-y-6"
+      className="flex flex-col items-center justify-center space-y-6"
     >
       <h1 className="text-4xl font-semibold text-white ">LOGIN</h1>
 

@@ -7,10 +7,10 @@ const Tab = ({ tabs }) => {
     setTab(t);
   };
   return (
-    <section className="w-full flex flex-col items-center mt-20 ">
+    <section className="mt-20 flex w-full flex-col items-center ">
       <TitleComponent title={tab.name} />
-      <div className="w-full flex flex-col  px-20 py-5 space-y-10">
-        <div className="w-full flex space-x-4">
+      <div className="flex w-full flex-col  space-y-10 px-20 py-5">
+        <div className="flex w-full space-x-4">
           {tabs.map((t) => (
             <Button
               key={t.name}

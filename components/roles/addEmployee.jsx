@@ -26,12 +26,12 @@ export default function AddEmployee() {
 
   return (
     <form
-      className="flex flex-col text-theme-text-gray"
+      className="text-theme-text-gray flex flex-col"
       onSubmit={handleUpdate}
     >
-      <div className="flex flex-col items-center w-[300px]">
-        <h1 className="text-lg font-medium mb-3">Employee Picture</h1>
-        <div className=" w-[110px] flex flex-col items-center p-2 text-center space-y-3 bg-theme-bg-gray rounded-2xl border-dashed border border-theme-light-gray">
+      <div className="flex w-[300px] flex-col items-center">
+        <h1 className="mb-3 text-lg font-medium">Employee Picture</h1>
+        <div className=" bg-theme-bg-gray border-theme-light-gray flex w-[110px] flex-col items-center space-y-3 rounded-2xl border border-dashed p-2 text-center">
           <div className="w-6">
             <Image
               src="/gallery-add.png"
@@ -40,12 +40,12 @@ export default function AddEmployee() {
               height={400}
             />
           </div>
-          <h1 className="text-theme-light-gray font-semibold text-sm">
+          <h1 className="text-theme-light-gray text-sm font-semibold">
             Upload Employee Picture
           </h1>
         </div>
       </div>
-      <div className="w-full py-4 border-t-4 mt-5 grid grid-cols-2 text-lg font-medium gap-x-10 gap-y-7">
+      <div className="mt-5 grid w-full grid-cols-2 gap-x-10 gap-y-7 border-t-4 py-4 text-lg font-medium">
         <LabeledInputComponent
           value={name}
           setValue={setName}

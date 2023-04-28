@@ -1,15 +1,15 @@
 const ToggleSwitch = ({ value, onEdit }) => {
   return (
-    <label className="relative inline-block w-16 h-9 rounded-full">
+    <label className="relative inline-block h-9 w-16 rounded-full">
       <input
         value={value}
         onChange={onEdit}
         type="checkbox"
-        className="peer opacity-0 w-0 h-0"
+        className="peer h-0 w-0 opacity-0"
       />
       <span
-        className="absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-dark-blue rounded-full duration-300 before:content-[''] before:absolute before:w-7 before:h-7 before:bottom-1 before:left-1 before:rounded-full
-  before:bg-white before:duration-300 peer-checked:before:translate-x-7 peer-checked:bg-purple"
+        className="absolute top-0 left-0 right-0 bottom-0 cursor-pointer rounded-full bg-dark-blue duration-300 before:absolute before:bottom-1 before:left-1 before:h-7 before:w-7 before:rounded-full before:bg-white
+  before:duration-300 before:content-[''] peer-checked:bg-purple peer-checked:before:translate-x-7"
       ></span>
     </label>
   );

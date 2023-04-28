@@ -2,11 +2,11 @@ import Image from "next/image";
 
 const Table = ({ cols, rows, action, warranty }) => {
   return (
-    <table className="flex flex-col text-2xl whitespace-nowrap">
-      <tr className="flex text-gray font-medium border-b-4 border-gray/20 w-min p-4">
+    <table className="flex flex-col whitespace-nowrap text-2xl">
+      <tr className="flex w-min border-b-4 border-gray/20 p-4 font-medium text-gray">
         {cols?.map((name) => {
           return (
-            <th key={name} className="w-[200px] capitalize text-start">
+            <th key={name} className="w-[200px] text-start capitalize">
               {name}
             </th>
           );
@@ -26,7 +26,7 @@ const Table = ({ cols, rows, action, warranty }) => {
               );
             })}
             {action && (
-              <td className="w-[200px] flex space-x-6">
+              <td className="flex w-[200px] space-x-6">
                 <button>
                   <Image
                     src={"/Edit.png"}
@@ -45,7 +45,7 @@ const Table = ({ cols, rows, action, warranty }) => {
                 </button>
               </td>
             )}
-            {warranty && <td className="w-[200px] flex space-x-6"></td>}
+            {warranty && <td className="flex w-[200px] space-x-6"></td>}
           </tr>
         );
       })}

@@ -2,8 +2,8 @@ const Button = ({ title, tabName, ...restProps }) => {
   return (
     <button
       {...restProps}
-      className={`text-xl text-center border-b-4 transition-color font-semibold duration-300 p-3 min-w-[150px] ${
-        title === tabName ? "text-purple border-purple " : "text-light-gray"
+      className={`transition-color min-w-[150px] border-b-4 p-3 text-center text-xl font-semibold duration-300 ${
+        title === tabName ? "border-purple text-purple " : "text-light-gray"
       }`}
     >
       {tabName}

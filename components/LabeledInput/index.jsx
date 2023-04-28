@@ -1,9 +1,9 @@
 const LabeledInput = ({ onEdit, label, extraCss, ...restProps }) => {
   return (
     <div className={`flex flex-col  ${extraCss}`}>
-      {label && <label className="text-xl text-text-gray mb-2">{label}</label>}
+      {label && <label className="mb-2 text-xl text-text-gray">{label}</label>}
       <input
-        className="p-3 bg-bg-gray rounded-xl outline-none"
+        className="rounded-xl bg-bg-gray p-3 outline-none"
         {...restProps}
         type={"text"}
         onChange={onEdit}
