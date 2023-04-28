@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-import { ToggleSwitchComponent, SubmitResetButtonComponent } from '..';
+
+import React, { useState } from 'react';
+
+import { SubmitResetButtonComponent, ToggleSwitchComponent } from '..';
 
 export default function Notifications() {
   const [sound, setSound] = useState(false);

@@ -1,4 +1,5 @@
 import Image from 'next/image';
+
 import React from 'react';
 
 function Table({ cols, rows, action, warranty }) {

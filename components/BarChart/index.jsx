@@ -1,5 +1,4 @@
 import { Bar } from 'react-chartjs-2';
-import React from 'react';
 
 function BarChart() {
   const labels = ['January', 'February', 'March', 'April', 'May', 'June'];

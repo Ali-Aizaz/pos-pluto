@@ -1,16 +1,16 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useState } from 'react';
+
+import { useState } from 'react';
 
 import {
-  MagnifyingGlassIcon,
   EmployeesIcon,
   InventoryIcon,
   LogoutIcon,
+  MagnifyingGlassIcon,
   SalesIcon,
   SettingsIcon,
 } from '../Icons';
-
 import NavBarButton from './Button';
 
 function NavBar() {

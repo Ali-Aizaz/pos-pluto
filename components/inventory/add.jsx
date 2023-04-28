@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+
 import { LabeledInputComponent, SubmitResetButtonComponent } from '..';
 
 export default function Add() {

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { memo } from 'react';
+
+import { memo } from 'react';
 
 function Button({ hover, title, href, children }) {
   const router = useRouter();

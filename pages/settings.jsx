@@ -1,8 +1,7 @@
-import React from 'react';
 import { NavBarComponent, TabComponent } from '../components';
 import AccountSetting from '../components/Settings/account';
-import SecuritySettings from '../components/Settings/security';
 import Notifications from '../components/Settings/notifications';
+import SecuritySettings from '../components/Settings/security';
 
 const tabs = [
   { name: 'Account Setting', tab: <AccountSetting /> },

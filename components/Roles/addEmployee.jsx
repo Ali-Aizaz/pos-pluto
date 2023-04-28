@@ -1,6 +1,8 @@
 import Image from 'next/image';
-import React, { useState } from 'react';
 import { useRouter } from 'next/router';
+
+import { useState } from 'react';
+
 import { LabeledInputComponent, SubmitResetButtonComponent } from '..';
 
 export default function AddEmployee() {

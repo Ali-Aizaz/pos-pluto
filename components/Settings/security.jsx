@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
 import { useRouter } from 'next/router';
+
+import React, { useState } from 'react';
+
 import {
-  ToggleSwitchComponent,
   LabeledInputComponent,
   SubmitResetButtonComponent,
+  ToggleSwitchComponent,
 } from '..';
 
 export default function SecuritySettings() {

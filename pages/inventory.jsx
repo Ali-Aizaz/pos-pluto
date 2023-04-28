@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { NavBarComponent, TabComponent } from '../components';
 import Add from '../components/inventory/add';
 import Manage from '../components/inventory/manage';

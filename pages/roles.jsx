@@ -1,7 +1,6 @@
-import React from 'react';
 import { NavBarComponent, TabComponent } from '../components';
-import { ManageRolesContainer } from '../containers';
 import AddEmployee from '../components/Roles/addEmployee';
+import { ManageRolesContainer } from '../containers';
 
 const tabs = [
   { name: 'Manage', tab: <ManageRolesContainer /> },

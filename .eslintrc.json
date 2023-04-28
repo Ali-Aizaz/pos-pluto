@@ -1,9 +1,7 @@
 {
   "env": {
     "browser": true,
-    "commonjs": true,
-    "es6": true,
-    "node": true
+    "es2021": true
   },
   "parser": "@babel/eslint-parser",
   "extends": [
@@ -28,7 +26,7 @@
     "ecmaFeatures": {
       "jsx": true // enable linting for jsx files
     },
-    "ecmaVersion": 11,
+    "ecmaVersion": 12,
     "sourceType": "module"
   },
   "settings": {
@@ -41,12 +39,25 @@
       }
     }
   },
-  "plugins": ["react", "react-hooks"],
+  "plugins": ["react", "react-hooks", "jsx-a11y", "simple-import-sort"],
   "rules": {
-    // NextJs specific fix: suppress errors for missing 'import React' in files for nextjs
-    "react/react-in-jsx-scope": "off",
-    // NextJs specific fix: allow jsx syntax in js files
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }], //should add ".ts" if typescript project
-    "react/display-name": 1
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          ["^next"],
+          ["^react"],
+          ["^\\u0000"],
+          ["^\\w"],
+          ["^@?\\w"],
+          ["^"],
+          ["^\\."]
+        ]
+      }
+    ],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-static-element-interactions": "off"
   }
 }

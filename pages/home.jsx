@@ -1,10 +1,9 @@
-import React from 'react';
-import { CardContainer } from '../containers';
 import {
   BarChartComponent,
   LineChartComponent,
   NavBarComponent,
 } from '../components';
+import { CardContainer } from '../containers';
 
 export default function Home() {
   return (

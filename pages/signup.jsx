@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
-import handleGoogle from '../utils/auth';
+
 import { RegisterContainer } from '../containers';
+import handleGoogle from '../utils/auth';
 
 export default function Login() {
   return (

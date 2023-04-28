@@ -1,4 +1,3 @@
-import React from 'react';
 import { NavBarComponent, TabComponent } from '../components';
 import Order from '../components/Sales/order';
 import Return from '../components/Sales/return';
