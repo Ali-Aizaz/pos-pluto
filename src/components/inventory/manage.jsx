@@ -16,19 +16,19 @@ export default function Manage() {
           placeholder="Search for "
           value={search}
           setValue={setSearch}
-          extraCss="w-[350px]"
+          className="w-[350px]"
         />
         <LabeledInputComponent
           placeholder="Category "
           value={category}
           setValue={setCategory}
-          extraCss="w-[350px]"
+          className="w-[350px]"
         />
         <LabeledInputComponent
           placeholder="Name Search"
           value={name}
           setValue={setName}
-          extraCss="w-[350px]"
+          className="w-[350px]"
         />
       </div>
       <div className="space-y-5 border-t-2 p-3 ">

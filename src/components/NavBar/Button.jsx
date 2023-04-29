@@ -3,20 +3,27 @@ import { useRouter } from 'next/router'
 
 import { memo } from 'react'
 
+import classNames from 'classnames'
+
 function Button({ hover, title, href, children }) {
   const router = useRouter()
   return (
     <Link href={href}>
       <div
-        className={`flex items-center space-x-10 rounded-xl py-3 px-4  ${
-          router.asPath === href ? 'bg-purple' : 'hover:bg-light-black'
-        }`}
+        className={classNames(
+          'flex items-center space-x-10 rounded-xl py-3 px-4 ',
+          {
+            'bg-purple': router.path === href,
+            'hover:bg-light-black': router.path !== href,
+          }
+        )}
       >
         {children}
         <h1
-          className={`text-2xl font-medium ${
-            hover ? 'w-[100px]' : 'hidden w-0'
-          }`}
+          className={classNames(`text-2xl font-medium `, {
+            'w-[100px]': hover,
+            'hidden w-0': !hover,
+          })}
         >
           {title}
         </h1>

@@ -8,7 +8,7 @@ function SubmitResetButton({ onReset }) {
       <ButtonComponent
         type="submit"
         label="Update Settings"
-        extraCss="w-[250px] text-xl"
+        className="w-[250px] text-xl"
       />
       <button
         type="button"

@@ -54,19 +54,19 @@ export default function SecuritySettings() {
           value={currentPass}
           setValue={setCurrentPass}
           placeholder="Enter current password"
-          extraCss="w-[400px]"
+          className="w-[400px]"
         />
         <LabeledInputComponent
           value={newPass}
           setValue={setNewPass}
           placeholder="Enter new password"
-          extraCss="w-[400px]"
+          className="w-[400px]"
         />
         <LabeledInputComponent
           value={reNewPass}
           setValue={setReNewPass}
           placeholder="Enter confirm new password"
-          extraCss="w-[400px]"
+          className="w-[400px]"
         />
       </div>
       <SubmitResetButtonComponent onReset={handleReset} />

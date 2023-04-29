@@ -12,7 +12,7 @@ export default function Return() {
         value={recipt}
         setValue={setRecipt}
         placeholder="Enter recipt number or phone number"
-        extraCss="w-[350px]"
+        className="w-[350px]"
       />
       <div className="flex justify-between">
         <div className="w-full">

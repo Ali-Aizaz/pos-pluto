@@ -33,13 +33,13 @@ export default function Order() {
             value={name}
             setValue={setName}
             placeholder="Name"
-            extraCss="w-[350px]"
+            className="w-[350px]"
           />
           <LabeledInputComponent
             value={phone}
             setValue={setPhone}
             placeholder="Phone Number"
-            extraCss="w-[350px]"
+            className="w-[350px]"
           />
         </div>
         <div className="mb-4 flex w-full flex-col gap-y-5 text-lg font-medium">
@@ -49,20 +49,20 @@ export default function Order() {
             value={category}
             setValue={setCategory}
             placeholder="Product Category"
-            extraCss="w-[350px]"
+            className="w-[350px]"
           />
           <LabeledInputComponent
             value={productName}
             setValue={setProductName}
             placeholder="Product Name"
-            extraCss="w-[350px]"
+            className="w-[350px]"
           />
           <div className="flex space-x-4">
             <LabeledInputComponent
               value={quantity}
               setValue={setQuantity}
               placeholder="Quantity"
-              extraCss="w-[150px]"
+              className="w-[150px]"
             />
             <div className="flex flex-col gap-y-1  text-white">
               <button

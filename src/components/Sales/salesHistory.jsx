@@ -12,7 +12,7 @@ export default function SalesHistory() {
           value={recipt}
           setValue={setRecipt}
           placeholder="Enter recipt number or phone number"
-          extraCss="w-[350px]"
+          className="w-[350px]"
         />
       </div>
       <div className="w-full">

@@ -49,39 +49,39 @@ export default function AddEmployee() {
           setValue={setName}
           placeholder="Name"
           label="Employee Bio:"
-          extraCss="space-y-7 w-[500px]"
+          className="space-y-7 w-[500px]"
         />
         <LabeledInputComponent
           value={username}
           setValue={setUsername}
           placeholder="Username"
           label="Employee ID"
-          extraCss="space-y-7 w-[500px]"
+          className="space-y-7 w-[500px]"
         />
 
         <LabeledInputComponent
           value={position}
           setValue={setPosition}
           placeholder="Position"
-          extraCss="space-y-7 w-[500px]"
+          className="space-y-7 w-[500px]"
         />
         <LabeledInputComponent
           value={role}
           setValue={setRole}
           placeholder="Role"
-          extraCss="space-y-7 w-[500px]"
+          className="space-y-7 w-[500px]"
         />
         <LabeledInputComponent
           value={password}
           setValue={setPassword}
           placeholder="Password"
-          extraCss="space-y-7 w-[500px]"
+          className="space-y-7 w-[500px]"
         />
         <LabeledInputComponent
           value={rePassword}
           setValue={setRePassword}
           placeholder="Confirm Password"
-          extraCss="space-y-7 w-[500px]"
+          className="space-y-7 w-[500px]"
         />
       </div>
       <SubmitResetButtonComponent onReset={handleReset} />
