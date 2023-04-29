@@ -22,4 +22,7 @@ export {
   SettingsIcon,
   LogoutIcon,
   CardIcon,
+  MailIcon,
+  KeyIcon,
+  TagIcon,
 } from './Icons'

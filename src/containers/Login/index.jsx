@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import { useCallback, useState } from 'react'
 
 import { ButtonComponent, InputFieldComponent } from 'components'
+import { KeyIcon, MailIcon } from 'components/Icons'
 
 function Login() {
   const [userName, setUserName] = useState('')
@@ -32,25 +33,27 @@ function Login() {
       <h1 className="text-4xl font-semibold text-white ">LOGIN</h1>
 
       <InputFieldComponent
-        src="/username.png"
         placeholder="Username"
         value={userName}
         onEdit={handleUserName}
-        extraCss="w-[400px]"
-      />
+        className="w-[400px]"
+      >
+        <MailIcon />
+      </InputFieldComponent>
       <InputFieldComponent
-        src="/key.png"
         placeholder="Password"
         value={password}
         onEdit={handlePassword}
-        extraCss="w-[400px]"
-      />
+        className="w-[400px]"
+      >
+        <KeyIcon />
+      </InputFieldComponent>
       <Link href="forget-password">
         <h1 className="w-[400px] -translate-y-4 text-end font-medium tracking-wide">
           Forget Password?
         </h1>
       </Link>
-      <ButtonComponent type label="Login" extraCss="w-[400px]" />
+      <ButtonComponent type label="Login" className="w-[400px]" />
     </form>
   )
 }

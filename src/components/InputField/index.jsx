@@ -1,19 +1,19 @@
-import Image from 'next/image'
-
 import { memo } from 'react'
 
-function InputField({ src, extraCss, onEdit }) {
+import classNames from 'classnames'
+
+function InputField({ onEdit, children, placeholder, className }) {
   return (
-    <div className={`flex rounded-xl bg-white ${extraCss}`}>
-      <Image
-        src={src}
-        alt="input icon"
-        width={60}
-        height={10}
-        className="aspect-square rounded-l-xl border-r border-black/20 bg-black/5 p-5"
-      />
+    <div
+      className={classNames(
+        'flex rounded-xl items-center px-4 space-x-4 bg-white',
+        className
+      )}
+    >
+      {children}
       <input
-        className="rounded-r-xl p-4 text-xl focus:outline-none"
+        placeholder={placeholder}
+        className="border-l border-black/20 rounded-r-xl p-3 text-xl focus:outline-none"
         onChange={onEdit}
       />
     </div>

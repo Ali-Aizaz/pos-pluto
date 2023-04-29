@@ -1,10 +1,15 @@
-import React from 'react'
+import classNames from 'classnames'
 
-function ButtonComponent({ extraCss, label, type }) {
+function ButtonComponent({ className, label, type, onClick, disabled }) {
   return (
     <button
       type={type ? 'submit' : 'button'}
-      className={`rounded-lg bg-purple p-3 font-medium text-white ${extraCss}`}
+      className={classNames(
+        'rounded-lg bg-purple p-3 font-medium text-white',
+        className
+      )}
+      onClick={onClick}
+      disabled={disabled}
     >
       {label}
     </button>

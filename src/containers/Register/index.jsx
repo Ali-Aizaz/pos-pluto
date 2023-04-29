@@ -2,7 +2,14 @@ import { useRouter } from 'next/router'
 
 import React, { useCallback, useState } from 'react'
 
-import { ButtonComponent, InputFieldComponent } from 'components'
+import {
+  ButtonComponent,
+  InputFieldComponent,
+  KeyIcon,
+  MailIcon,
+  TagIcon,
+} from 'components'
+import { UserIcon } from 'components/Icons'
 
 function Register() {
   const [username, setUserName] = useState('')
@@ -46,41 +53,46 @@ function Register() {
       <h1 className="text-4xl font-semibold text-white ">LOGIN</h1>
 
       <InputFieldComponent
-        src="/username.png"
         placeholder="username"
         value={username}
         onEdit={handleUserName}
-        extraCss="w-[400px]"
-      />
+        className="w-[400px]"
+      >
+        <TagIcon />
+      </InputFieldComponent>
       <InputFieldComponent
-        src="/key.png"
         placeholder="Password"
         value={password}
         onEdit={handlePassword}
-        extraCss="w-[400px]"
-      />
+        className="w-[400px]"
+      >
+        <KeyIcon />
+      </InputFieldComponent>
       <InputFieldComponent
-        src="/key.png"
         placeholder="Re-enter Password"
         value={rePassword}
         onEdit={handleRePassword}
-        extraCss="w-[400px]"
-      />
+        className="w-[400px]"
+      >
+        <KeyIcon />
+      </InputFieldComponent>
       <InputFieldComponent
-        src="/mail.png"
         placeholder="Email"
         value={email}
         onEdit={handleEmail}
-        extraCss="w-[400px]"
-      />
+        className="w-[400px]"
+      >
+        <MailIcon />
+      </InputFieldComponent>
       <InputFieldComponent
-        src="/person.png"
         placeholder="First Name"
         value={name}
         onEdit={handleName}
-        extraCss="w-[400px]"
-      />
-      <ButtonComponent type label="SIGN UP" extraCss="w-[400px]" />
+        className="w-[400px]"
+      >
+        <UserIcon />
+      </InputFieldComponent>
+      <ButtonComponent type label="SIGN UP" className="w-[400px]" />
     </form>
   )
 }
