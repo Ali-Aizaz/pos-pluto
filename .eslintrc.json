@@ -9,13 +9,9 @@
     "airbnb",
     "airbnb/hooks",
     "plugin:react/recommended",
-    "plugin:import/errors",
-    "plugin:import/warnings",
-    "plugin:jsx-a11y/recommended",
     "plugin:prettier/recommended",
+    "plugin:jsx-a11y/recommended",
     "next/core-web-vitals",
-    // "plugin:react-hooks/recommended",
-    // always put prettier at last
     "prettier"
   ],
   "globals": {
@@ -35,7 +31,8 @@
     },
     "import/resolver": {
       "node": {
-        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+        "paths": ["src"]
       }
     }
   },
@@ -58,6 +55,7 @@
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "jsx-a11y/click-events-have-key-events": "off",
-    "jsx-a11y/no-static-element-interactions": "off"
+    "jsx-a11y/no-static-element-interactions": "off",
+    "react/function-component-definition": "off"
   }
 }
