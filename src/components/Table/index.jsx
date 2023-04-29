@@ -1,7 +1,5 @@
 import Image from 'next/image'
 
-import React from 'react'
-
 function Table({ cols, rows, action, warranty }) {
   return (
     <table className="flex flex-col whitespace-nowrap text-2xl">

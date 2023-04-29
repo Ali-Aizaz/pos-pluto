@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 import TitleComponent from 'components/Title'
 
@@ -12,7 +12,7 @@ function TabComponent({ tabs }) {
   return (
     <section className="mt-20 flex w-full flex-col items-center ">
       <TitleComponent title={tab.name} />
-      <div className="flex w-full flex-col  space-y-10 px-20 py-5">
+      <div className="flex w-full flex-col space-y-10 px-20 py-5">
         <div className="flex w-full space-x-4">
           {tabs.map((t) => (
             <Button

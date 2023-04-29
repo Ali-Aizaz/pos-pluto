@@ -1,12 +1,11 @@
 import React from 'react'
 
 import { NavBarComponent, TabComponent } from 'components'
-import Add from 'components/inventory/add'
-import Manage from 'components/inventory/manage'
+import { AddInventoryContainer, ManageInventoryContainer } from 'containers'
 
 const tabs = [
-  { name: 'Manage', tab: <Manage /> },
-  { name: 'Add', tab: <Add /> },
+  { name: 'Manage', tab: <ManageInventoryContainer /> },
+  { name: 'Add', tab: <AddInventoryContainer /> },
 ]
 
 export default function Inventory() {
