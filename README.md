@@ -1,4 +1,12 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Project Link:
+https://pos-pluto.vercel.app/
+
+## Project Description
+
+This project is a point of sale system designed for small to medium-sized businesses.
+It helps with order tracking and inventory management. 
+The owner can create custom fields for each category of item and search through their inventory using any field.
 
 ## Getting Started
 
