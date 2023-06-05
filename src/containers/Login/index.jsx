@@ -5,13 +5,18 @@ import { useCallback, useState } from 'react'
 
 import { ButtonComponent, InputFieldComponent } from 'components'
 import { KeyIcon, MailIcon } from 'components/Icons'
+import UserDataContext from 'context/userData'
+import { HttpMethods } from 'utils/constants'
+import fetchRequest from 'utils/fetchRequest'
 
 function Login() {
-  const [userName, setUserName] = useState('')
+  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const handleUserName = useCallback((event) => {
-    setUserName(event.target.value)
+  const { setUserContext } = UserDataContext
+
+  const handleEmail = useCallback((event) => {
+    setEmail(event.target.value)
   }, [])
 
   const handlePassword = useCallback((event) => {
@@ -21,8 +26,13 @@ function Login() {
   const router = useRouter()
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('Login')
-    router.push('/home')
+    fetchRequest(HttpMethods.POST, 'auth/signin', {
+      email,
+      password,
+    }).then(({ data }) => {
+      setUserContext({ ...data, authorized: true })
+      router.push('/home')
+    })
   }
 
   return (
@@ -33,10 +43,10 @@ function Login() {
       <h1 className="text-4xl font-semibold text-white ">LOGIN</h1>
 
       <InputFieldComponent
-        placeholder="Username"
-        value={userName}
-        onEdit={handleUserName}
-        className="w-[400px]"
+        placeholder="Email"
+        value={email}
+        onEdit={handleEmail}
+        className="w-[400px] text-black"
       >
         <MailIcon />
       </InputFieldComponent>
@@ -44,7 +54,7 @@ function Login() {
         placeholder="Password"
         value={password}
         onEdit={handlePassword}
-        className="w-[400px]"
+        className="w-[400px] text-black"
       >
         <KeyIcon />
       </InputFieldComponent>
