@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
-import { useCallback, useState } from 'react'
+import { useCallback, useContext, useState } from 'react'
 
 import { ButtonComponent, InputFieldComponent } from 'components'
 import { KeyIcon, MailIcon } from 'components/Icons'
@@ -13,7 +13,7 @@ function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const { setUserContext } = UserDataContext
+  const { setUserData } = useContext(UserDataContext)
 
   const handleEmail = useCallback((event) => {
     setEmail(event.target.value)
@@ -29,9 +29,11 @@ function Login() {
     fetchRequest(HttpMethods.POST, 'auth/signin', {
       email,
       password,
-    }).then(({ data }) => {
-      setUserContext({ ...data, authorized: true })
-      router.push('/home')
+    }).then(({ data, error }) => {
+      if (!error) {
+        setUserData({ ...data, authorized: true })
+        router.push('/home')
+      }
     })
   }
 

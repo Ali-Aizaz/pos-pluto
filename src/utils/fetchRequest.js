@@ -35,8 +35,9 @@ const fetchRequest = async (method, url, data, query) => {
   } catch (err) {
     console.error('========== Request Failure ==========\n', err.response)
     return {
-      status: err.response.status,
+      status: err.response?.status,
       data: err.message,
+      error: true,
     }
   }
 }
