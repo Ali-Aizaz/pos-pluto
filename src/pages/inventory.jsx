@@ -2,6 +2,7 @@ import React from 'react'
 
 import { NavBarComponent, TabComponent } from 'components'
 import { AddInventoryContainer, ManageInventoryContainer } from 'containers'
+import ProtectContainer from 'containers/Protect'
 
 const tabs = [
   { name: 'Manage', tab: <ManageInventoryContainer /> },
@@ -10,9 +11,11 @@ const tabs = [
 
 export default function Inventory() {
   return (
-    <main className="flex w-full">
-      <NavBarComponent />
-      <TabComponent tabs={tabs} />
-    </main>
+    <ProtectContainer>
+      <main className="flex w-full">
+        <NavBarComponent />
+        <TabComponent tabs={tabs} />
+      </main>
+    </ProtectContainer>
   )
 }

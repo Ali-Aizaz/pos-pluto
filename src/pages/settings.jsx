@@ -4,6 +4,7 @@ import {
   NotificationSettingsContainter,
   SecuritySettingsContainer,
 } from 'containers'
+import ProtectContainer from 'containers/Protect'
 
 const tabs = [
   { name: 'Account Setting', tab: <AccountSettingsContainer /> },
@@ -13,9 +14,11 @@ const tabs = [
 
 export default function Settings() {
   return (
-    <main className="flex w-full">
-      <NavBarComponent />
-      <TabComponent tabs={tabs} />
-    </main>
+    <ProtectContainer>
+      <main className="flex w-full">
+        <NavBarComponent />
+        <TabComponent tabs={tabs} />
+      </main>
+    </ProtectContainer>
   )
 }
