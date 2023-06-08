@@ -1,5 +1,3 @@
-'client'
-
 import { useRouter } from 'next/router'
 
 import { useContext, useEffect } from 'react'
@@ -8,7 +6,7 @@ import UserDataContext, { INITIAL_USER_DATA } from 'context/userData'
 import { HttpMethods } from 'utils/constants'
 import fetchRequest from 'utils/fetchRequest'
 
-const ProtectContainer = ({ children }) => {
+const ProtectContainer = ({ children, isUnProtected }) => {
   const { userData, setUserData } = useContext(UserDataContext)
 
   const router = useRouter()
@@ -25,7 +23,7 @@ const ProtectContainer = ({ children }) => {
       })
   }, [router, setUserData])
 
-  return userData.authorized ? children : null
+  return userData.authorized || isUnProtected ? children : null
 }
 
 export default ProtectContainer

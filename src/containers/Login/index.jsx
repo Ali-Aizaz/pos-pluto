@@ -24,18 +24,21 @@ function Login() {
   }, [])
 
   const router = useRouter()
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    fetchRequest(HttpMethods.POST, 'auth/signin', {
-      email,
-      password,
-    }).then(({ data, error }) => {
-      if (!error) {
-        setUserData({ ...data, authorized: true })
-        router.push('/home')
-      }
-    })
-  }
+  const handleSubmit = useCallback(
+    (e) => {
+      e.preventDefault()
+      fetchRequest(HttpMethods.POST, 'auth/signin', {
+        email,
+        password,
+      }).then(({ data, error }) => {
+        if (!error) {
+          setUserData({ ...data, authorized: true })
+          router.push('/home')
+        }
+      })
+    },
+    [email, password, router, setUserData]
+  )
 
   return (
     <form
