@@ -15,15 +15,20 @@ const ProtectContainer = ({ children, isUnProtected }) => {
     fetchRequest(HttpMethods.GET, 'users/me')
       .then(({ data }) => {
         setUserData({ ...data, authorized: true })
+        if (isUnProtected) router.push('/home')
       })
       .catch(() => {
         setUserData(INITIAL_USER_DATA)
         localStorage.removeItem('Pluto')
         router.push('/')
       })
-  }, [router, setUserData])
+  }, [isUnProtected, router, setUserData])
 
-  return userData.authorized || isUnProtected ? children : null
+  if (userData.authorized) {
+    if (!isUnProtected) return children
+  } else if (isUnProtected) return children
+
+  return null
 }
 
 export default ProtectContainer
