@@ -5,8 +5,8 @@ import { useCallback, useContext, useState } from 'react'
 
 import { ButtonComponent, InputFieldComponent } from 'components'
 import { KeyIcon, MailIcon } from 'components/Icons'
+import { HttpMethods } from 'configs/constants'
 import UserDataContext from 'context/userData'
-import { HttpMethods } from 'utils/constants'
 import fetchRequest from 'utils/fetchRequest'
 
 function Login() {
@@ -27,6 +27,7 @@ function Login() {
   const handleSubmit = useCallback(
     (e) => {
       e.preventDefault()
+
       fetchRequest(HttpMethods.POST, 'auth/signin', {
         email,
         password,

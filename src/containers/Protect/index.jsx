@@ -2,8 +2,8 @@ import { useRouter } from 'next/router'
 
 import { useContext, useEffect } from 'react'
 
+import { HttpMethods, PATHS } from 'configs/constants'
 import UserDataContext, { INITIAL_USER_DATA } from 'context/userData'
-import { HttpMethods } from 'utils/constants'
 import fetchRequest from 'utils/fetchRequest'
 
 const ProtectContainer = ({ children, isUnProtected }) => {
@@ -15,12 +15,12 @@ const ProtectContainer = ({ children, isUnProtected }) => {
     fetchRequest(HttpMethods.GET, 'users/me')
       .then(({ data }) => {
         setUserData({ ...data, authorized: true })
-        if (isUnProtected) router.push('/home')
+        if (isUnProtected) router.push(PATHS.HOME)
       })
       .catch(() => {
         setUserData(INITIAL_USER_DATA)
         localStorage.removeItem('Pluto')
-        router.push('/')
+        router.push(PATHS.INDEX)
       })
   }, [isUnProtected, router, setUserData])
 

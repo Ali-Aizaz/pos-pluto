@@ -10,6 +10,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.1.0",
     "autoprefixer": "10.4.14",
     "axios": "^1.4.0",
     "chart.js": "^4.3.0",
@@ -18,7 +19,11 @@
     "react": "18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "18.2.0",
-    "tailwind-scrollbar": "^3.0.0"
+    "react-hook-form": "^7.44.3",
+    "react-hot-toast": "^2.4.1",
+    "tailwind-scrollbar": "^3.0.0",
+    "yup": "^1.2.0",
+    "yup-password": "^0.2.2"
   },
   "devDependencies": {
     "@babel/core": "^7.21.4",

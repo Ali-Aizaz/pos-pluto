@@ -10,8 +10,8 @@ import {
   TagIcon,
 } from 'components'
 import { UserIcon } from 'components/Icons'
+import { HttpMethods } from 'configs/constants'
 import UserDataContext from 'context/userData'
-import { HttpMethods } from 'utils/constants'
 import fetchRequest from 'utils/fetchRequest'
 
 function Register() {
@@ -54,17 +54,6 @@ function Register() {
     (e) => {
       e.preventDefault()
 
-      if (
-        store.trim() === '' ||
-        description.trim() === '' ||
-        name.trim() === '' ||
-        email.trim() === '' ||
-        password.trim() === '' ||
-        password.trim() !== rePassword.trim()
-      ) {
-        return
-      }
-
       fetchRequest(HttpMethods.POST, 'auth/signup', {
         storeName: store,
         storeDescription: description,
@@ -78,7 +67,8 @@ function Register() {
         }
       })
     },
-    [description, email, name, password, rePassword, router, setUserData, store]
+
+    [description, email, name, password, router, setUserData, store]
   )
 
   return (
