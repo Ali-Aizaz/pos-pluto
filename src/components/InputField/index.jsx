@@ -1,8 +1,9 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import { memo } from 'react'
 
 import classNames from 'classnames'
 
-function InputField({ onEdit, children, placeholder, className }) {
+function InputField({ onEdit, children, className, ...restProps }) {
   return (
     <div
       className={classNames(
@@ -12,7 +13,7 @@ function InputField({ onEdit, children, placeholder, className }) {
     >
       {children}
       <input
-        placeholder={placeholder}
+        {...restProps}
         className="border-l border-black/20 rounded-r-xl p-3 text-xl focus:outline-none"
         onChange={onEdit}
       />

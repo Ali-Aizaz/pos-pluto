@@ -31,7 +31,7 @@ export default function AccountSetting() {
     >
       <div className="flex flex-col items-center">
         <h1 className="mb-3 text-lg font-medium">Your Company logo</h1>
-        <div className=" flex w-[110px] flex-col items-center space-y-3 rounded-2xl border border-dashed border-light-gray bg-gray p-2 text-center">
+        <div className=" flex w-28 flex-col items-center space-y-3 rounded-2xl border border-dashed border-light-gray bg-gray p-2 text-center">
           <div className="w-6">
             <Image
               src="/gallery-add.png"

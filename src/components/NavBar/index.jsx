@@ -1,7 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 
 import classNames from 'classnames'
 import {
@@ -12,11 +13,20 @@ import {
   SalesIcon,
   SettingsIcon,
 } from 'components/Icons'
+import { PATHS } from 'configs/constants'
 
 import NavBarButton from './Button'
 
 function NavBar() {
   const [hover, setHover] = useState(false)
+
+  const router = useRouter()
+
+  const handleLogout = useCallback(() => {
+    localStorage.removeItem('Pluto')
+    router.push(PATHS.INDEX)
+  }, [router])
+
   return (
     <header
       onMouseOver={() => {
@@ -61,9 +71,21 @@ function NavBar() {
       <NavBarButton hover={hover} title="Settings" href="/settings">
         <SettingsIcon />
       </NavBarButton>
-      <NavBarButton hover={hover} title="Logout" href="/">
+      <button
+        onClick={handleLogout}
+        type="button"
+        className="mb-10 ml-3 flex space-x-8 items-center overflow-hidden"
+      >
         <LogoutIcon />
-      </NavBarButton>
+        <h1
+          className={classNames('whitespace-nowrap text-2xl font-medium', {
+            'w-[100px]': hover,
+            'hidden w-0': !hover,
+          })}
+        >
+          Logout
+        </h1>
+      </button>
     </header>
   )
 }

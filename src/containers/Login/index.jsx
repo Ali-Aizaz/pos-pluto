@@ -52,7 +52,7 @@ function Login() {
         placeholder="Email"
         value={email}
         onEdit={handleEmail}
-        className="w-[400px] text-black"
+        className="w-100 text-black"
       >
         <MailIcon />
       </InputFieldComponent>
@@ -60,16 +60,16 @@ function Login() {
         placeholder="Password"
         value={password}
         onEdit={handlePassword}
-        className="w-[400px] text-black"
+        className="w-100 text-black"
       >
         <KeyIcon />
       </InputFieldComponent>
       <Link href="forget-password">
-        <h1 className="w-[400px] -translate-y-4 text-end font-medium tracking-wide">
+        <h1 className="w-100 -translate-y-4 text-end font-medium tracking-wide">
           Forget Password?
         </h1>
       </Link>
-      <ButtonComponent type label="Login" className="w-[400px]" />
+      <ButtonComponent type label="Login" className="w-100" />
     </form>
   )
 }

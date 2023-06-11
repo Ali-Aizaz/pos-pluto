@@ -1,6 +1,7 @@
 import classNames from 'classnames'
+import Loading from 'components/Loading'
 
-function ButtonComponent({ className, label, type, onClick, disabled }) {
+function ButtonComponent({ className, label, type, onClick, isLoading }) {
   return (
     <button
       type={type ? 'submit' : 'button'}
@@ -9,9 +10,9 @@ function ButtonComponent({ className, label, type, onClick, disabled }) {
         className
       )}
       onClick={onClick}
-      disabled={disabled}
+      disabled={isLoading}
     >
-      {label}
+      {isLoading ? <Loading /> : label}
     </button>
   )
 }
