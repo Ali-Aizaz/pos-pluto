@@ -1,9 +1,12 @@
+'use-client'
+
 /* eslint-disable react/jsx-props-no-spreading */
 import { useMemo, useState } from 'react'
 import { Toaster } from 'react-hot-toast'
 
 import 'styles/globals.css'
 
+import ProtectContainer from 'containers/Protect'
 import UserDataContext, { INITIAL_USER_DATA } from 'context/userData'
 
 const App = ({ Component, pageProps }) => {
@@ -19,7 +22,9 @@ const App = ({ Component, pageProps }) => {
 
   return (
     <UserDataContext.Provider value={userDataContext}>
-      <Component {...pageProps} />
+      <ProtectContainer>
+        <Component {...pageProps} />
+      </ProtectContainer>
       <Toaster
         position="bottom-right"
         containerStyle={{

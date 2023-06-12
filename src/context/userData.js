@@ -8,7 +8,6 @@ export const INITIAL_USER_DATA = {
   provider: '',
   isEmailVerified: false,
   authorized: false,
-  initialized: false,
 }
 
 const UserDataContext = createContext({

@@ -17,3 +17,13 @@ export const PATHS = {
   SETTINGS: '/settings',
   SIGNUP: '/signup',
 }
+
+export const PROTECTED = [
+  '/home',
+  '/inventory',
+  '/roles',
+  '/sales',
+  '/settings',
+]
+
+export const UNPROTECTED = ['', '/', '/signup', '/login']

@@ -1,6 +1,5 @@
 import { NavBarComponent, TabComponent } from 'components'
 import { AddEmployeeContainer, ManageRolesContainer } from 'containers'
-import ProtectContainer from 'containers/Protect'
 
 const tabs = [
   { name: 'Manage', tab: <ManageRolesContainer /> },
@@ -9,11 +8,9 @@ const tabs = [
 
 export default function Roles() {
   return (
-    <ProtectContainer>
-      <main className="flex w-full">
-        <NavBarComponent />
-        <TabComponent tabs={tabs} />
-      </main>
-    </ProtectContainer>
+    <main className="flex w-full">
+      <NavBarComponent />
+      <TabComponent tabs={tabs} />
+    </main>
   )
 }

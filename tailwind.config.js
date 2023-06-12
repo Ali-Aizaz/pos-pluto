@@ -89,6 +89,7 @@ module.exports = {
       gray: '#8F97A3',
       purple: '#450332',
       black: '#0C0B0B',
+      red: '#F64F4F',
       'light-black': '#313131',
       'light-gray': '#717B8C',
       'bg-gray': '#EDF2F6',
