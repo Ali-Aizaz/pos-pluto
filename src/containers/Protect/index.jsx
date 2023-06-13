@@ -13,7 +13,7 @@ const ProtectContainer = ({ children }) => {
   const router = useRouter()
   const { asPath } = router
 
-  const isProtected = !!PROTECTED.find((val) => asPath.includes(val))
+  const isProtected = !!PROTECTED.find((val) => asPath.startsWith(val))
 
   const getUser = useCallback(() => {
     const localData = localStorage.getItem('Pluto') || '{}'
