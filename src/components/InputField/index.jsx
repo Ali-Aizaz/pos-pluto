@@ -10,7 +10,7 @@ function InputField({ children, className, error, ...restProps }, ref) {
       <div
         className={classNames(
           { 'border-red border': error },
-          'flex rounded-xl items-center px-4 space-x-4 bg-white',
+          'flex rounded-xl items-center pl-4 space-x-4 bg-white',
           className
         )}
       >
@@ -18,7 +18,7 @@ function InputField({ children, className, error, ...restProps }, ref) {
         <input
           ref={ref}
           {...restProps}
-          className="border-l border-black/20 text-black/90 rounded-r-xl p-3 text-xl focus:outline-none"
+          className="border-l border-black/20 text-black/90 rounded-r-xl p-3 w-full text-xl focus:outline-none"
         />
       </div>
     </div>

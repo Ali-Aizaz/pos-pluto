@@ -8,6 +8,7 @@ module.exports = {
         18: '4.5rem', //72px
         50: '12.5rem', // 200px
         55: '13.75rem', // 220px
+        76: '19rem', // 304px
         95: '23.75rem', // 380px
         100: '25rem', // 400px
       },
@@ -93,6 +94,7 @@ module.exports = {
       red: '#F64F4F',
       'light-black': '#313131',
       'light-gray': '#717B8C',
+      silver: '#E0E4EC',
       'bg-gray': '#EDF2F6',
       'text-gray': '#4C535F',
       'dark-blue': '#16003A',

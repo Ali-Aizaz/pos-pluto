@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 
 import { useCallback, useState } from 'react'
 
@@ -13,19 +12,16 @@ import {
   SalesIcon,
   SettingsIcon,
 } from 'components/Icons'
-import { PATHS } from 'configs/constants'
 
 import NavBarButton from './Button'
 
 function NavBar() {
   const [hover, setHover] = useState(false)
 
-  const router = useRouter()
-
   const handleLogout = useCallback(() => {
     localStorage.removeItem('Pluto')
-    router.push(PATHS.INDEX)
-  }, [router])
+    window.location.reload()
+  }, [])
 
   return (
     <header
