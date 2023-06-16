@@ -2,8 +2,9 @@ import Image from 'next/image'
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
-import { InputListComponent, LabeledInputComponent, Loading } from 'components'
+import { LabeledInputComponent, Loading } from 'components'
 import { HttpMethods } from 'configs/constants'
+import InputListContainer from 'containers/InputList'
 import debounce from 'lodash.debounce'
 import fetchRequest from 'utils/fetchRequest'
 
@@ -12,24 +13,29 @@ export default function Manage() {
   const searchRef = useRef(null)
 
   const [inventoryList, setInventoryList] = useState([])
+  const [selectedItem, setSelectedItem] = useState(null)
 
-  const fetchSearch = useCallback((criteria) => {
-    setIsLoading(true)
-    fetchRequest(
-      HttpMethods.GET,
-      'inventory',
-      {},
-      {
-        search: criteria,
-      }
-    )
-      .then(({ data, status }) => {
-        if (status === 200 && data.count > 0) setInventoryList(data.result)
-      })
-      .finally(() => setIsLoading(false))
-  }, [])
+  const fetchSearch = useCallback(
+    (criteria) => {
+      setIsLoading(true)
+      fetchRequest(
+        HttpMethods.GET,
+        'inventory',
+        {},
+        {
+          search: criteria,
+          categoryName: selectedItem?.name,
+        }
+      )
+        .then(({ data, status }) => {
+          if (status === 200 && data.count > 0) setInventoryList(data.result)
+        })
+        .finally(() => setIsLoading(false))
+    },
+    [selectedItem?.name]
+  )
 
-  useEffect(() => fetchSearch(), [fetchSearch])
+  useEffect(() => fetchSearch(), [fetchSearch, selectedItem])
 
   const debouncedSearch = useRef(
     debounce(async (criteria) => {
@@ -78,7 +84,8 @@ export default function Manage() {
           onEdit={handleSearch}
           className="w-76"
         />
-        <InputListComponent
+        <InputListContainer
+          setSelectedItem={setSelectedItem}
           placeholder="Category"
           url="category"
           className="w-76"

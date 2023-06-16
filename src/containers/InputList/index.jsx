@@ -1,5 +1,4 @@
-/* eslint-disable react/jsx-props-no-spreading */
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 import classNames from 'classnames'
 import { ArrowHeadIcon } from 'components/Icons'
@@ -8,11 +7,25 @@ import { HttpMethods } from 'configs/constants'
 import debounce from 'lodash.debounce'
 import fetchRequest from 'utils/fetchRequest'
 
-const InputListComponent = ({ label, className, url, ...restProps }) => {
+const InputListComponent = ({
+  label,
+  className,
+  url,
+  setSelectedItem,
+  ...restProps
+}) => {
   const [isLoading, setIsLoading] = useState(false)
   const searchRef = useRef(null)
 
   const [list, setList] = useState([])
+
+  const handleSelectItem = useCallback(
+    (item) => {
+      setSelectedItem(item)
+      setList([])
+    },
+    [setSelectedItem]
+  )
 
   const fetchSearch = useCallback(
     (criteria) => {
@@ -50,6 +63,22 @@ const InputListComponent = ({ label, className, url, ...restProps }) => {
     if (value.trim().length > 2) await debouncedSearch(value)
   }
 
+  const dropList = useMemo(
+    () =>
+      list.map((item) => (
+        <li key={item.id}>
+          <button
+            onClick={() => handleSelectItem(item)}
+            type="button"
+            className="border-b p-3 w-full text-left hover:bg-silver border-silver last:border-b-0 line-clamp-1"
+          >
+            {item.name}
+          </button>
+        </li>
+      )),
+    [list, handleSelectItem]
+  )
+
   return (
     <div className={classNames('flex flex-col relative', className)}>
       <h2 className="mb-2 text-xl text-text-gray">{label}</h2>
@@ -58,26 +87,25 @@ const InputListComponent = ({ label, className, url, ...restProps }) => {
           ref={searchRef}
           {...restProps}
           onChange={handleSearch}
-          className="rounded-xl bg-bg-gray p-3 outline-none w-full"
+          className="rounded-xl bg-grayLight p-3 outline-none w-full"
         />
         {isLoading ? (
-          <Loading className="absolute border-black/50 h-4 w-4 right-4 top-4" />
+          <Loading className="absolute border-black/50 !border-2 h-4 w-4 right-4 top-4" />
         ) : (
           <ArrowHeadIcon className="absolute border-black/50 h-4 w-4 right-4 top-4" />
         )}
       </div>
-      {list && list.length > 0 && (
-        <ul className="absolute mt-16 bg-white overflow-hidden w-full text-xl rounded-xl border border-silver shadow-md">
-          {list.map((item) => (
-            <li
-              key={item.id}
-              className="border-b p-3 cursor-pointer hover:bg-silver border-silver last:border-b-0 line-clamp-1"
-            >
-              {item.name}
-            </li>
-          ))}
-        </ul>
-      )}
+      <ul
+        className={classNames(
+          {
+            'max-h-100 border': list && list.length > 0,
+            'max-h-0': !list || list.length < 1,
+          },
+          'absolute mt-16 bg-white transition-maxHeight overflow-hidden w-full text-xl rounded-xl border-silver shadow-md'
+        )}
+      >
+        {dropList}
+      </ul>
     </div>
   )
 }

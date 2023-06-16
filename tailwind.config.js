@@ -4,6 +4,9 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      transitionProperty: {
+        maxHeight: 'max-height',
+      },
       width: {
         18: '4.5rem', //72px
         50: '12.5rem', // 200px
@@ -19,6 +22,9 @@ module.exports = {
       maxWidth: {
         md: '52.5rem', // 840px
         xl: '90rem', //1440px
+      },
+      maxHeight: {
+        100: '25rem', // 400px
       },
       height: {
         0.25: '0.0625rem', // 1px
@@ -95,7 +101,7 @@ module.exports = {
       'light-black': '#313131',
       'light-gray': '#717B8C',
       silver: '#E0E4EC',
-      'bg-gray': '#EDF2F6',
+      grayLight: '#EDF2F6',
       'text-gray': '#4C535F',
       'dark-blue': '#16003A',
       white: '#FFFFFF',
