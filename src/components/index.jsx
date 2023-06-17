@@ -14,6 +14,7 @@ export { default as NavBarComponent } from './NavBar'
 export { default as SubmitResetButtonComponent } from './SubmitResetButton'
 export { default as TabComponent } from './Tab'
 export { default as Loading } from './Loading'
+export { default as ProductComponent } from './Product'
 
 export {
   MagnifyingGlassIcon,

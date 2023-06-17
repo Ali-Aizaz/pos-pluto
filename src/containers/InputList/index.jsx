@@ -27,29 +27,26 @@ const InputListComponent = ({
     [setSelectedItem]
   )
 
-  const fetchSearch = useCallback(
-    (criteria) => {
-      setIsLoading(true)
-      fetchRequest(
-        HttpMethods.GET,
-        url,
-        { limit: 6 },
-        {
-          search: criteria,
-        }
-      )
-        .then(({ data, status }) => {
-          if (status === 200 && data.count > 0) setList(data.result)
-        })
-        .finally(() => setIsLoading(false))
-    },
-    [url]
-  )
+  const fetchSearch = (criteria) => {
+    setIsLoading(true)
+    fetchRequest(
+      HttpMethods.GET,
+      url,
+      { limit: 6 },
+      {
+        search: criteria,
+      }
+    )
+      .then(({ data, status }) => {
+        if (status === 200 && data.count > 0) setList(data.result)
+      })
+      .finally(() => setIsLoading(false))
+  }
 
   const debouncedSearch = useRef(
     debounce(async (criteria) => {
       await fetchSearch(criteria)
-    }, 300)
+    }, 500)
   ).current
 
   useEffect(() => {

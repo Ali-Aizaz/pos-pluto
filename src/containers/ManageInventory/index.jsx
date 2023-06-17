@@ -40,7 +40,7 @@ export default function Manage() {
   const debouncedSearch = useRef(
     debounce(async (criteria) => {
       await fetchSearch(criteria)
-    }, 300)
+    }, 500)
   ).current
 
   useEffect(() => {
