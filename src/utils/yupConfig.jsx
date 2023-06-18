@@ -45,3 +45,15 @@ export const SignInSchema = yup.object().shape({
     .minRepeating(3, 'Repeated characters are not allowed')
     .required('Please input your password'),
 })
+
+export const InventorySchema = yup.object().shape({
+  count: yup
+    .number()
+    .min(1, 'Your inventory count must be at least 1')
+    .required('Please input your inventory count'),
+  price: yup
+    .number()
+    .min(1, 'Your inventory product price must be at least 1')
+    .required('Please provide this products price'),
+  warranty: yup.number(),
+})

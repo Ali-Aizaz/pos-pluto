@@ -58,10 +58,11 @@ function Register() {
         .then(({ data, error }) => {
           if (!error) {
             setUserData({ ...data, authorized: true })
+            reset()
             router.push('/home')
           }
         })
-        .finally(() => setIsLoading(false), reset())
+        .finally(() => setIsLoading(false))
     },
 
     [reset, router, setUserData]
