@@ -11,7 +11,7 @@ export default function CartItemComponent({ item, onRemoveItem, index }) {
           Category: <strong>{item.categoryName}</strong>
         </li>
         <li>
-          Quantity: <strong>4</strong>
+          Quantity: <strong>{item.quantity}</strong>
         </li>
       </ul>
       <div className="flex flex-col items-end justify-between p-4">

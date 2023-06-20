@@ -31,14 +31,20 @@ export default function Order() {
   const handleCart = useCallback(
     (event) => {
       event.preventDefault()
-      if (inventory !== null) {
-        setCartList((x) => [...x, inventory])
+      if (inventory !== null && inventory.count >= quantity > 0) {
+        const oldItem = cartList.find((i) => i.id === inventory.id)
+        if (oldItem) {
+          setCartList([
+            ...cartList.filter((s) => s.id !== inventory.id),
+            { quantity: quantity + oldItem.quantity, ...inventory },
+          ])
+        } else setCartList((x) => [...x, { quantity, ...inventory }])
         setInventory(null)
         setCategory(null)
         setQuantity(0)
       }
     },
-    [inventory]
+    [cartList, inventory, quantity]
   )
 
   const handleReset = () => {}
@@ -112,7 +118,13 @@ export default function Order() {
         <SubmitResetButtonComponent label="Add to Cart" onReset={handleReset} />
       </form>
       <div className="i">
-        {inventory && <ProductComponent display product={inventory.product} />}
+        {inventory && (
+          <ProductComponent
+            display
+            product={inventory.product}
+            count={inventory.count}
+          />
+        )}
       </div>
       <div className="flex flex-col items-center space-y-5">
         <div className="ml-10 flex h-[60vh] w-[400px] flex-col items-center space-y-5 overflow-y-auto rounded-3xl bg-[#E3E0E0] py-5">

@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 
-const ProductComponent = ({ product, display }) => {
+const ProductComponent = ({ product, display, count }) => {
   return (
     <div
       className={classNames(
@@ -19,6 +19,10 @@ const ProductComponent = ({ product, display }) => {
         <div>
           <h1 className="text-base font-bold">Category</h1>
           <p>{product.categoryName}</p>
+        </div>
+        <div>
+          <h1 className="text-base font-bold">Quantity</h1>
+          <p>{count}</p>
         </div>
       </div>
       <div className="flex space-x-10">
