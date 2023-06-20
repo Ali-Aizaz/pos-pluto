@@ -21,7 +21,6 @@ function LabeledInput(
         ref={ref}
         {...restProps}
         className="rounded-xl bg-grayLight p-3 outline-none"
-        onChange={onEdit}
       />
     </div>
   )
