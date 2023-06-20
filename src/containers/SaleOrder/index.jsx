@@ -89,7 +89,7 @@ export default function Order() {
       inventoryData: cartList.map((item) => {
         return {
           id: item.id,
-          count: item.count,
+          count: item.quantity,
           price: item.price,
           warranty: item.warranty,
           productId: item.productId,
