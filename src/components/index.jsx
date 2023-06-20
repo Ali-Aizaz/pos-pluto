@@ -15,6 +15,7 @@ export { default as SubmitResetButtonComponent } from './SubmitResetButton'
 export { default as TabComponent } from './Tab'
 export { default as Loading } from './Loading'
 export { default as ProductComponent } from './Product'
+export { default as CartItemComponent } from './CartItem'
 
 export {
   MagnifyingGlassIcon,

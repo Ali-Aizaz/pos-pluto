@@ -12,6 +12,7 @@ const InputListComponent = ({
   className,
   url,
   setSelectedItem,
+  listField,
   ...restProps
 }) => {
   const [isLoading, setIsLoading] = useState(false)
@@ -22,9 +23,10 @@ const InputListComponent = ({
   const handleSelectItem = useCallback(
     (item) => {
       setSelectedItem(item)
+      searchRef.current.value = listField ? item[listField].name : item.name
       setList([])
     },
-    [setSelectedItem]
+    [listField, setSelectedItem]
   )
 
   const fetchSearch = (criteria) => {
@@ -69,11 +71,11 @@ const InputListComponent = ({
             type="button"
             className="border-b p-3 w-full text-left hover:bg-silver border-silver last:border-b-0 line-clamp-1"
           >
-            {item.name}
+            {listField ? item[listField].name : item.name}
           </button>
         </li>
       )),
-    [list, handleSelectItem]
+    [list, listField, handleSelectItem]
   )
 
   return (
@@ -98,7 +100,7 @@ const InputListComponent = ({
             'max-h-100 border': list && list.length > 0,
             'max-h-0': !list || list.length < 1,
           },
-          'absolute mt-16 bg-white transition-maxHeight overflow-hidden w-full text-xl rounded-xl border-silver shadow-md'
+          'absolute mt-16 z-10 text-black bg-white transition-maxHeight overflow-hidden w-full text-xl rounded-xl border-silver shadow-md'
         )}
       >
         {dropList}

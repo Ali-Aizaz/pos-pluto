@@ -9,3 +9,4 @@ export { default as NotificationSettingsContainter } from './NotificationSetting
 export { default as AddInventoryContainer } from './AddInventory'
 export { default as ManageInventoryContainer } from './ManageInventory'
 export { default as InputListContainer } from './InputList'
+export { default as OrderContainer } from './SaleOrder'

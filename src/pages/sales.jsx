@@ -1,10 +1,10 @@
 import { NavBarComponent, TabComponent } from 'components'
-import Order from 'components/Sales/order'
 import Return from 'components/Sales/return'
 import SalesHistory from 'components/Sales/salesHistory'
+import OrderContainer from 'containers/SaleOrder'
 
 const tabs = [
-  { name: 'Order', tab: <Order /> },
+  { name: 'Order', tab: <OrderContainer /> },
   { name: 'Return', tab: <Return /> },
   { name: 'Sales History', tab: <SalesHistory /> },
 ]
