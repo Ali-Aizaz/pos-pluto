@@ -42,10 +42,9 @@ export default function Order() {
   )
 
   const handleReset = useCallback(() => {
-    handleReset()
     setName('')
     setPhone('')
-    setCartList(null)
+    setCartList([])
     setInventory(null)
     setCategory(null)
     setQuantity(0)

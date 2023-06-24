@@ -15,30 +15,28 @@ function Table({ cols, rows, action, warranty }) {
           <th className="w-[200px]  text-start">Action</th>
         )}
       </tr>
-      {rows?.map((row) => {
-        return (
-          <tr key={row} className="flex p-4">
-            {cols?.map((name) => {
-              return (
-                <td key={name} className="w-[200px] capitalize">
-                  {row[name]}
-                </td>
-              )
-            })}
-            {action && (
-              <td className="flex w-[200px] space-x-6">
-                <button type="button">
-                  <Image src="/Edit.png" alt="edit" width={25} height={20} />
-                </button>
-                <button type="button">
-                  <Image src="/trash.png" alt="edit" width={20} height={20} />
-                </button>
+      {rows?.map((row) => (
+        <tr key={row} className="flex p-4">
+          {cols?.map((name) => {
+            return (
+              <td key={name} className="w-[200px] capitalize">
+                {row[name]}
               </td>
-            )}
-            {warranty && <td className="flex w-[200px] space-x-6" />}
-          </tr>
-        )
-      })}
+            )
+          })}
+          {action && (
+            <td className="flex w-[200px] space-x-6">
+              <button type="button">
+                <Image src="/Edit.png" alt="edit" width={25} height={20} />
+              </button>
+              <button type="button">
+                <Image src="/trash.png" alt="edit" width={20} height={20} />
+              </button>
+            </td>
+          )}
+          {warranty && <td className="flex w-[200px] space-x-6" />}
+        </tr>
+      ))}
     </table>
   )
 }
