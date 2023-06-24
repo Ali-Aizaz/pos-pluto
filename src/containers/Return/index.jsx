@@ -8,9 +8,21 @@ import {
 import { HttpMethods } from 'configs/constants'
 import fetchRequest from 'utils/fetchRequest'
 
+const inv = {
+  id: '',
+  price: '',
+  warranty: '',
+  product: {
+    id: '',
+    name: '',
+    details: {},
+  },
+  created_at: '',
+}
+
 export default function Return() {
   const [recipt, setRecipt] = useState('')
-  const [item, setItem] = useState({})
+  const [item, setItem] = useState(inv)
   const [soldItems, setSoldItems] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
@@ -29,13 +41,13 @@ export default function Return() {
 
   const handleReturnItem = useCallback(
     (returnItem) => {
-      const { productId, count } = returnItem
+      const { id, count } = returnItem
       if (!soldItems) return
 
       setIsLoading(true)
-      fetchRequest(HttpMethods.POST, 'inventory/return', { productId, count })
+      fetchRequest(HttpMethods.POST, 'inventory/return', { id, count })
         .then(() => {
-          setItem({})
+          setItem(inv)
           handleGetItems()
         })
         .finally(() => setIsLoading(false))
