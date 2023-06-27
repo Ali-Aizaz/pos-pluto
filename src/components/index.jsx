@@ -1,5 +1,4 @@
 export { default as ButtonComponent } from './Button'
-export { default as TableComponent } from './Table'
 export { default as TitleComponent } from './Title'
 export { default as InputFieldComponent } from './InputField'
 export { default as LabeledInputComponent } from './LabeledInput'
