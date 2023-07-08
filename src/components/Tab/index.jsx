@@ -16,7 +16,7 @@ function TabComponent({ tabs }) {
   }, [tabs])
 
   return (
-    <section className="mt-20 flex w-full flex-col items-center ">
+    <section className="pt-20 flex w-full flex-col items-center ">
       <TitleComponent title={tab} />
       <div className="flex w-full flex-col space-y-10 px-20 py-5">
         <div className="flex w-full space-x-4">

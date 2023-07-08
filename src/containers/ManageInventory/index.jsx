@@ -2,9 +2,10 @@ import Image from 'next/image'
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
-import { LabeledInputComponent, Loading } from 'components'
+import { ButtonComponent, LabeledInputComponent, Loading } from 'components'
 import { HttpMethods } from 'configs/constants'
 import InputListContainer from 'containers/InputList'
+import Modal from 'containers/Modal'
 import debounce from 'lodash.debounce'
 import fetchRequest from 'utils/fetchRequest'
 
@@ -14,6 +15,28 @@ export default function Manage() {
 
   const [inventoryList, setInventoryList] = useState([])
   const [selectedItem, setSelectedItem] = useState(null)
+  const [showModal, setShowModal] = useState(false)
+  const [ID, setID] = useState(null)
+
+  const handleClose = useCallback(() => {
+    setShowModal(false)
+  }, [])
+
+  const handleOpen = useCallback((id) => {
+    setID(id)
+    setShowModal(true)
+  }, [])
+
+  const deleteInventory = useCallback(() => {
+    setIsLoading(true)
+
+    fetchRequest(HttpMethods.DELETE, `inventory/${ID}`)
+      .then(() => setInventoryList(inventoryList.filter(({ id }) => id !== ID)))
+      .finally(() => {
+        setIsLoading(false)
+        setShowModal(false)
+      })
+  }, [ID, inventoryList])
 
   const fetchSearch = useCallback(
     (criteria) => {
@@ -65,48 +88,60 @@ export default function Manage() {
             <button type="button">
               <Image src="/Edit.png" alt="edit" width={25} height={20} />
             </button>
-            <button type="button">
-              <Image src="/trash.png" alt="edit" width={20} height={20} />
+            <button type="button" onClick={() => handleOpen(id)}>
+              <Image src="/trash.png" alt="delete" width={20} height={20} />
             </button>
           </li>
         </ul>
       )),
-    [inventoryList]
+    [handleOpen, inventoryList]
   )
 
   return (
-    <div className="w-full">
-      <h2 className="text-theme-text-gray mb-2 text-2xl">Filters: </h2>
-      <div className="mb-4 flex items-end space-x-5 py-3">
-        <LabeledInputComponent
-          placeholder="Name Search"
-          ref={searchRef}
-          onEdit={handleSearch}
-          className="w-76"
-        />
-        <InputListContainer
-          setSelectedItem={setSelectedItem}
-          placeholder="Category"
-          url="category"
-          className="w-76"
-        />
-      </div>
-      <div className="space-y-5 text-gray font-medium border-y-2 border-silver p-3 ">
-        <ul className="flex text-2xl gap-x-7">
-          <li className="w-50">Product Name</li>
-          <li className="w-50 ">Category</li>
-          <li className="w-50 ">Quantity</li>
-          <li className="w-50 ">Actions</li>
-        </ul>
-      </div>
-      <div className="space-y-5 p-3 text-xl font-thin">
-        {inventoryList.length > 0 && productList}
-      </div>
-      {isLoading && (
-        <div className="flex w-full justify-center py-8">
-          <Loading className="border-black w-8 h-8" />
+    <>
+      <div className="w-full">
+        <h2 className="text-theme-text-gray mb-2 text-2xl">Filters: </h2>
+        <div className="mb-4 flex items-end space-x-5 py-3">
+          <LabeledInputComponent
+            placeholder="Name Search"
+            ref={searchRef}
+            onEdit={handleSearch}
+            className="w-76"
+          />
+          <InputListContainer
+            setSelectedItem={setSelectedItem}
+            placeholder="Category"
+            url="category"
+            className="w-76"
+          />
         </div>
-      )}
-    </div>
+        <div className="space-y-5 text-gray font-medium border-y-2 border-silver p-3 ">
+          <ul className="flex text-2xl gap-x-7">
+            <li className="w-50">Product Name</li>
+            <li className="w-50 ">Category</li>
+            <li className="w-50 ">Quantity</li>
+            <li className="w-50 ">Actions</li>
+          </ul>
+        </div>
+        <div className="space-y-5 p-3 text-xl font-thin">
+          {inventoryList.length > 0 && productList}
+        </div>
+        {isLoading && (
+          <div className="flex w-full justify-center py-8">
+            <Loading className="border-black w-8 h-8" />
+          </div>
+        )}
+      </div>
+      <Modal showModal={showModal} onClose={handleClose}>
+        <h1 className="text-center p-3 mb-3 text-xl font-medium">
+          Are you sure you want to delete this product from your inventory?
+        </h1>
+        <ButtonComponent
+          label="Delete"
+          onClick={deleteInventory}
+          isLoading={isLoading}
+        />
+      </Modal>
+    </>
   )
 }

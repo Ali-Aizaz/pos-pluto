@@ -42,7 +42,7 @@ export default function Add() {
     ({ price, count, warranty }) => {
       if (product?.id) {
         setIsLoading(true)
-        fetchRequest(HttpMethods.POST, 'products', {
+        fetchRequest(HttpMethods.POST, 'inventory', {
           price,
           count,
           warranty,

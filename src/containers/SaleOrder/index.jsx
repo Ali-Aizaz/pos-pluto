@@ -82,7 +82,7 @@ export default function Order() {
     if (cartList.length < 1) return setError('No items in cart')
 
     setIsLoading(true)
-    fetchRequest(HttpMethods.POST, 'inventory', {
+    fetchRequest(HttpMethods.POST, 'inventory/sell', {
       name,
       phone,
       inventoryData: cartList.map((item) => {

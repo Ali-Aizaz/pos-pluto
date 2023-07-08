@@ -28,4 +28,5 @@ export {
   KeyIcon,
   TagIcon,
   ArrowHeadIcon,
+  Cross,
 } from './Icons'
