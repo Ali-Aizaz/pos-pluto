@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from 'react'
 import {
   LabeledInputComponent,
   Loading,
-  UserDetailsComponent,
+  ProductDetailsComponent,
 } from 'components'
 import { HttpMethods } from 'configs/constants'
 import fetchRequest from 'utils/fetchRequest'
@@ -98,7 +98,7 @@ export default function Return() {
             </div>
           )}
         </div>
-        <UserDetailsComponent
+        <ProductDetailsComponent
           createdAt={item.createdAt}
           customerName={item.customerName}
           customerPhone={item.customerPhone}

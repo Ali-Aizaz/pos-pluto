@@ -2,7 +2,12 @@ import Image from 'next/image'
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
-import { ButtonComponent, LabeledInputComponent, Loading } from 'components'
+import {
+  ButtonComponent,
+  LabeledInputComponent,
+  Loading,
+  ProductDetailsComponent,
+} from 'components'
 import { HttpMethods } from 'configs/constants'
 import InputListContainer from 'containers/InputList'
 import Modal from 'containers/Modal'
@@ -15,8 +20,16 @@ export default function Manage() {
 
   const [inventoryList, setInventoryList] = useState([])
   const [selectedItem, setSelectedItem] = useState(null)
+  const [showProduct, setShowProduct] = useState(false)
   const [showModal, setShowModal] = useState(false)
   const [ID, setID] = useState(null)
+
+  const handleCloseProduct = useCallback(() => setShowProduct(false), [])
+
+  const handleShowProduct = useCallback((product) => {
+    setSelectedItem(product)
+    setShowProduct(true)
+  }, [])
 
   const handleClose = useCallback(() => {
     setShowModal(false)
@@ -58,7 +71,8 @@ export default function Manage() {
     [selectedItem?.name]
   )
 
-  useEffect(() => fetchSearch(), [fetchSearch, selectedItem])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => fetchSearch(), [])
 
   const debouncedSearch = useRef(
     debounce(async (criteria) => {
@@ -80,11 +94,16 @@ export default function Manage() {
   const productList = useMemo(
     () =>
       inventoryList.map(({ id, product, count }) => (
-        <ul key={id} className="flex gap-x-7">
-          <li className="w-50 ">{product.name}</li>
-          <li className="w-50 ">{product.categoryName}</li>
-          <li className="w-50 px-2">{count}</li>
-          <li className="flex w-50 space-x-6 ">
+        <button
+          onClick={() => handleShowProduct(product)}
+          type="button"
+          key={id}
+          className="flex gap-x-7 hover:bg-black/5 p-3 rounded-xl cursor-pointer text-start"
+        >
+          <li className="w-50 list-none">{product.name}</li>
+          <li className="w-50 list-none">{product.categoryName}</li>
+          <li className="w-50 px-2 list-none">{count}</li>
+          <li className="flex w-50 space-x-6 list-none">
             <button type="button">
               <Image src="/Edit.png" alt="edit" width={25} height={20} />
             </button>
@@ -92,14 +111,14 @@ export default function Manage() {
               <Image src="/trash.png" alt="delete" width={20} height={20} />
             </button>
           </li>
-        </ul>
+        </button>
       )),
-    [handleOpen, inventoryList]
+    [handleOpen, handleShowProduct, inventoryList]
   )
 
   return (
     <>
-      <div className="w-full">
+      <div className="w-min">
         <h2 className="text-theme-text-gray mb-2 text-2xl">Filters: </h2>
         <div className="mb-4 flex items-end space-x-5 py-3">
           <LabeledInputComponent
@@ -123,7 +142,7 @@ export default function Manage() {
             <li className="w-50 ">Actions</li>
           </ul>
         </div>
-        <div className="space-y-5 p-3 text-xl font-thin">
+        <div className="space-y-2 p-2 text-xl font-thin">
           {inventoryList.length > 0 && productList}
         </div>
         {isLoading && (
@@ -141,6 +160,9 @@ export default function Manage() {
           onClick={deleteInventory}
           isLoading={isLoading}
         />
+      </Modal>
+      <Modal showModal={showProduct} onClose={handleCloseProduct}>
+        <ProductDetailsComponent product={selectedItem} />
       </Modal>
     </>
   )
