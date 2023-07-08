@@ -21,13 +21,13 @@ export default function SalesHistory() {
   const soldItemsList = useMemo(() => {
     return soldItems.map((soldItem) => (
       <ul className="flex" key={soldItem.id}>
-        <li className="w-50">{soldItem.id}</li>
-        <li className="w-50">{soldItem.customerName}</li>
-        <li className="w-50">{soldItem.customerPhone}</li>
-        <li className="w-50">{soldItem.product.name}</li>
-        <li className="w-50">{soldItem.count}</li>
-        <li className="w-50">{soldItem.warranty} months</li>
-        <li className="w-50">{soldItem.price}</li>
+        <li className="w-50 break-words">{soldItem.id}</li>
+        <li className="w-50 break-words">{soldItem.customerName}</li>
+        <li className="w-50 break-words">{soldItem.customerPhone}</li>
+        <li className="w-50 break-words">{soldItem.product.name}</li>
+        <li className="w-50 break-words">{soldItem.count}</li>
+        <li className="w-50 break-words">{soldItem.warranty} months</li>
+        <li className="w-50 break-words">{soldItem.price}</li>
       </ul>
     ))
   }, [soldItems])
