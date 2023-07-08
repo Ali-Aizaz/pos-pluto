@@ -57,3 +57,20 @@ export const InventorySchema = yup.object().shape({
     .required('Please provide this products price'),
   warranty: yup.number(),
 })
+
+export const EmployeeSchema = yup.object().shape({
+  name: yup
+    .string()
+    .min(3, 'Your name must be of at least 3 characters')
+    .max(50, 'Your name must be at most 50 characters')
+    .required('Please input your name'),
+  email: yup
+    .string()
+    .email('Please provide valid email')
+    .required('Please input your email'),
+  password: yup
+    .string()
+    .password()
+    .minRepeating(3, 'Repeated characters are not allowed')
+    .required('Please input your password'),
+})

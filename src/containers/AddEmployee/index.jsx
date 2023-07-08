@@ -2,34 +2,53 @@ import Image from 'next/image'
 import { useRouter } from 'next/router'
 
 import { useState } from 'react'
+import { useForm } from 'react-hook-form'
 
 import { LabeledInputComponent, SubmitResetButtonComponent } from 'components'
+import { HttpMethods } from 'configs/constants'
+import fetchRequest from 'utils/fetchRequest'
+import { EmployeeSchema } from 'utils/yupConfig'
+
+import { yupResolver } from '@hookform/resolvers/yup'
 
 export default function AddEmployee() {
-  const [name, setName] = useState('')
-  const [position, setPosition] = useState('')
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
-  const [rePassword, setRePassword] = useState('')
-  const [role, setRole] = useState('')
   const router = useRouter()
+  const [isLoading, setIsLoading] = useState(false)
 
-  const handleUpdate = (e) => {
-    e.preventDefault()
-    console.log('update')
-    router.push('/home')
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(EmployeeSchema),
+    mode: 'onBlur',
+    defaultValues: {
+      email: '',
+      password: '',
+      name: '',
+    },
+  })
+
+  const handleCreateEmployee = ({ name, email, password }) => {
+    setIsLoading(true)
+    fetchRequest(HttpMethods.POST, 'users/employees', {
+      name,
+      email,
+      password,
+    })
+      .then(() => router.push('/roles?tab=Manage'))
+      .finally(() => setIsLoading(false))
   }
-
-  const handleReset = () => {}
 
   return (
     <form
       className="text-theme-text-gray flex flex-col"
-      onSubmit={handleUpdate}
+      onSubmit={handleSubmit(handleCreateEmployee)}
     >
       <div className="flex w-[300px] flex-col items-center">
         <h1 className="mb-3 text-lg font-medium">Employee Picture</h1>
-        <div className=" bg-theme-bg-gray border-theme-light-gray flex w-[110px] flex-col items-center space-y-3 rounded-2xl border border-dashed p-2 text-center">
+        <div className=" bg-gray/20 border-light-gray flex w-[110px] flex-col items-center space-y-3 rounded-2xl border border-dashed p-2 text-center">
           <div className="w-6">
             <Image
               src="/gallery-add.png"
@@ -38,53 +57,40 @@ export default function AddEmployee() {
               height={400}
             />
           </div>
-          <h1 className="text-theme-light-gray text-sm font-semibold">
+          <h1 className="text-light-gray text-sm font-semibold">
             Upload Employee Picture
           </h1>
         </div>
       </div>
-      <div className="mt-5 grid w-full grid-cols-2 gap-x-10 gap-y-7 border-t-4 py-4 text-lg font-medium">
+      <div className="my-5 w-full flex flex-col gap-x-10 gap-y-7 border-t-4 border-black/10 py-4 text-lg font-medium">
+        <h1>Employee Info:</h1>
         <LabeledInputComponent
-          value={name}
-          setValue={setName}
           placeholder="Name"
-          label="Employee Bio:"
-          className="space-y-7 w-[500px]"
+          id="name"
+          error={errors.name}
+          {...register('name')}
+          className="space-y-2 w-[500px]"
         />
         <LabeledInputComponent
-          value={username}
-          setValue={setUsername}
-          placeholder="Username"
-          label="Employee ID"
-          className="space-y-7 w-[500px]"
-        />
-
-        <LabeledInputComponent
-          value={position}
-          setValue={setPosition}
-          placeholder="Position"
-          className="space-y-7 w-[500px]"
+          placeholder="Email"
+          error={errors.email}
+          {...register('email')}
+          id="email"
+          className="space-y-2 w-[500px]"
         />
         <LabeledInputComponent
-          value={role}
-          setValue={setRole}
-          placeholder="Role"
-          className="space-y-7 w-[500px]"
-        />
-        <LabeledInputComponent
-          value={password}
-          setValue={setPassword}
           placeholder="Password"
-          className="space-y-7 w-[500px]"
-        />
-        <LabeledInputComponent
-          value={rePassword}
-          setValue={setRePassword}
-          placeholder="Confirm Password"
-          className="space-y-7 w-[500px]"
+          error={errors.password}
+          {...register('password')}
+          id="password"
+          className="space-y-2 w-[500px]"
         />
       </div>
-      <SubmitResetButtonComponent onReset={handleReset} />
+      <SubmitResetButtonComponent
+        label="Create Employee"
+        isLoading={isLoading}
+        onReset={() => reset()}
+      />
     </form>
   )
 }

@@ -33,10 +33,10 @@ const ManageRoles = () => {
       {employees.map((employee) => (
         <ul
           key={employee.id}
-          className="flex items-center text-xl font-semibold text-black/90"
+          className="flex items-center text-xl space-x-5 font-semibold text-black/90"
         >
           {cols.map((name) => (
-            <li className="w-60 overflow-auto px-1" key={name}>
+            <li className="w-50 overflow-auto px-5 break-words" key={name}>
               {employee[name]}
             </li>
           ))}

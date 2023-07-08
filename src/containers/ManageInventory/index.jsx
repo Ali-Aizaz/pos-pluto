@@ -77,7 +77,7 @@ export default function Manage() {
   return (
     <div className="w-full">
       <h2 className="text-theme-text-gray mb-2 text-2xl">Filters: </h2>
-      <div className="mb-4 flex space-x-5 py-3">
+      <div className="mb-4 flex items-end space-x-5 py-3">
         <LabeledInputComponent
           placeholder="Name Search"
           ref={searchRef}
