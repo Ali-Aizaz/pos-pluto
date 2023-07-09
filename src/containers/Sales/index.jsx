@@ -1,19 +1,28 @@
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 import { LabeledInputComponent, Loading } from 'components'
 import { HttpMethods } from 'configs/constants'
+import debounce from 'lodash.debounce'
 import fetchRequest from 'utils/fetchRequest'
 
 export default function SalesHistory() {
-  const [recipt, setRecipt] = useState('')
+  const searchRef = useRef(null)
+
   const [soldItems, setSoldItems] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
-  const getSalesList = useCallback(() => {
+  const getSalesList = useCallback((criteria) => {
     setIsLoading(true)
-    fetchRequest(HttpMethods.GET, 'sold')
-      .then(({ data }) => {
-        if (data.count > 0) setSoldItems(data.result)
+    fetchRequest(
+      HttpMethods.GET,
+      'sold',
+      {},
+      {
+        customerPhone: criteria?.length > 2 ? criteria : undefined,
+      }
+    )
+      .then(({ data, status }) => {
+        if (status === 200) setSoldItems(data.result)
       })
       .finally(() => setIsLoading(false))
   }, [])
@@ -34,12 +43,30 @@ export default function SalesHistory() {
 
   useEffect(() => getSalesList(), [getSalesList])
 
+  const debouncedSearch = useRef(
+    debounce(async (criteria) => {
+      await getSalesList(criteria)
+    }, 500)
+  ).current
+
+  useEffect(() => {
+    return () => {
+      debouncedSearch.cancel()
+    }
+  }, [debouncedSearch])
+
+  const handleSearch = async () => {
+    const { value } = searchRef.current
+    if (value.trim().length > 2) await debouncedSearch(value)
+  }
+
   return (
     <section className="flex flex-col">
       <div className="flex w-4/5 justify-end">
         <LabeledInputComponent
-          value={recipt}
-          setValue={setRecipt}
+          ref={searchRef}
+          onChange={handleSearch}
+          type="number"
           placeholder="Enter recipt number or phone number"
           className="w-[350px]"
         />

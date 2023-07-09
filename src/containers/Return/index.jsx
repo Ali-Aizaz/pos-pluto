@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
 import {
   LabeledInputComponent,
@@ -6,6 +6,7 @@ import {
   ProductDetailsComponent,
 } from 'components'
 import { HttpMethods } from 'configs/constants'
+import debounce from 'lodash.debounce'
 import fetchRequest from 'utils/fetchRequest'
 
 const inv = {
@@ -21,16 +22,23 @@ const inv = {
 }
 
 export default function Return() {
-  const [recipt, setRecipt] = useState('')
+  const searchRef = useRef(null)
   const [item, setItem] = useState(inv)
   const [soldItems, setSoldItems] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
-  const handleGetItems = useCallback(() => {
+  const handleGetItems = useCallback((criteria) => {
     setIsLoading(true)
-    fetchRequest(HttpMethods.GET, 'sold')
-      .then(({ data }) => {
-        if (data.count > 0) setSoldItems(data.result)
+    fetchRequest(
+      HttpMethods.GET,
+      'sold',
+      {},
+      {
+        customerPhone: criteria?.length > 2 ? criteria : undefined,
+      }
+    )
+      .then(({ data, status }) => {
+        if (status === 200) setSoldItems(data.result)
       })
       .finally(() => setIsLoading(false))
   }, [])
@@ -57,11 +65,29 @@ export default function Return() {
 
   useEffect(() => handleGetItems(), [handleGetItems])
 
+  const debouncedSearch = useRef(
+    debounce(async (criteria) => {
+      await handleGetItems(criteria)
+    }, 500)
+  ).current
+
+  useEffect(() => {
+    return () => {
+      debouncedSearch.cancel()
+    }
+  }, [debouncedSearch])
+
+  const handleSearch = async () => {
+    const { value } = searchRef.current
+    if (value.trim().length > 2) await debouncedSearch(value)
+  }
+
   return (
     <section className="text-gray">
       <LabeledInputComponent
-        value={recipt}
-        setValue={setRecipt}
+        ref={searchRef}
+        onChange={handleSearch}
+        type="number"
         placeholder="Enter recipt number or phone number"
         className="w-[350px]"
       />

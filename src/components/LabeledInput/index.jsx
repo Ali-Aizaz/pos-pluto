@@ -4,7 +4,7 @@ import React, { forwardRef } from 'react'
 import classNames from 'classnames'
 
 function LabeledInput(
-  { onEdit, label, required, error, className, ...restProps },
+  { label, required, error, className, ...restProps },
   ref
 ) {
   return (

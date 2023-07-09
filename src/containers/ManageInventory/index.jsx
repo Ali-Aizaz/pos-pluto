@@ -75,7 +75,7 @@ const Manage = () => {
         <LabeledInputComponent
           placeholder="Name Search"
           ref={searchRef}
-          onEdit={handleSearch}
+          onChange={handleSearch}
           className="w-76"
         />
         <InputListContainer
