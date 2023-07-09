@@ -14,21 +14,21 @@ const Modal = ({ title = '', children, showModal, transparent, onClose }) =>
         )}
       >
         <div className="flex h-full w-full flex-col p-5">
-          {title && (
-            <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between mb-2">
+            {title && (
               <h2 className="text-xl font-medium text-black/90 dark:text-white/90">
                 {title}
               </h2>
-              {onClose ? (
-                <div
-                  className="flex transform cursor-pointer overflow-hidden rounded-full p-2 text-black/90 duration-300 hover:bg-black/5"
-                  onClick={onClose}
-                >
-                  <Cross />
-                </div>
-              ) : null}
-            </div>
-          )}
+            )}
+            {onClose && (
+              <div
+                className="flex transform cursor-pointer overflow-hidden rounded-full p-2 text-black/90 duration-300 hover:bg-black/5"
+                onClick={onClose}
+              >
+                <Cross />
+              </div>
+            )}
+          </div>
           {children}
         </div>
       </div>
