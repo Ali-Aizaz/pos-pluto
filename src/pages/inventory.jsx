@@ -8,11 +8,11 @@ const tabs = [
   { name: 'Add', tab: <AddInventoryContainer /> },
 ]
 
-export default function Inventory() {
-  return (
-    <main className="flex w-full">
-      <NavBarComponent />
-      <TabComponent tabs={tabs} />
-    </main>
-  )
-}
+const Inventory = () => (
+  <main className="flex w-full">
+    <NavBarComponent />
+    <TabComponent tabs={tabs} />
+  </main>
+)
+
+export default Inventory

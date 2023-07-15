@@ -1,9 +1,10 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 import { CardIcon } from 'components/Icons'
 
 function Card({ card }) {
-  const { color, image, tag, price, caption } = card
+  const { color, image, tag, price, caption, link } = card
   return (
     <div className="ml-10 mb-5">
       <CardIcon color={color} />
@@ -13,7 +14,11 @@ function Card({ card }) {
       <div className="absolute -translate-y-[11.5rem] translate-x-5 space-y-8">
         <h1 className="text-2xl font-semibold">{tag}</h1>
         <h1 className="text-3xl font-bold">{price}</h1>
-        <h1 className="text-xl underline">{caption}</h1>
+        <h1>
+          <Link href={link} className="text-xl underline">
+            {caption}
+          </Link>
+        </h1>
       </div>
     </div>
   )

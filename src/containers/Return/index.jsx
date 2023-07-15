@@ -92,8 +92,8 @@ export default function Return() {
         className="w-[350px]"
       />
       <div className="flex justify-between">
-        <div className="">
-          <div className="mt-10 space-y-5 border-t-2 p-3">
+        <div>
+          <div className="mt-10 w-min space-y-5 border-t-2 p-3">
             <h1 className="text-base font-medium ">Sales Details: </h1>
             <ul className="flex text-xl ">
               <li className="w-40">Product name</li>
@@ -102,7 +102,7 @@ export default function Return() {
               <li className="w-40">Quantity</li>
             </ul>
           </div>
-          <div className="mt-3 space-y-5 border-t-2 p-3 text-xl font-thin">
+          <div className="mt-3 w-min space-y-5 border-t-2 p-3 text-xl font-thin">
             {soldItems.map((soldItem) => (
               <button
                 type="button"
