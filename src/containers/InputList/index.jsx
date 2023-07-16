@@ -12,6 +12,7 @@ const InputListComponent = ({
   className,
   url,
   setSelectedItem,
+  setText,
   listField,
   ...restProps
 }) => {
@@ -59,6 +60,7 @@ const InputListComponent = ({
 
   const handleSearch = async () => {
     const { value } = searchRef.current
+    if (setText) setText(value)
     if (value.trim().length > 2) await debouncedSearch(value)
   }
 

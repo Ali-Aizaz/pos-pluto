@@ -31,7 +31,7 @@ export default function AccountSetting() {
     >
       <div className="flex flex-col items-center">
         <h1 className="mb-3 text-lg font-medium">Your Company logo</h1>
-        <div className=" flex w-28 flex-col items-center space-y-3 rounded-2xl border border-dashed border-light-gray bg-gray p-2 text-center">
+        <div className=" bg-grayLight border-light-gray flex w-[110px] flex-col items-center space-y-3 rounded-2xl border border-dashed p-2 text-center">
           <div className="w-6">
             <Image
               src="/gallery-add.png"
@@ -72,7 +72,7 @@ export default function AccountSetting() {
         />
         <div className="col-span-2 flex flex-col space-y-2">
           <textarea
-            className="resize-none rounded-xl bg-gray p-5"
+            className="resize-none rounded-xl bg-grayLight p-5"
             rows={3}
             placeholder="description about Company"
             type="text"
