@@ -1,15 +1,12 @@
 import Image from 'next/image'
 
-import { useState } from 'react'
 import { toast } from 'react-hot-toast'
 
-const ImageInput = ({ title }) => {
-  const [image, setImage] = useState(null)
-
+const ImageInput = ({ title, handleSetImage, image }) => {
   const handleFileChange = (event) => {
     const file = event.target.files[0]
     if (file && file.size <= 10 * 1024 * 1024) {
-      setImage(URL.createObjectURL(file))
+      handleSetImage(URL.createObjectURL(file))
     } else {
       toast.error('Please select an image that is less than 10MB in size.')
     }
