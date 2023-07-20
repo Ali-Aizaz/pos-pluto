@@ -1,9 +1,12 @@
-import Image from 'next/image'
 import { useRouter } from 'next/router'
 
 import React, { useState } from 'react'
 
-import { LabeledInputComponent, SubmitResetButtonComponent } from 'components'
+import {
+  ImageInput,
+  LabeledInputComponent,
+  SubmitResetButtonComponent,
+} from 'components'
 
 export default function AccountSetting() {
   const [companyName, setCompanyName] = useState('')
@@ -11,6 +14,8 @@ export default function AccountSetting() {
   const [email, setEmail] = useState('')
   const [username, setUsername] = useState('')
   const [phone, setPhone] = useState('')
+  const [image, setImage] = useState('')
+
   const router = useRouter()
   const handleDescription = (e) => {
     setDescription(e.target.value)
@@ -31,19 +36,11 @@ export default function AccountSetting() {
     >
       <div className="flex flex-col items-center">
         <h1 className="mb-3 text-lg font-medium">Your Company logo</h1>
-        <div className=" bg-grayLight border-light-gray flex w-[110px] flex-col items-center space-y-3 rounded-2xl border border-dashed p-2 text-center">
-          <div className="w-6">
-            <Image
-              src="/gallery-add.png"
-              alt="add to gallery"
-              width={400}
-              height={400}
-            />
-          </div>
-          <h1 className="text-sm font-semibold text-light-gray">
-            Upload Company logo
-          </h1>
-        </div>
+        <ImageInput
+          title="Upload Company logo"
+          handleSetImage={setImage}
+          image={image}
+        />
       </div>
       <div className="mt-5 grid w-full grid-cols-2 gap-x-10 gap-y-7 border-t-4 py-4 text-lg font-medium">
         <LabeledInputComponent

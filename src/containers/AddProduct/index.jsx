@@ -1,8 +1,6 @@
-import Image from 'next/image'
-
 import { useCallback, useEffect, useState } from 'react'
 
-import { ButtonComponent, LabeledInputComponent } from 'components'
+import { ButtonComponent, ImageInput, LabeledInputComponent } from 'components'
 import InputListContainer from 'containers/InputList'
 
 const AddProduct = () => {
@@ -11,6 +9,7 @@ const AddProduct = () => {
   const [category, setCategory] = useState(null)
   const [field, setField] = useState('')
   const [value, setValue] = useState('')
+  const [image, setImage] = useState('')
 
   const [newProduct, setNewProduct] = useState({
     name: '',
@@ -43,21 +42,13 @@ const AddProduct = () => {
 
   return nextStep ? (
     <form className="flex flex-col space-y-3">
-      <div className=" bg-grayLight border-light-gray flex w-[110px] flex-col items-center space-y-3 rounded-2xl border border-dashed p-2 text-center">
-        <div className="w-6">
-          <Image
-            src="/gallery-add.png"
-            alt="add to gallery"
-            width={400}
-            height={400}
-          />
-        </div>
-        <h1 className="text-sm font-semibold text-light-gray">
-          Upload Company logo
-        </h1>
-      </div>
+      <ImageInput
+        image={image}
+        handleSetImage={setImage}
+        title="Upload Product Image"
+      />
       <LabeledInputComponent placeholder="name" />
-      {category && category.categoryData.lenght > 0 ? (
+      {category && category.categoryData.length > 0 ? (
         category.categoryData.map((val) => (
           <LabeledInputComponent key={val} placeholder={val} />
         ))
