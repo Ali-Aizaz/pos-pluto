@@ -33,6 +33,10 @@ const AddProduct = () => {
     setValue('')
   }, [field, value])
 
+  const createProduct = useCallback(() => {
+    console.log(newProduct)
+  }, [newProduct])
+
   useEffect(() => {
     if (category) setNextStep(true)
   }, [category])
@@ -60,35 +64,47 @@ const AddProduct = () => {
       ) : (
         <div>
           <h1 className="text-lg font-medium text-black/90">Details: </h1>
-          {Object.keys(newProduct.details).map((val) => (
-            <div key={val}>
-              {val} : {newProduct.details[val]}
-            </div>
-          ))}
-          <div className="flex space-x-2 items-center">
-            <LabeledInputComponent
-              onChange={handleField}
-              defaultValue={field}
-              placeholder="field"
-            />
-            <LabeledInputComponent
-              onChange={handleValue}
-              defaultValue={value}
-              placeholder="value"
-            />
-            <button
-              type="button"
-              onClick={handleAdd}
-              className="border h-7 border-black/20 text-black/60 font-medium rounded-lg translate-y-0.5 px-1"
-            >
-              Add
-            </button>
+          <div className="my-4 border border-black/10 rounded">
+            {Object.keys(newProduct.details).map((val) => (
+              <div
+                className="columns-2 space-x-2 text-xl px-4 border-t first:border-t-0 border-black/10"
+                key={val}
+              >
+                <div className="border-r border-black/10 py-2">{val}</div>
+                <div className="py-2 ">{newProduct.details[val]}</div>
+              </div>
+            ))}
           </div>
+          {Object.keys(newProduct.details).length < 10 ? (
+            <div className="flex space-x-2 items-center">
+              <LabeledInputComponent
+                onChange={handleField}
+                value={field}
+                placeholder="field"
+              />
+              <LabeledInputComponent
+                onChange={handleValue}
+                value={value}
+                placeholder="value"
+              />
+              <button
+                type="button"
+                onClick={handleAdd}
+                className="border h-7 border-black/20 text-black/60 font-medium rounded-lg translate-y-0.5 px-1"
+              >
+                Add
+              </button>
+            </div>
+          ) : (
+            <div className="text-xl mt-2 text-purple">
+              You have reached the maximum number of details
+            </div>
+          )}
         </div>
       )}
       <ButtonComponent
-        onClick={handleSelect}
-        label="Select Category"
+        onClick={createProduct}
+        label="Create Product"
         className="w-full"
       />
     </form>

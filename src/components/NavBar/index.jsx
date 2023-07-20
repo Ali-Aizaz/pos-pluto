@@ -37,7 +37,7 @@ function NavBar() {
       onMouseOut={() => {
         setHover(false)
       }}
-      className="sticky flex h-screen w-[100px] flex-col space-y-8 rounded-r-2xl bg-black px-4 text-white shadow-2xl shadow-black ease-in-out transition-[width] hover:w-[400px]"
+      className="flex h-screen w-[100px] flex-col space-y-8 rounded-r-2xl bg-black px-4 text-white shadow-2xl shadow-black ease-in-out transition-[width] hover:w-[400px]"
     >
       <Link href="/home">
         <div className="mb-10 flex items-center -space-x-3 overflow-hidden pt-7">

@@ -66,7 +66,10 @@ export default function Add() {
 
   return (
     <>
-      <form className="space-y-4" onSubmit={handleSubmit(handleAddProduct)}>
+      <form
+        className="space-y-4 max-h-screen overflow-auto"
+        onSubmit={handleSubmit(handleAddProduct)}
+      >
         <div className="flex w-full flex-col gap-y-4 border-b-4 border-gray py-4 text-lg font-medium">
           <h2 className="text-theme-text-gray mb-2 text-2xl">Filters: </h2>
           <div className="mb-4 items-center flex space-x-5 py-3">

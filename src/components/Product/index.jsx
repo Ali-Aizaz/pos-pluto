@@ -1,6 +1,26 @@
+import Image from 'next/image'
+
+import { useCallback, useEffect, useState } from 'react'
+
 import classNames from 'classnames'
+import { HttpMethods } from 'configs/constants'
+import fetchRequest from 'utils/fetchRequest'
 
 const ProductComponent = ({ product, display, count }) => {
+  const [image, setImage] = useState('')
+
+  const fetchImage = useCallback(async () => {
+    fetchRequest(HttpMethods.GET, `image/${product.imageUrl}`).then(
+      ({ data }) => {
+        setImage(data)
+      }
+    )
+  }, [product.imageUrl])
+
+  useEffect(() => {
+    fetchImage()
+  }, [])
+
   return (
     <div
       className={classNames(
@@ -20,10 +40,18 @@ const ProductComponent = ({ product, display, count }) => {
           <h1 className="text-base font-bold">Category</h1>
           <p>{product.categoryName}</p>
         </div>
-        <div>
-          <h1 className="text-base font-bold">Quantity</h1>
-          <p>{count}</p>
-        </div>
+        {product.imageUrl && (
+          <div>
+            <h1 className="text-base font-bold">Image</h1>
+            <Image src={image} alt={product.name} width={50} height={50} />
+          </div>
+        )}
+        {count && (
+          <div>
+            <h1 className="text-base font-bold">Quantity</h1>
+            <p>{count}</p>
+          </div>
+        )}
       </div>
       <div className="flex space-x-10">
         {Object.keys(product.details).map((key) => (

@@ -1,7 +1,12 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
-import { LabeledInputComponent, Loading } from 'components'
+import {
+  LabeledInputComponent,
+  Loading,
+  ProductDetailsComponent,
+} from 'components'
 import { HttpMethods } from 'configs/constants'
+import Modal from 'containers/Modal'
 import debounce from 'lodash.debounce'
 import fetchRequest from 'utils/fetchRequest'
 
@@ -10,6 +15,18 @@ export default function SalesHistory() {
 
   const [soldItems, setSoldItems] = useState([])
   const [isLoading, setIsLoading] = useState(false)
+  const [showProduct, setShowProduct] = useState(false)
+  const [product, setProduct] = useState(null)
+
+  const handleOpenModal = useCallback((value) => {
+    setProduct(value)
+    setShowProduct(true)
+  }, [])
+
+  const handleCloseModal = useCallback(() => {
+    setProduct(null)
+    setShowProduct(false)
+  }, [])
 
   const getSalesList = useCallback((criteria) => {
     setIsLoading(true)
@@ -29,17 +46,22 @@ export default function SalesHistory() {
 
   const soldItemsList = useMemo(() => {
     return soldItems.map((soldItem) => (
-      <ul className="flex" key={soldItem.id}>
-        <li className="w-50 break-words">{soldItem.id}</li>
-        <li className="w-50 break-words">{soldItem.customerName}</li>
-        <li className="w-50 break-words">{soldItem.customerPhone}</li>
-        <li className="w-50 break-words">{soldItem.product.name}</li>
-        <li className="w-50 break-words">{soldItem.count}</li>
-        <li className="w-50 break-words">{soldItem.warranty} months</li>
-        <li className="w-50 break-words">{soldItem.price}</li>
-      </ul>
+      <button
+        type="button"
+        onClick={() => handleOpenModal(soldItem.product)}
+        className="hover:bg-black/10 rounded-md list-none break-words flex text-start"
+        key={soldItem.id}
+      >
+        <li className="w-50 pl-3">{soldItem.id}</li>
+        <li className="w-50 pl-3">{soldItem.customerName}</li>
+        <li className="w-50 pl-3">{soldItem.customerPhone}</li>
+        <li className="w-50 pl-3">{soldItem.product.name}</li>
+        <li className="w-50 pl-3">{soldItem.count}</li>
+        <li className="w-50 pl-3">{soldItem.warranty} months</li>
+        <li className="w-50 pl-3">{soldItem.price}</li>
+      </button>
     ))
-  }, [soldItems])
+  }, [handleOpenModal, soldItems])
 
   useEffect(() => getSalesList(), [getSalesList])
 
@@ -61,37 +83,47 @@ export default function SalesHistory() {
   }
 
   return (
-    <section className="flex flex-col">
-      <div className="flex w-4/5 justify-end">
-        <LabeledInputComponent
-          ref={searchRef}
-          onChange={handleSearch}
-          type="number"
-          placeholder="Enter recipt number or phone number"
-          className="w-[350px]"
-        />
-      </div>
-      <div className="w-full">
-        <div className="space-y-5 p-3">
-          <ul className="flex text-xl ">
-            <li className="w-50">Reciept No</li>
-            <li className="w-50 ">Customer name</li>
-            <li className="w-50 ">Phone number</li>
-            <li className="w-50 ">Product</li>
-            <li className="w-50 ">Quantity</li>
-            <li className="w-50 ">Warranty</li>
-            <li className="w-50 ">Price</li>
-          </ul>
+    <>
+      <section className="flex flex-col">
+        <div className="flex w-4/5 justify-end">
+          <LabeledInputComponent
+            ref={searchRef}
+            onChange={handleSearch}
+            type="number"
+            placeholder="Enter recipt number or phone number"
+            className="w-[350px]"
+          />
         </div>
-        <div className="space-y-5 border-t-2 p-3 text-xl font-thin">
-          {soldItemsList}
-        </div>
-        {isLoading && (
-          <div className="flex justify-center">
-            <Loading className="w-10 h-10" />
+        <div className="w-full">
+          <div className="space-y-5 p-3">
+            <ul className="flex text-xl">
+              <li className="w-50 px-2">Reciept No</li>
+              <li className="w-50 px-2">Customer name</li>
+              <li className="w-50 px-2">Phone number</li>
+              <li className="w-50 px-2">Product</li>
+              <li className="w-50 px-2">Quantity</li>
+              <li className="w-50 px-2">Warranty</li>
+              <li className="w-50 px-2">Price</li>
+            </ul>
           </div>
-        )}
-      </div>
-    </section>
+          <div className="space-y-5 border-t-2 p-3 text-xl font-thin">
+            {soldItemsList}
+          </div>
+          {isLoading && (
+            <div className="flex justify-center">
+              <Loading className="w-10 h-10" />
+            </div>
+          )}
+        </div>
+      </section>
+      <Modal
+        label="Details"
+        title="Details:"
+        showModal={showProduct}
+        onClose={handleCloseModal}
+      >
+        <ProductDetailsComponent product={product} />
+      </Modal>
+    </>
   )
 }

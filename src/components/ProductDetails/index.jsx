@@ -1,6 +1,10 @@
-import React from 'react'
+import Image from 'next/image'
+
+import React, { useCallback, useEffect, useState } from 'react'
 
 import ButtonComponent from 'components/Button'
+import { HttpMethods } from 'configs/constants'
+import fetchRequest from 'utils/fetchRequest'
 
 function UserDetails({
   price,
@@ -12,6 +16,20 @@ function UserDetails({
   onReturn,
   isLoading,
 }) {
+  const [image, setImage] = useState('')
+
+  const fetchImage = useCallback(async () => {
+    fetchRequest(HttpMethods.GET, `image/${product.imageUrl}`).then(
+      ({ data }) => {
+        setImage(data)
+      }
+    )
+  }, [product.imageUrl])
+
+  useEffect(() => {
+    fetchImage()
+  }, [fetchImage])
+
   return (
     <section className="flex flex-col items-center border border-black/10 rounded-xl p-3">
       <div className="ml-5 flex max-h-100 w-76 flex-col items-center font-medium overflow-y-auto scrollbar-track-transparent [&>h1]:text-sm [&>h2]:text-xl">
@@ -25,6 +43,12 @@ function UserDetails({
           <div className="bg-theme-light-black/20 w-full p-2">
             <h2 className="capitalize text-purple">Phone number</h2>
             <h1 className=" text-black ">{customerPhone}</h1>
+          </div>
+        )}
+        {product.imageUrl && (
+          <div className="bg-theme-light-black/20 w-full p-2">
+            <h1 className="capitalize text-purple">Image</h1>
+            <Image src={image} alt={product.name} width={120} height={100} />
           </div>
         )}
         {product &&
