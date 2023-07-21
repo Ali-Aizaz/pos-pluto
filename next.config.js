@@ -10,6 +10,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'pluto-uploads.s3.amazonaws.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'pluto-uploads.s3.ap-southeast-1.amazonaws.com',
+      },
     ],
   },
 }

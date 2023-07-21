@@ -144,7 +144,7 @@ export default function Add() {
         />
       </form>
       <Modal onClose={handleCloseModal} showModal={showModal}>
-        <AddProduct />
+        <AddProduct onClose={handleCloseModal} />
       </Modal>
     </>
   )

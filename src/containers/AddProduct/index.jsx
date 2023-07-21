@@ -1,15 +1,18 @@
 import { useCallback, useEffect, useState } from 'react'
 
 import { ButtonComponent, ImageInput, LabeledInputComponent } from 'components'
+import { HttpMethods } from 'configs/constants'
 import InputListContainer from 'containers/InputList'
+import fetchRequest from 'utils/fetchRequest'
 
-const AddProduct = () => {
+const AddProduct = ({ onClose }) => {
   const [text, setText] = useState('')
   const [nextStep, setNextStep] = useState(false)
   const [category, setCategory] = useState(null)
   const [field, setField] = useState('')
   const [value, setValue] = useState('')
   const [image, setImage] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
 
   const [newProduct, setNewProduct] = useState({
     name: '',
@@ -24,6 +27,12 @@ const AddProduct = () => {
     setNextStep(true)
   }, [text])
 
+  const handleChangeName = useCallback((e) => {
+    setNewProduct((val) => {
+      return { name: e.target.value, details: { ...val.details } }
+    })
+  }, [])
+
   const handleAdd = useCallback(() => {
     setNewProduct((val) => {
       return { name: val.name, details: { ...val.details, [field]: value } }
@@ -33,8 +42,18 @@ const AddProduct = () => {
   }, [field, value])
 
   const createProduct = useCallback(() => {
-    console.log(newProduct)
-  }, [newProduct])
+    setIsLoading(true)
+    fetchRequest(HttpMethods.POST, 'products', {
+      name: newProduct.name,
+      content: newProduct.details,
+      image,
+      category: category ? category.name : text,
+    })
+      .then(() => {
+        onClose()
+      })
+      .finally(() => setIsLoading(false))
+  }, [category, image, newProduct.details, newProduct.name, onClose, text])
 
   useEffect(() => {
     if (category) setNextStep(true)
@@ -47,7 +66,11 @@ const AddProduct = () => {
         handleSetImage={setImage}
         title="Upload Product Image"
       />
-      <LabeledInputComponent placeholder="name" />
+      <LabeledInputComponent
+        onChange={handleChangeName}
+        value={newProduct.name}
+        placeholder="name"
+      />
       {category && category.categoryData.length > 0 ? (
         category.categoryData.map((val) => (
           <LabeledInputComponent key={val} placeholder={val} />
@@ -96,6 +119,7 @@ const AddProduct = () => {
       <ButtonComponent
         onClick={createProduct}
         label="Create Product"
+        isLoading={isLoading}
         className="w-full"
       />
     </form>

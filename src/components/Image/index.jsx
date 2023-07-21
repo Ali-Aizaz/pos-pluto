@@ -1,16 +1,28 @@
 import Image from 'next/image'
 
+import { useCallback } from 'react'
 import { toast } from 'react-hot-toast'
 
 const ImageInput = ({ title, handleSetImage, image }) => {
-  const handleFileChange = (event) => {
-    const file = event.target.files[0]
-    if (file && file.size <= 10 * 1024 * 1024) {
-      handleSetImage(URL.createObjectURL(file))
-    } else {
-      toast.error('Please select an image that is less than 10MB in size.')
-    }
-  }
+  const handleFileChange = useCallback(
+    (event) => {
+      const file = event.target.files[0]
+      if (file && file.size <= 10 * 1024 * 1024) {
+        const reader = new FileReader()
+
+        reader.onload = () => {
+          handleSetImage(reader.result)
+        }
+        reader.onerror = (error) => {
+          toast.error(`Error: ${error}`)
+        }
+        reader.readAsDataURL(file)
+      } else {
+        toast.error('Please select an image that is less than 10MB in size.')
+      }
+    },
+    [handleSetImage]
+  )
 
   return image ? (
     <div className="w-[110px] border border-black/10 rounded-2xl">
