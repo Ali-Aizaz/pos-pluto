@@ -7,14 +7,14 @@ import {
   LabeledInputComponent,
   SubmitResetButtonComponent,
 } from 'components'
+import { HttpMethods } from 'configs/constants'
+import fetchRequest from 'utils/fetchRequest'
 
 export default function AccountSetting() {
   const [companyName, setCompanyName] = useState('')
   const [description, setDescription] = useState('')
-  const [email, setEmail] = useState('')
-  const [username, setUsername] = useState('')
-  const [phone, setPhone] = useState('')
   const [image, setImage] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
 
   const router = useRouter()
   const handleDescription = (e) => {
@@ -23,8 +23,16 @@ export default function AccountSetting() {
 
   const handleUpdate = (e) => {
     e.preventDefault()
-    console.log('update')
-    router.push('/home')
+    setIsLoading(true)
+    fetchRequest(HttpMethods.PATCH, 'users/store', {
+      name: companyName,
+      description,
+      image,
+    })
+      .then(() => {
+        router.push('/home')
+      })
+      .finally(() => setIsLoading(false))
   }
 
   const handleReset = () => {}
@@ -34,40 +42,18 @@ export default function AccountSetting() {
       className="flex flex-col items-start text-gray"
       onSubmit={handleUpdate}
     >
-      <div className="flex flex-col items-center">
-        <h1 className="mb-3 text-lg font-medium">Your Company logo</h1>
-        <ImageInput
-          title="Upload Company logo"
-          handleSetImage={setImage}
-          image={image}
-        />
-      </div>
-      <div className="mt-5 grid w-full grid-cols-2 gap-x-10 gap-y-7 border-t-4 py-4 text-lg font-medium">
+      <ImageInput
+        image={image}
+        handleSetImage={setImage}
+        title="Upload Company Logo"
+      />
+      <div className="mt-5 grid grid-cols-2 w-1/2 gap-x-10 gap-y-5 mb-5 text-lg font-medium">
         <LabeledInputComponent
           value={companyName}
           setValue={setCompanyName}
-          placeholder="Please enter your full name"
-          label="Company Name"
+          placeholder="Please enter company name"
         />
-        <LabeledInputComponent
-          value={email}
-          setValue={setEmail}
-          placeholder="Please enter your email"
-          label="Email"
-        />
-        <LabeledInputComponent
-          value={username}
-          setValue={setUsername}
-          placeholder="Please enter your username"
-          label="Username"
-        />
-        <LabeledInputComponent
-          value={phone}
-          setValue={setPhone}
-          placeholder="Please enter your phone number"
-          label="Phone number"
-        />
-        <div className="col-span-2 flex flex-col space-y-2">
+        <div className="col-span-2 flex w-1/2 flex-col space-y-2">
           <textarea
             className="resize-none rounded-xl bg-grayLight p-5"
             rows={3}
@@ -78,7 +64,7 @@ export default function AccountSetting() {
           />
         </div>
       </div>
-      <SubmitResetButtonComponent onReset={handleReset} />
+      <SubmitResetButtonComponent isLoading={isLoading} onReset={handleReset} />
     </form>
   )
 }

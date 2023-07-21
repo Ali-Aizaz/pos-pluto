@@ -22,6 +22,9 @@ export const SignUpSchema = yup.object().shape({
     .string()
     .oneOf([yup.ref('password'), null], 'Password must match')
     .required('Please input your password confirmation'),
+})
+
+export const StoreSchema = yup.object().shape({
   storeName: yup
     .string()
     .min(3, 'Your store name must be of at least 3 characters')
