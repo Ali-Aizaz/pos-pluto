@@ -24,42 +24,43 @@ const ProductComponent = ({ product, display, count }) => {
   return (
     <div
       className={classNames(
-        'text-black/80 font-normal space-y-5 transition-maxHeight overflow-hidden',
+        'text-black/80 font-normal space-x-5 transition-maxHeight overflow-hidden flex',
         {
           'max-h-0': !display,
           'max-h-100': display,
         }
       )}
     >
-      <div className="flex space-x-10">
+      {product.imageUrl && (
         <div>
-          <h1 className="text-base font-bold">Name</h1>
-          <p>{product.name}</p>
+          <Image src={image} alt={product.name} width={130} height={50} />
         </div>
-        <div>
-          <h1 className="text-base font-bold">Category</h1>
-          <p>{product.categoryName}</p>
+      )}
+      <div className="space-y-4">
+        <div className="flex space-x-10">
+          <div>
+            <h1 className="text-base font-bold">Name</h1>
+            <p>{product.name}</p>
+          </div>
+          <div>
+            <h1 className="text-base font-bold">Category</h1>
+            <p>{product.categoryName}</p>
+          </div>
+          {count && (
+            <div>
+              <h1 className="text-base font-bold">Quantity</h1>
+              <p>{count}</p>
+            </div>
+          )}
         </div>
-        {product.imageUrl && (
-          <div>
-            <h1 className="text-base font-bold">Image</h1>
-            <Image src={image} alt={product.name} width={50} height={50} />
-          </div>
-        )}
-        {count && (
-          <div>
-            <h1 className="text-base font-bold">Quantity</h1>
-            <p>{count}</p>
-          </div>
-        )}
-      </div>
-      <div className="flex space-x-10">
-        {Object.keys(product.details).map((key) => (
-          <div key={key}>
-            <h1 className="text-sm font-bold">{key}</h1>
-            <p>{product.details[key]}</p>
-          </div>
-        ))}
+        <div className="flex space-x-10">
+          {Object.keys(product.details).map((key) => (
+            <div key={key}>
+              <h1 className="text-base font-bold">{key}</h1>
+              <p>{product.details[key]}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   )

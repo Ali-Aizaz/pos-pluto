@@ -17,7 +17,7 @@ export default function CartItemComponent({ item, onRemoveItem, index }) {
       <div className="flex flex-col items-end justify-between p-4">
         <button type="button" onClick={() => onRemoveItem(index)}>
           <Image
-            src="/trash.png"
+            src="/Trash.png"
             alt="remove from cart"
             width={30}
             height={40}

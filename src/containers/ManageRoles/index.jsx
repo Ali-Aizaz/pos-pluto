@@ -44,7 +44,7 @@ const ManageRoles = () => {
 
   return (
     <>
-      <div className="space-y-10 flex flex-col justify-center w-min">
+      <div className="space-y-10 flex flex-col justify-center w-min max-h-[600px] overflow-y-auto">
         <ul className="flex text-2xl capitalize border-b-2 border-light-gray/10 py-2 font-semibold text-black/50 w-min">
           {cols.map((name) => (
             <li className="w-60 px-4" key={name}>

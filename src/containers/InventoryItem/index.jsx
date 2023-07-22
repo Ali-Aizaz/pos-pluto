@@ -106,7 +106,7 @@ const InventoryItem = ({ id, product, count, updateInventory }) => {
                 <Image src="/Edit.png" alt="edit" width={25} height={20} />
               </button>
               <button type="button" onClick={() => handleOpen(id)}>
-                <Image src="/trash.png" alt="delete" width={20} height={20} />
+                <Image src="/Trash.png" alt="delete" width={20} height={20} />
               </button>
             </>
           )}

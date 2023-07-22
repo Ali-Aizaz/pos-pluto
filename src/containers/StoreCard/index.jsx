@@ -34,12 +34,19 @@ const StoreCard = () => {
   }, [fetchStore])
 
   return store ? (
-    <div className="flex border rounded-md p-2 space-x-4 self-start translate-x-10 border-black/10 h-60">
-      {image && <Image src={image} alt="store" width={400} height={220} />}
+    <div className="flex rounded-md p-2 pl-20 pr-36 space-x-4 self-start w-full justify-between items-center h-60">
       <div>
-        <h1 className="text-sm font-semibold">Name: {store.name}</h1>
-        <p className="font-medium">Description: {store.description}</p>
+        <h1 className="text-2xl font-semibold">Hello, {store.name}</h1>
       </div>
+      {image.length > 0 && (
+        <Image
+          src={image}
+          alt="store"
+          width={150}
+          height={150}
+          className="aspect-square rounded-full"
+        />
+      )}
     </div>
   ) : (
     <div>

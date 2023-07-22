@@ -23,7 +23,7 @@ const Manage = () => {
         {},
         {
           search: criteria,
-          categoryName: selectedItem?.name,
+          category: selectedItem?.name,
         }
       )
         .then(({ data, status }) => {
@@ -33,6 +33,10 @@ const Manage = () => {
     },
     [selectedItem?.name]
   )
+
+  useEffect(() => {
+    if (selectedItem) fetchSearch()
+  }, [fetchSearch, selectedItem])
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => fetchSearch(), [])
@@ -81,7 +85,7 @@ const Manage = () => {
         <InputListContainer
           setSelectedItem={setSelectedItem}
           placeholder="Category"
-          url="category"
+          url="category?include=product"
           className="w-76"
         />
       </div>
@@ -93,14 +97,14 @@ const Manage = () => {
           <li className="w-50 ">Actions</li>
         </ul>
       </div>
-      <div className="space-y-2 p-2 text-xl font-thin">
+      <div className="space-y-2 p-2 text-xl font-thin overflow-y-auto border h-[450px] rounded border-black/20 border-t-0">
         {inventoryList.length > 0 && productList}
+        {isLoading && (
+          <div className="flex w-full justify-center py-8">
+            <Loading className="border-black w-8 h-8" />
+          </div>
+        )}
       </div>
-      {isLoading && (
-        <div className="flex w-full justify-center py-8">
-          <Loading className="border-black w-8 h-8" />
-        </div>
-      )}
     </div>
   )
 }
