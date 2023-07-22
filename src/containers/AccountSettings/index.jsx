@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 
 import {
   ImageInput,
@@ -17,9 +17,13 @@ export default function AccountSetting() {
   const [isLoading, setIsLoading] = useState(false)
 
   const router = useRouter()
-  const handleDescription = (e) => {
+  const handleDescription = useCallback((e) => {
     setDescription(e.target.value)
-  }
+  }, [])
+
+  const handleCompanyName = useCallback((e) => {
+    setCompanyName(e.target.value)
+  }, [])
 
   const handleUpdate = (e) => {
     e.preventDefault()
@@ -50,7 +54,7 @@ export default function AccountSetting() {
       <div className="mt-5 grid grid-cols-2 w-1/2 gap-x-10 gap-y-5 mb-5 text-lg font-medium">
         <LabeledInputComponent
           value={companyName}
-          setValue={setCompanyName}
+          onChange={handleCompanyName}
           placeholder="Please enter company name"
         />
         <div className="col-span-2 flex w-1/2 flex-col space-y-2">
