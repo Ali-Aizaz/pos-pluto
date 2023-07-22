@@ -12,6 +12,7 @@ const ProtectContainer = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true)
   const router = useRouter()
   const { asPath } = router
+  const { code } = router.query
 
   const isProtected = !!PROTECTED.find((val) => asPath.startsWith(val))
 
@@ -39,6 +40,21 @@ const ProtectContainer = ({ children }) => {
       setIsLoading(false)
     }
   }, [isProtected, router, setUserData])
+
+  const getGoogleUser = useCallback(() => {
+    fetchRequest(
+      HttpMethods.GET,
+      `/users/google/${new URLSearchParams(code).toString()}`
+    ).finally(() => {
+      router.push('/home')
+    })
+  }, [code, router])
+
+  useEffect(() => {
+    if (code) {
+      getGoogleUser()
+    }
+  }, [code, getGoogleUser])
 
   useEffect(() => {
     getUser()

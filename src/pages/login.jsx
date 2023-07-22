@@ -1,8 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { LoginContainer } from 'containers'
-import handleGoogle from 'utils/auth'
+import { GoogleAuth, LoginContainer } from 'containers'
 
 export default function Login() {
   return (
@@ -32,14 +31,7 @@ export default function Login() {
           </h1>
           <div className="h-[1px] w-44 border border-white/40" />
         </div>
-        <button
-          type="button"
-          onClick={handleGoogle}
-          className="mt-10 flex w-full items-center justify-center space-x-2 text-xl"
-        >
-          <Image src="/google-logo.png" alt="google" width={30} height={50} />
-          <h1>Google</h1>
-        </button>
+        <GoogleAuth />
       </section>
     </main>
   )

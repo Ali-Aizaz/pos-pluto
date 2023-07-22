@@ -35,7 +35,7 @@ const StoreCard = () => {
 
   return store ? (
     <div className="flex border rounded-md p-2 space-x-4 self-start translate-x-10 border-black/10 h-60">
-      <Image src={image} alt="store" width={400} height={220} />
+      {image && <Image src={image} alt="store" width={400} height={220} />}
       <div>
         <h1 className="text-sm font-semibold">Name: {store.name}</h1>
         <p className="font-medium">Description: {store.description}</p>
