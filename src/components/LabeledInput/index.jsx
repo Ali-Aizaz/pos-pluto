@@ -14,7 +14,11 @@ const LabeledInput = (
           {label} {required && '*'}
         </h2>
       )}
-      <h2 className="right-0 absolute text-sm text-red">{error?.message}</h2>
+      {error && (
+        <h2 className="right-0 mb-6 absolute text-sm text-red">
+          {error.message}
+        </h2>
+      )}
     </div>
     <input
       ref={ref}

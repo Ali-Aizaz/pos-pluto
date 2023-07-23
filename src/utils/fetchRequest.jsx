@@ -1,3 +1,5 @@
+import { toast } from 'react-hot-toast'
+
 import axios from 'axios'
 
 const fetchRequest = async (method, url, data, query) => {
@@ -34,9 +36,10 @@ const fetchRequest = async (method, url, data, query) => {
     }
   } catch (err) {
     console.error('========== Request Failure ==========\n', err.response)
+    toast.error(err.response?.data?.error)
     return {
       status: err.response?.status,
-      data: err.message,
+      data: err.response?.data?.error,
       error: true,
     }
   }

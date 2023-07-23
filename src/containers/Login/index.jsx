@@ -42,11 +42,11 @@ function Login() {
         email,
         password,
       })
-        .then(({ data, error }) => {
-          if (!error) {
+        .then(({ data, status }) => {
+          if (status === 200) {
             setUserData({ ...data, authorized: true })
             router.push('/home')
-          }
+          } else if (status === 403) router.push('/verify-email')
         })
         .finally(() => setIsLoading(false), reset())
     },

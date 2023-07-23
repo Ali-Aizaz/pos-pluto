@@ -7,7 +7,7 @@ import fetchRequest from 'utils/fetchRequest'
 
 const GoogleAuth = () => {
   const handleGoogle = useCallback(() => {
-    fetchRequest(HttpMethods.GET, 'users/google').then(({ data }) => {
+    fetchRequest(HttpMethods.GET, 'auth/google').then(({ data }) => {
       window.location.replace(data)
     })
   }, [])

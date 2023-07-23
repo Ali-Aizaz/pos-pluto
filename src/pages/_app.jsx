@@ -26,7 +26,7 @@ const App = ({ Component, pageProps }) => {
         <Component {...pageProps} />
       </ProtectContainer>
       <Toaster
-        position="bottom-right"
+        position="top-center"
         containerStyle={{
           bottom: '1.25rem',
           right: '1.25rem',

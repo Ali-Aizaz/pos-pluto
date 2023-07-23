@@ -44,7 +44,7 @@ const ProtectContainer = ({ children }) => {
   const getGoogleUser = useCallback(() => {
     fetchRequest(
       HttpMethods.GET,
-      `/users/google/${new URLSearchParams(code).toString()}`
+      `auth/google/${new URLSearchParams(code).toString()}`
     ).finally(() => {
       router.push('/home')
     })

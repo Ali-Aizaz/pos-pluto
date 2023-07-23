@@ -77,3 +77,22 @@ export const EmployeeSchema = yup.object().shape({
     .minRepeating(3, 'Repeated characters are not allowed')
     .required('Please input your password'),
 })
+
+export const EmailSchema = yup.object().shape({
+  email: yup
+    .string()
+    .email('Please provide valid email')
+    .required('Please input your email'),
+})
+
+export const ResetPasswordSchema = yup.object().shape({
+  code: yup
+    .string()
+    .min(6, 'Your code must be at least 6 characters')
+    .max(6, 'Your code must be at most 6 characters'),
+  password: yup
+    .string()
+    .password()
+    .minRepeating(3, 'Repeated characters are not allowed')
+    .required('Please input your password'),
+})

@@ -7,10 +7,13 @@ export default function Login() {
   return (
     <main className="h-screen bg-black text-white flex flex-col items-center">
       <section className="mb-28 flex translate-y-5 items-center justify-between px-10 w-full">
-        <div className="flex w-[200px] flex-col items-center justify-center">
+        <Link
+          href="/"
+          className="flex w-[200px] flex-col items-center justify-center"
+        >
           <Image src="/favicon.png" alt="logo" width={200} height={200} />
           <h1 className="text-base font-bold tracking-wide"> POS PLUTO </h1>
-        </div>
+        </Link>
         <div className="flex w-[200px] flex-col items-center justify-center">
           <Link href="/signup">
             <button
