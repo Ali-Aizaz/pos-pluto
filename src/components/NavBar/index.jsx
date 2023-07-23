@@ -67,15 +67,13 @@ function NavBar() {
         </NavBarButton>
       )}
       {userData.role === 'STOREOWNER' && (
-        <>
-          <NavBarButton hover={hover} title="Employees" href="roles">
-            <EmployeesIcon />
-          </NavBarButton>
-          <NavBarButton hover={hover} title="Settings" href="/settings">
-            <SettingsIcon />
-          </NavBarButton>
-        </>
+        <NavBarButton hover={hover} title="Employees" href="roles">
+          <EmployeesIcon />
+        </NavBarButton>
       )}
+      <NavBarButton hover={hover} title="Settings" href="/settings">
+        <SettingsIcon />
+      </NavBarButton>
       <button
         onClick={handleLogout}
         type="button"

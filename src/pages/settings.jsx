@@ -1,19 +1,20 @@
 import Head from 'next/head'
 
-import { NavBarComponent, TabComponent } from 'components'
-import {
-  AccountSettingsContainer,
-  NotificationSettingsContainter,
-  SecuritySettingsContainer,
-} from 'containers'
+import { useContext } from 'react'
 
-const tabs = [
+import { NavBarComponent, TabComponent } from 'components'
+import { AccountSettingsContainer, SecuritySettingsContainer } from 'containers'
+import UserDataContext from 'context/userData'
+
+const tabs = [{ name: 'Login & Security', tab: <SecuritySettingsContainer /> }]
+const ownerTabs = [
   { name: 'Account Setting', tab: <AccountSettingsContainer /> },
   { name: 'Login & Security', tab: <SecuritySettingsContainer /> },
-  { name: 'Notifications', tab: <NotificationSettingsContainter /> },
 ]
 
 export default function Settings() {
+  const { userData } = useContext(UserDataContext)
+
   return (
     <>
       <Head>
@@ -23,7 +24,9 @@ export default function Settings() {
       </Head>
       <main className="flex w-full">
         <NavBarComponent />
-        <TabComponent tabs={tabs} />
+        <TabComponent
+          tabs={userData.role === 'STOREOWNER' ? ownerTabs : tabs}
+        />
       </main>
     </>
   )

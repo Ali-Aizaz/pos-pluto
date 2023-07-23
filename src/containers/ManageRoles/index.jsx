@@ -23,8 +23,8 @@ const ManageRoles = () => {
   const getEmployees = useCallback(() => {
     setIsLoading(true)
     fetchRequest(HttpMethods.GET, 'users/employees')
-      .then(({ data }) => {
-        setEmployees(data.result)
+      .then(({ data, status }) => {
+        if (status === 200) setEmployees(data.result)
       })
       .finally(() => setIsLoading(false))
   }, [])

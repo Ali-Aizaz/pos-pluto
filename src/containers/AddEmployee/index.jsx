@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import { useForm } from 'react-hook-form'
 
 import { LabeledInputComponent, SubmitResetButtonComponent } from 'components'
@@ -13,6 +13,8 @@ import { yupResolver } from '@hookform/resolvers/yup'
 export default function AddEmployee() {
   const router = useRouter()
   const [isLoading, setIsLoading] = useState(false)
+  const [role, setRole] = useState('SALESMANAGER')
+
   const {
     register,
     handleSubmit,
@@ -34,17 +36,22 @@ export default function AddEmployee() {
       name,
       email,
       password,
+      role,
     })
       .then(() => router.push('/roles?tab=Manage'))
       .finally(() => setIsLoading(false))
   }
+
+  const handleChange = useCallback((event) => {
+    setRole(event.target.value)
+  }, [])
 
   return (
     <form
       className="text-theme-text-gray flex flex-col"
       onSubmit={handleSubmit(handleCreateEmployee)}
     >
-      <div className="my-5 w-full flex flex-col gap-x-10 gap-y-7 py-4 text-lg font-medium">
+      <div className="my-5 w-full flex flex-col gap-x-10 gap-y-7 py-4 text-lg text-black/90 font-medium">
         <h1>Employee Info:</h1>
         <LabeledInputComponent
           placeholder="Name"
@@ -67,6 +74,15 @@ export default function AddEmployee() {
           id="password"
           className="space-y-2 w-[500px]"
         />
+        <select
+          onChange={handleChange}
+          className="border w-[500px] p-2 px-4 rounded-xl"
+        >
+          <option selected value="SALESMANAGER">
+            Sales Manager
+          </option>
+          <option value="INVENTORYMANAGER">Inventory Manager</option>
+        </select>
       </div>
       <SubmitResetButtonComponent
         label="Create Employee"

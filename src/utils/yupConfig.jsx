@@ -96,3 +96,15 @@ export const ResetPasswordSchema = yup.object().shape({
     .minRepeating(3, 'Repeated characters are not allowed')
     .required('Please input your password'),
 })
+
+export const ChangePasswordSchema = yup.object().shape({
+  password: yup.string().password(),
+  newPassword: yup
+    .string()
+    .password()
+    .minRepeating(3, 'Repeated characters are not allowed')
+    .required('Please input your password'),
+  checkPassword: yup
+    .string()
+    .oneOf([yup.ref('newPassword'), null], 'Passwords must match'),
+})

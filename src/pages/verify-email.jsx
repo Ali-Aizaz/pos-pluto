@@ -58,7 +58,7 @@ const VerifyEmail = () => {
         </Link>
         <form
           onSubmit={handleSubmit(handleSendEmail)}
-          className="w-100 space-y-4"
+          className="w-100 space-y-4 text-black/90"
         >
           <LabeledInputComponent
             id="email"
