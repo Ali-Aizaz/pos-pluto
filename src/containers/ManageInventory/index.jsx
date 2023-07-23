@@ -27,7 +27,7 @@ const Manage = () => {
         }
       )
         .then(({ data, status }) => {
-          if (status === 200 && data.count > 0) setInventoryList(data.result)
+          if (status === 200) setInventoryList(data.result)
         })
         .finally(() => setIsLoading(false))
     },

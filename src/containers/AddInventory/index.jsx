@@ -42,7 +42,7 @@ export default function Add() {
         }
       )
         .then(({ data, status }) => {
-          if (status === 200 && data.count > 0) setProductList(data.result)
+          if (status === 200) setProductList(data.result)
         })
         .finally(() => setIsLoading(false))
     },

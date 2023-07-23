@@ -24,7 +24,7 @@ const ManageRoles = () => {
     setIsLoading(true)
     fetchRequest(HttpMethods.GET, 'users/employees')
       .then(({ data }) => {
-        if (data.count > 0) setEmployees(data.result)
+        setEmployees(data.result)
       })
       .finally(() => setIsLoading(false))
   }, [])
