@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -75,58 +76,65 @@ const ForgetPassword = () => {
   }
 
   return (
-    <main className="h-screen bg-black text-white flex flex-col items-center justify-center">
-      <Link
-        href="/"
-        className="flex w-[200px] flex-col items-center justify-center -translate-y-full"
-      >
-        <Image src="/favicon.png" alt="logo" width={200} height={200} />
-        <h1 className="text-base font-bold tracking-wide"> POS PLUTO </h1>
-      </Link>
-      {nextStep ? (
-        <form
-          onSubmit={newHandleSubmit(handleSendCode)}
-          className="w-100 space-y-4 text-black/90"
+    <>
+      <Head>
+        <title>Forget Password | Pos Pluto</title>
+        <meta name="description" content="Pos Pluto" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
+      <main className="h-screen bg-black text-white flex flex-col items-center justify-center">
+        <Link
+          href="/"
+          className="flex w-[200px] flex-col items-center justify-center -translate-y-full"
         >
-          <LabeledInputComponent
-            id="code"
-            error={newError.code}
-            {...newRegister('code')}
-            placeholder="0 - 0 - 0 - 0 - 0 - 0"
-          />
-          <LabeledInputComponent
-            id="password"
-            error={newError.password}
-            {...newRegister('password')}
-            placeholder="new password"
-          />
-          <ButtonComponent
-            type="submit"
-            isLoading={isLoading}
-            className="w-full"
-            label="Send Code"
-          />
-        </form>
-      ) : (
-        <form
-          onSubmit={handleSubmit(handleSendEmail)}
-          className="w-100 space-y-4 text-black/90"
-        >
-          <LabeledInputComponent
-            id="email"
-            error={errors.email}
-            {...register('email')}
-            placeholder="Email"
-          />
-          <ButtonComponent
-            type="submit"
-            isLoading={isLoading}
-            className="w-full"
-            label="Send Email"
-          />
-        </form>
-      )}
-    </main>
+          <Image src="/favicon.png" alt="logo" width={200} height={200} />
+          <h1 className="text-base font-bold tracking-wide"> POS PLUTO </h1>
+        </Link>
+        {nextStep ? (
+          <form
+            onSubmit={newHandleSubmit(handleSendCode)}
+            className="w-100 space-y-4 text-black/90"
+          >
+            <LabeledInputComponent
+              id="code"
+              error={newError.code}
+              {...newRegister('code')}
+              placeholder="0 - 0 - 0 - 0 - 0 - 0"
+            />
+            <LabeledInputComponent
+              id="password"
+              error={newError.password}
+              {...newRegister('password')}
+              placeholder="new password"
+            />
+            <ButtonComponent
+              type="submit"
+              isLoading={isLoading}
+              className="w-full"
+              label="Send Code"
+            />
+          </form>
+        ) : (
+          <form
+            onSubmit={handleSubmit(handleSendEmail)}
+            className="w-100 space-y-4 text-black/90"
+          >
+            <LabeledInputComponent
+              id="email"
+              error={errors.email}
+              {...register('email')}
+              placeholder="Email"
+            />
+            <ButtonComponent
+              type="submit"
+              isLoading={isLoading}
+              className="w-full"
+              label="Send Email"
+            />
+          </form>
+        )}
+      </main>
+    </>
   )
 }
 
