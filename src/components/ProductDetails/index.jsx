@@ -31,7 +31,7 @@ function UserDetails({
   }, [fetchImage])
 
   return (
-    <section className="flex flex-col items-center border border-black/10 rounded-xl p-3">
+    <section className="flex flex-col items-center border border-black/10 rounded-xl h-min p-3">
       <div className="ml-5 flex max-h-100 w-76 flex-col items-center font-medium overflow-y-auto scrollbar-track-transparent [&>h1]:text-sm [&>h2]:text-xl">
         {customerName && (
           <div className="bg-theme-light-black/40 w-full p-2">
