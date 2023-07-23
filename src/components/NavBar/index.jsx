@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { useCallback, useState } from 'react'
+import { useCallback, useContext, useState } from 'react'
 
 import classNames from 'classnames'
 import {
@@ -12,12 +12,13 @@ import {
   SalesIcon,
   SettingsIcon,
 } from 'components/Icons'
+import UserDataContext from 'context/userData'
 
 import NavBarButton from './Button'
 
 function NavBar() {
   const [hover, setHover] = useState(false)
-
+  const { userData } = useContext(UserDataContext)
   const handleLogout = useCallback(() => {
     localStorage.removeItem('Pluto')
     window.location.reload()
@@ -55,18 +56,26 @@ function NavBar() {
       <NavBarButton hover={hover} title="Home" href="/home">
         <MagnifyingGlassIcon />
       </NavBarButton>
-      <NavBarButton hover={hover} title="Inventory" href="/inventory">
-        <InventoryIcon />
-      </NavBarButton>
-      <NavBarButton hover={hover} title="Sales" href="/sales">
-        <SalesIcon />
-      </NavBarButton>
-      <NavBarButton hover={hover} title="Employees" href="roles">
-        <EmployeesIcon />
-      </NavBarButton>
-      <NavBarButton hover={hover} title="Settings" href="/settings">
-        <SettingsIcon />
-      </NavBarButton>
+      {userData.role !== 'SALESMANAGER' && (
+        <NavBarButton hover={hover} title="Inventory" href="/inventory">
+          <InventoryIcon />
+        </NavBarButton>
+      )}
+      {userData.role !== 'INVENTORYMANAGER' && (
+        <NavBarButton hover={hover} title="Sales" href="/sales">
+          <SalesIcon />
+        </NavBarButton>
+      )}
+      {userData.role === 'STOREOWNER' && (
+        <>
+          <NavBarButton hover={hover} title="Employees" href="roles">
+            <EmployeesIcon />
+          </NavBarButton>
+          <NavBarButton hover={hover} title="Settings" href="/settings">
+            <SettingsIcon />
+          </NavBarButton>
+        </>
+      )}
       <button
         onClick={handleLogout}
         type="button"

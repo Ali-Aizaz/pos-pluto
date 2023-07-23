@@ -32,6 +32,7 @@ const InputListComponent = ({
 
   const fetchSearch = (criteria) => {
     setIsLoading(true)
+
     fetchRequest(
       HttpMethods.GET,
       url,
@@ -41,7 +42,7 @@ const InputListComponent = ({
       }
     )
       .then(({ data, status }) => {
-        if (status === 200) setList(data.result)
+        if (status === 200 && data.result) setList(data.result)
       })
       .finally(() => setIsLoading(false))
   }
@@ -93,7 +94,7 @@ const InputListComponent = ({
         {isLoading ? (
           <Loading className="absolute border-black/50 !border-2 h-4 w-4 right-4 top-4" />
         ) : (
-          <button type="button" onClick={fetchSearch}>
+          <button type="button" onClick={() => fetchSearch()}>
             <ArrowHeadIcon className="absolute cursor-pointer border-black/50 h-4 w-4 right-4 top-4" />
           </button>
         )}
