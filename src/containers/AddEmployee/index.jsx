@@ -71,6 +71,7 @@ export default function AddEmployee() {
           placeholder="Password"
           error={errors.password}
           {...register('password')}
+          type="password"
           id="password"
           className="space-y-2 w-[500px]"
         />

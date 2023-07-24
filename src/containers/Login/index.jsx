@@ -56,7 +56,7 @@ function Login() {
   return (
     <form
       onSubmit={handleSubmit(handleSignIn)}
-      className="flex flex-col items-center justify-center space-y-6"
+      className="flex flex-col items-center justify-center space-y-6 text-black/90"
     >
       <h1 className="text-4xl font-semibold text-white ">LOGIN</h1>
 
@@ -75,13 +75,14 @@ function Login() {
         id="password"
         error={errors.password}
         {...register('password')}
+        type="password"
         className="w-100"
       >
         <KeyIcon />
       </InputFieldComponent>
 
       <Link href="forget-password">
-        <h1 className="w-100 -translate-y-4 text-end font-medium tracking-wide">
+        <h1 className="w-100 text-white -translate-y-4 text-end font-medium tracking-wide">
           Forget Password?
         </h1>
       </Link>

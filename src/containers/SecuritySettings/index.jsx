@@ -58,6 +58,7 @@ export default function SecuritySettings() {
           error={errors.password}
           {...register('password')}
           placeholder="Enter current password"
+          type="password"
           className="w-[400px]"
         />
         <LabeledInputComponent
@@ -65,6 +66,7 @@ export default function SecuritySettings() {
           error={errors.newPassword}
           {...register('newPassword')}
           placeholder="Enter new password"
+          type="password"
           className="w-[400px]"
         />
         <LabeledInputComponent
@@ -72,6 +74,7 @@ export default function SecuritySettings() {
           error={errors.checkPassword}
           {...register('checkPassword')}
           placeholder="Enter confirm new password"
+          type="password"
           className="w-[400px]"
         />
       </div>

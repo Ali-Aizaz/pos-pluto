@@ -124,7 +124,7 @@ function Register() {
   return nextStep ? (
     <form
       onSubmit={handleSubmit(handleSignUp)}
-      className="flex flex-col space-y-6 text-black"
+      className="flex flex-col space-y-6 text-black/90"
     >
       <h1 className="text-4xl text-center font-semibold text-white ">
         REGISTER
@@ -152,6 +152,7 @@ function Register() {
         id="password"
         error={errors.password}
         {...register('password')}
+        type="password"
         className="w-100"
       >
         <KeyIcon />
@@ -161,6 +162,7 @@ function Register() {
         id="confirm"
         error={errors.confirm}
         {...register('confirm')}
+        type="password"
         className="w-100"
       >
         <KeyIcon />
